@@ -343,12 +343,12 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
         <a href="#projects" class="btn-primary">View Work <span>→</span></a>
         <a href="#contact" class="btn-ghost">Get in touch <span>↗</span></a>
       </div>
-      <div class="avail-badge"><span class="avail-dot"></span>Available for remote roles</div>
+      <div class="avail-badge"><span class="avail-dot"></span>Selective remote engagements — Q3 2026</div>
     </div>
     <div class="hero-stats">
-      <div class="stat-cell"><div class="stat-n" id="s1">27</div><div class="stat-l">Docs Indexed</div></div>
-      <div class="stat-cell"><div class="stat-n" id="s2">5091</div><div class="stat-l">Vector Chunks</div></div>
-      <div class="stat-cell"><div class="stat-n" id="s3">90</div><div class="stat-l">Eval Accuracy %</div></div>
+      <div class="stat-cell"><div class="stat-n" id="s1">84.7%</div><div class="stat-l">RAG Pipeline</div></div>
+      <div class="stat-cell"><div class="stat-n" id="s2">90.9%</div><div class="stat-l">Single Agent</div></div>
+      <div class="stat-cell"><div class="stat-n" id="s3">90.5%</div><div class="stat-l">Multi-Agent</div></div>
       <div class="stat-cell"><div class="stat-n" id="s4">2</div><div class="stat-l">Live Systems</div></div>
     </div>
   </div>
@@ -478,7 +478,7 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
           <div class="project-name">AgentEval</div>
           <div class="project-hook">LLM evaluation infrastructure — automated scoring, regression detection, and CI/CD gates for AI systems.</div>
           <p class="project-desc">
-            The evaluation layer built for the Industrial AI Copilot — and deployable for any LLM system. Runs automated test suites across <strong>three evaluation modes</strong> (RAG, single-agent, multi-agent) using LLM-as-judge scoring, stores all results in a persistent observability dashboard, and <strong>blocks deployments when quality regresses</strong>. Integrated with GitHub Actions — push to main triggers tests, regression check, and auto-deploy.
+            The evaluation layer built for the Industrial AI Copilot — and deployable for any LLM system. Runs automated test suites across <strong>three evaluation modes</strong> (RAG pipeline, single-agent, multi-agent) using custom LLM-as-judge scoring — not RAGAS. Current scores: <strong>84.7% RAG · 90.9% single-agent · 90.5% multi-agent</strong> with 100% pass rates on agent tiers. Blocks deployments when quality regresses, integrated with GitHub Actions CI/CD.
           </p>
           <div class="tags">
             <span class="tag">LLM-as-Judge</span><span class="tag">Eval Pipelines</span>
@@ -492,21 +492,21 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
           </div>
         </div>
         <div class="project-right">
-          <div class="phase-table-label">System Breakdown</div>
+          <div class="phase-table-label">Live Eval Results — 14 Apr 2026</div>
           <div class="phase-row">
-            <div class="phase-top"><span class="phase-key">RAG Eval</span></div>
-            <div class="phase-val"><strong>10 test cases</strong> — faithfulness, citation accuracy, relevance scored by LLM judge</div>
+            <div class="phase-top"><span class="phase-key">RAG Pipeline</span></div>
+            <div class="phase-val"><strong>84.7% eval score</strong> — Pass rate 90.0% · Latency 1.74s</div>
           </div>
           <div class="phase-row">
-            <div class="phase-top"><span class="phase-key">Agent Eval</span></div>
-            <div class="phase-val"><strong>10 test cases</strong> — tool selection, reasoning validity, task completion</div>
+            <div class="phase-top"><span class="phase-key">Single Agent</span></div>
+            <div class="phase-val"><strong>90.9% eval score</strong> — Pass rate 100% · Latency 25.43s</div>
           </div>
           <div class="phase-row">
             <div class="phase-top"><span class="phase-key">Multi-Agent</span></div>
-            <div class="phase-val"><strong>5 test cases</strong> — delegation accuracy, inter-agent consistency, synthesis quality</div>
+            <div class="phase-val"><strong>90.5% eval score</strong> — Pass rate 100% · Latency 28.56s</div>
           </div>
           <div class="phase-row">
-            <div class="phase-top"><span class="phase-key">Regression</span></div>
+            <div class="phase-top"><span class="phase-key">Regression Gate</span></div>
             <div class="phase-val">Blocks deployment if score drops &gt;5% vs previous run</div>
           </div>
           <div class="phase-row">
@@ -607,47 +607,27 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
 <section id="stack" class="section">
   <div class="container">
     <div class="sec-eyebrow">Stack</div>
-    <div class="sec-heading">Technical Foundation</div>
-    <div class="stack-layout reveal pre">
-      <div class="stack-cat-col">
-        <div class="stack-cat-item active" data-panel="llm">LLM &amp; Agents</div>
-        <div class="stack-cat-item" data-panel="retrieval">Retrieval</div>
-        <div class="stack-cat-item" data-panel="eval">Evaluation</div>
-        <div class="stack-cat-item" data-panel="backend">Backend</div>
+    <div class="sec-heading">Architectural Decisions</div>
+    <div class="arch-layout reveal pre">
+      <div class="arch-row">
+        <div class="arch-layer">Retrieval</div>
+        <div class="arch-desc">Hybrid BM25 + dense over pure vector search — sparse excels on exact technical terms (part numbers, fault codes) that embedding models compress poorly. Neural reranking resolves conflicts at the precision boundary.</div>
+        <div class="arch-tech"><span class="arch-pill">ChromaDB</span><span class="arch-pill">BM25</span><span class="arch-pill">Cohere Reranker v3</span><span class="arch-pill">Sentence Transformers</span></div>
       </div>
-      <div class="stack-content-col">
-        <div class="stack-panel active" id="panel-llm">
-          <span class="s-pill">LangGraph</span>
-          <span class="s-pill">LangChain</span>
-          <span class="s-pill">Groq / Llama 4 Scout</span>
-          <span class="s-pill">Gemini 2.5 Flash</span>
-          <span class="s-pill">Model Context Protocol</span>
-          <span class="s-pill">LangSmith</span>
-        </div>
-        <div class="stack-panel" id="panel-retrieval">
-          <span class="s-pill">ChromaDB</span>
-          <span class="s-pill">BM25 Sparse Search</span>
-          <span class="s-pill">Cohere Reranker v3</span>
-          <span class="s-pill">Sentence Transformers</span>
-          <span class="s-pill">Hybrid Ensemble Retrieval</span>
-          <span class="s-pill">MQTT / HiveMQ</span>
-        </div>
-        <div class="stack-panel" id="panel-eval">
-          <span class="s-pill">LLM-as-Judge</span>
-          <span class="s-pill">Custom Eval Frameworks</span>
-          <span class="s-pill">GitHub Actions CI/CD</span>
-          <span class="s-pill">Regression Detection</span>
-          <span class="s-pill">pytest</span>
-          <span class="s-pill">SQLite Observability</span>
-        </div>
-        <div class="stack-panel" id="panel-backend">
-          <span class="s-pill">FastAPI</span>
-          <span class="s-pill">Python</span>
-          <span class="s-pill">Pydantic v2</span>
-          <span class="s-pill">Docker</span>
-          <span class="s-pill">Async / Background Tasks</span>
-          <span class="s-pill">Hugging Face Spaces</span>
-        </div>
+      <div class="arch-row">
+        <div class="arch-layer">Orchestration</div>
+        <div class="arch-desc">LangGraph over LangChain LCEL for stateful multi-step agents — graph-based execution gives explicit branching control and deterministic recovery paths that chain-based abstractions can't provide.</div>
+        <div class="arch-tech"><span class="arch-pill">LangGraph</span><span class="arch-pill">Supervisor Pattern</span><span class="arch-pill">Groq / Llama 4</span><span class="arch-pill">Gemini 2.5</span></div>
+      </div>
+      <div class="arch-row">
+        <div class="arch-layer">Evaluation</div>
+        <div class="arch-desc">Custom LLM-as-judge over RAGAS — domain-specific scoring criteria that match what "correct" means in industrial contexts, not generic benchmark proxies. CI/CD gate prevents silent regression.</div>
+        <div class="arch-tech"><span class="arch-pill">LLM-as-Judge</span><span class="arch-pill">GitHub Actions</span><span class="arch-pill">LangSmith</span><span class="arch-pill">pytest</span></div>
+      </div>
+      <div class="arch-row">
+        <div class="arch-layer">Integration</div>
+        <div class="arch-desc">MCP for external tool integration over bespoke APIs — standardised protocol means new data sources attach without rewriting agent logic. Telemetry ingested over MQTT for real-time plant data.</div>
+        <div class="arch-tech"><span class="arch-pill">MCP</span><span class="arch-pill">MQTT / HiveMQ</span><span class="arch-pill">FastAPI</span><span class="arch-pill">Pydantic v2</span></div>
       </div>
     </div>
   </div>
@@ -660,12 +640,12 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
     <div class="contact-layout reveal pre">
       <div class="contact-left">
         <div class="contact-heading">LET'S<em>BUILD.</em></div>
-        <p class="contact-sub">Open to remote roles with teams building serious LLM-powered products — where retrieval accuracy, system evaluation, and production reliability are critical.<br><br>If incorrect AI outputs carry real cost for your team, I'd be glad to contribute.</p>
+        <p class="contact-sub">I take on a small number of remote engagements with teams building serious LLM-powered products — where retrieval accuracy, system evaluation, and production reliability are non-negotiable.<br><br>If incorrect AI outputs carry real cost for your team, that's the problem I'm built to solve.</p>
       </div>
       <div class="contact-right">
-        <a href="/cdn-cgi/l/email-protection#64120d07100b160d17110b2414160b100b0a4a0901" class="c-link">
+        <a href="mailto:victorisuo@proton.me" class="c-link">
           <div class="c-ico">@</div>
-          <div class="c-info"><div class="c-type">Email</div><div class="c-val"><span class="__cf_email__" data-cfemail="cabca3a9bea5b8a3b9bfa58abab8a5bea5a4e4a7af">[email&#160;protected]</span></div></div>
+          <div class="c-info"><div class="c-type">Email</div><div class="c-val">victorisuo@proton.me</div></div>
           <span class="c-arr">→</span>
         </a>
         <a href="https://www.linkedin.com/in/victor-isuo-a02b65171" target="_blank" class="c-link">
@@ -695,10 +675,10 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
 
 <footer>
   <span>Victor Isuo — Applied LLM Systems Engineer</span>
-  <span>© 2026 · Two systems live. Open to remote.</span>
+  <span>© 2026 · Two systems live. Selective remote engagements.</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // CURSOR
 const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
@@ -755,16 +735,6 @@ window.addEventListener('scroll',()=>{
   navLinks.forEach(a=>{a.style.color=a.getAttribute('href')==='#'+current?'var(--accent)':''});
 });
 
-// STACK TABS
-document.querySelectorAll('.stack-cat-item').forEach(item=>{
-  item.addEventListener('click',()=>{
-    document.querySelectorAll('.stack-cat-item').forEach(i=>i.classList.remove('active'));
-    document.querySelectorAll('.stack-panel').forEach(p=>p.classList.remove('active'));
-    item.classList.add('active');
-    document.getElementById('panel-'+item.dataset.panel).classList.add('active');
-  });
-});
-
 // COUNT UP
 function countUp(el,target,suffix=''){
   let start=0,duration=1800,startTime=null;
@@ -781,9 +751,9 @@ function countUp(el,target,suffix=''){
 const statsObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
-      countUp(document.getElementById('s1'),27,'');
-      countUp(document.getElementById('s2'),5091,'');
-      countUp(document.getElementById('s3'),90,'%');
+      countUp(document.getElementById('s1'),84.7,'%');
+      countUp(document.getElementById('s2'),90.9,'%');
+      countUp(document.getElementById('s3'),90.5,'%');
       countUp(document.getElementById('s4'),2,'');
       statsObs.disconnect();
     }
