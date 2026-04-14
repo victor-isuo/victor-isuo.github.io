@@ -4,6 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Victor Isuo — Applied LLM Systems Engineer</title>
+<meta name="description" content="Victor Isuo — Applied LLM Systems Engineer. Production-grade RAG systems, agentic AI, multi-agent orchestration, and LLM evaluation infrastructure."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
@@ -22,6 +23,7 @@
   --glow:rgba(0,212,255,0.15);
   --green:#00ff94;
   --orange:#ff8c55;
+  --purple:#b06aff;
   --text:#f0f6ff;
   --body:#b8cfe0;
   --sub:#7a9ab8;
@@ -95,9 +97,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 /* STAT PANEL */
 .hero-stats{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border);opacity:0;animation:fadeIn 1s ease forwards 0.5s;position:relative}
 .hero-stats::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
-.stat-cell{background:var(--bg1);padding:26px 28px;position:relative;overflow:hidden;transition:background 0.2s}
+.stat-cell{background:var(--bg1);padding:24px 28px;position:relative;overflow:hidden;transition:background 0.2s}
 .stat-cell:hover{background:var(--bg2)}
-.stat-n{font-family:var(--sans);font-weight:900;font-size:48px;line-height:1;color:var(--accent);letter-spacing:-0.03em;margin-bottom:4px}
+.stat-n{font-family:var(--sans);font-weight:900;font-size:44px;line-height:1;color:var(--accent);letter-spacing:-0.03em;margin-bottom:4px}
 .stat-l{font-family:var(--mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--sub)}
 
 /* SCROLL HINT */
@@ -113,9 +115,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 
 /* ABOUT */
 #about{background:var(--bg1);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.about-layout{display:grid;grid-template-columns:260px 1fr;gap:72px;align-items:start}
+.about-layout{display:grid;grid-template-columns:300px 1fr;gap:72px;align-items:start}
 .about-sidebar p{font-size:14px;color:var(--body);line-height:1.85;margin-bottom:16px}
 .about-sidebar strong{color:var(--text);font-weight:700}
+.cert-list{margin-top:24px;display:flex;flex-direction:column;gap:8px}
+.cert-item{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border:1px solid var(--border);background:var(--bg);transition:border-color 0.2s}
+.cert-item:hover{border-color:var(--accent2)}
+.cert-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:5px}
+.cert-info{}
+.cert-name{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px}
+.cert-issuer{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:0.05em}
 .specialism-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border);border:1px solid var(--border)}
 .spec-card{background:var(--bg);padding:28px 24px;position:relative;overflow:hidden;transition:background 0.2s}
 .spec-card:hover{background:var(--bg2)}
@@ -144,10 +153,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:28px}
 .tag{font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;border:1px solid var(--border2);color:var(--sub);transition:all 0.2s}
 .tag:hover{border-color:var(--accent);color:var(--accent)}
+.demo-links{display:flex;gap:10px;flex-wrap:wrap}
 .demo-link{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;color:var(--accent);padding:12px 24px;border:1px solid var(--accent);transition:all 0.2s}
 .demo-link:hover{background:var(--accent);color:var(--bg)}
 .demo-link span{transition:transform 0.2s}
 .demo-link:hover span{transform:translateX(4px)}
+.demo-link.ghost{color:var(--sub);border-color:var(--border2)}
+.demo-link.ghost:hover{border-color:var(--accent);color:var(--accent);background:transparent}
 
 /* PHASE TABLE */
 .phase-table-label{font-family:var(--mono);font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--sub);margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--border)}
@@ -159,11 +171,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 .phase-demo:hover{color:var(--accent)}
 .phase-val{font-size:13px;color:var(--body);line-height:1.5}
 .phase-val strong{color:var(--text);font-weight:600}
-
-/* PROJECT COMING */
-.project-coming{border:1px dashed var(--border2);padding:36px 44px;position:relative;transition:opacity 0.3s,border-color 0.3s;opacity:0.7}
-.project-coming:hover{opacity:0.9;border-color:var(--accent2)}
-.coming-inner{display:grid;grid-template-columns:1fr 360px;gap:0;align-items:center}
 
 /* FAILURE MODES */
 #failure{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -243,9 +250,9 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
 @keyframes scrollPulse{0%{opacity:1}100%{opacity:0;transform:translateY(20px)}}
 
-/* REVEAL — default visible, animates when observer fires */
+/* REVEAL */
 .reveal{opacity:1;transform:none;transition:opacity 0.65s ease,transform 0.65s ease}
-.reveal.pre{opacity:0;transform:translateY(28px)}
+.reveal.pre{opacity:1;transform:none}
 .reveal.pre.on{opacity:1;transform:none}
 .reveal-d1{transition-delay:0.1s}
 .reveal-d2{transition-delay:0.2s}
@@ -264,7 +271,6 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
   .about-layout{grid-template-columns:1fr;gap:48px}
   .project-inner{grid-template-columns:1fr}
   .project-right{border-top:1px solid var(--border);border-left:none}
-  .coming-inner{grid-template-columns:1fr}
   .stack-layout{grid-template-columns:1fr}
   .stack-cat-col{flex-direction:row;flex-wrap:wrap}
   .contact-layout{grid-template-columns:1fr}
@@ -280,7 +286,6 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
   .hero-name{font-size:clamp(52px,15vw,80px)}
   .specialism-grid{grid-template-columns:1fr}
   .project-left,.project-right,.contact-left,.contact-right{padding:28px 20px}
-  .project-coming{padding:28px 20px}
   .failure-layout{grid-template-columns:1fr}
   .arch-row{grid-template-columns:1fr}
   .arch-layer{border-left:none;border-bottom:2px solid var(--accent)}
@@ -288,6 +293,7 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
   footer{padding:16px 20px;flex-direction:column;gap:6px;text-align:center}
   body{cursor:auto}
   #cursor,#cursor-ring{display:none}
+  .demo-links{flex-direction:column}
 }
 </style>
 </head>
@@ -326,12 +332,12 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
     <div class="hero-left">
       <div class="hero-tag"><span class="hero-tag-line"></span>Applied LLM Systems Engineer</div>
       <div class="hero-name">VICTOR<span class="outline">ISUO.</span></div>
-      <div class="hero-title">RAG &amp; AGENTIC AI · INDUSTRIAL &amp; ENTERPRISE</div>
+      <div class="hero-title">RAG &amp; AGENTIC AI · MULTI-AGENT SYSTEMS · LLM EVALUATION</div>
       <p class="hero-desc">
         I build <strong>production-grade AI systems</strong> that don't just retrieve information —
-        they make reliable decisions under real-world constraints. From retrieval architecture to
-        multi-agent reasoning and eval pipelines, I design systems that stay <strong>accurate,
-        traceable, and stable</strong> beyond demo environments.
+        they reason under real constraints, coordinate across specialist agents, and stay
+        <strong>accurate, traceable, and measurable</strong> in production.
+        Not demos. Systems with evaluation infrastructure to prove they work.
       </p>
       <div class="hero-actions">
         <a href="#projects" class="btn-primary">View Work <span>→</span></a>
@@ -340,10 +346,10 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
       <div class="avail-badge"><span class="avail-dot"></span>Available for remote roles</div>
     </div>
     <div class="hero-stats">
-      <div class="stat-cell"><div class="stat-n">27</div><div class="stat-l">Docs Indexed</div></div>
-      <div class="stat-cell"><div class="stat-n">5,091</div><div class="stat-l">Vector Chunks</div></div>
-      <div class="stat-cell"><div class="stat-n">90%</div><div class="stat-l">Eval Accuracy</div></div>
-      <div class="stat-cell"><div class="stat-n">9</div><div class="stat-l">Agent Tools</div></div>
+      <div class="stat-cell"><div class="stat-n" id="s1">27</div><div class="stat-l">Docs Indexed</div></div>
+      <div class="stat-cell"><div class="stat-n" id="s2">5091</div><div class="stat-l">Vector Chunks</div></div>
+      <div class="stat-cell"><div class="stat-n" id="s3">90</div><div class="stat-l">Eval Accuracy %</div></div>
+      <div class="stat-cell"><div class="stat-n" id="s4">2</div><div class="stat-l">Live Systems</div></div>
     </div>
   </div>
   <div class="scroll-hint"><div class="scroll-line"></div>SCROLL</div>
@@ -355,9 +361,25 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
     <div class="sec-eyebrow">About</div>
     <div class="about-layout">
       <div class="about-sidebar reveal pre">
-        <p>I specialize in <strong>production-grade RAG and agentic AI</strong> — the kind that works reliably outside of demos.</p>
-        <p>My focus is the full engineering stack: retrieval architecture, agent orchestration, eval pipelines, and observability.</p>
-        <p>I've shipped a <strong>multi-agent fault diagnosis platform</strong> for industrial equipment across four progressive phases — from hybrid RAG to autonomous multi-agent orchestration.</p>
+        <p>I specialise in <strong>production-grade RAG and agentic AI</strong> — the kind that works reliably outside of demos. My focus is the full engineering stack: retrieval architecture, agent orchestration, eval pipelines, and observability.</p>
+        <p>My background in <strong>Mechanical Engineering</strong> gives me domain credibility in industrial and engineering AI contexts that most engineers lack — I understand the failure modes, the safety requirements, and what "correct" actually means in those environments.</p>
+        <p>I've shipped two complete AI systems: a <strong>multi-agent fault diagnosis platform</strong> for industrial equipment, and an <strong>LLM evaluation platform</strong> that automatically catches regressions before they reach users.</p>
+        <div class="cert-list">
+          <div class="cert-item">
+            <div class="cert-dot"></div>
+            <div class="cert-info">
+              <div class="cert-name">IBM RAG &amp; Agentic AI Professional Certificate Program</div>
+              <div class="cert-issuer">IBM · Coursera · Feb 2026 · 9 courses</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-dot"></div>
+            <div class="cert-info">
+              <div class="cert-name">Microsoft AI &amp; ML Engineering Professional Certificate Program</div>
+              <div class="cert-issuer">Microsoft · Coursera · Oct 2025 · 6 courses</div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="specialism-grid reveal pre reveal-d2">
         <div class="spec-card">
@@ -373,12 +395,12 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
         <div class="spec-card">
           <div class="spec-n">03</div>
           <div class="spec-t">Multi-Agent Systems</div>
-          <div class="spec-d">Supervisor-specialist architectures with isolated context — modular, scalable, and debuggable at every layer.</div>
+          <div class="spec-d">Supervisor-specialist architectures with isolated context — modular, scalable, and debuggable at every coordination layer.</div>
         </div>
         <div class="spec-card">
           <div class="spec-n">04</div>
           <div class="spec-t">Eval &amp; Observability</div>
-          <div class="spec-d">Custom eval pipelines, regression testing, and LangSmith tracing to ensure performance doesn't silently degrade.</div>
+          <div class="spec-d">LLM-as-judge pipelines, regression testing with CI/CD gates, and LangSmith tracing — so quality degradation is caught before users see it.</div>
         </div>
       </div>
     </div>
@@ -391,6 +413,7 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
     <div class="sec-eyebrow">Work</div>
     <div class="sec-heading">Shipped Systems</div>
 
+    <!-- PROJECT 01 -->
     <div class="project-featured reveal pre">
       <div class="project-inner">
         <div class="project-left">
@@ -409,7 +432,10 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
             <span class="tag">Multimodal</span><span class="tag">FastAPI</span>
             <span class="tag">ChromaDB</span><span class="tag">Cohere</span><span class="tag">Gemini 2.5</span>
           </div>
-          <a href="https://victorisuo-industrial-ai-copilot.hf.space/multiagent-ui" target="_blank" class="demo-link">Full System Demo <span>→</span></a>
+          <div class="demo-links">
+            <a href="https://victorisuo-industrial-ai-copilot.hf.space/multiagent-ui" target="_blank" class="demo-link">Full Demo <span>→</span></a>
+            <a href="https://github.com/victor-isuo/industrial-ai-copilot" target="_blank" class="demo-link ghost">GitHub <span>→</span></a>
+          </div>
         </div>
         <div class="project-right">
           <div class="phase-table-label">Phase Breakdown</div>
@@ -419,11 +445,11 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
           </div>
           <div class="phase-row">
             <div class="phase-top"><span class="phase-key">Phase 2</span><a href="https://victorisuo-industrial-ai-copilot.hf.space/agent-ui" target="_blank" class="phase-demo">Demo →</a></div>
-            <div class="phase-val"><strong>Agentic Layer</strong> — 9 tools, 90% eval accuracy</div>
+            <div class="phase-val"><strong>Agentic Layer</strong> — 9 tools, 90% eval accuracy, 3.09s avg</div>
           </div>
           <div class="phase-row">
             <div class="phase-top"><span class="phase-key">Phase 3</span><a href="https://victorisuo-industrial-ai-copilot.hf.space/ingest-ui" target="_blank" class="phase-demo">Demo →</a></div>
-            <div class="phase-val"><strong>Live Systems</strong> — ingestion, telemetry, vision, MCP</div>
+            <div class="phase-val"><strong>Live Systems</strong> — ingestion pipeline, telemetry, vision, MCP</div>
           </div>
           <div class="phase-row">
             <div class="phase-top"><span class="phase-key">Phase 4</span><a href="https://victorisuo-industrial-ai-copilot.hf.space/multiagent-ui" target="_blank" class="phase-demo">Demo →</a></div>
@@ -437,30 +463,64 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
             <div class="phase-top"><span class="phase-key">Latency</span></div>
             <div class="phase-val">~3s single agent · ~30s full plant audit</div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 02 -->
+    <div class="project-featured reveal pre reveal-d2" style="margin-top:1px">
+      <div class="project-inner">
+        <div class="project-left">
+          <div class="project-header">
+            <span class="project-num">PROJECT 02</span>
+            <span class="live-badge"><span class="live-dot"></span>LIVE</span>
+          </div>
+          <div class="project-name">AgentEval</div>
+          <div class="project-hook">LLM evaluation infrastructure — automated scoring, regression detection, and CI/CD gates for AI systems.</div>
+          <p class="project-desc">
+            The evaluation layer built for the Industrial AI Copilot — and deployable for any LLM system. Runs automated test suites across <strong>three evaluation modes</strong> (RAG, single-agent, multi-agent) using LLM-as-judge scoring, stores all results in a persistent observability dashboard, and <strong>blocks deployments when quality regresses</strong>. Integrated with GitHub Actions — push to main triggers tests, regression check, and auto-deploy.
+          </p>
+          <div class="tags">
+            <span class="tag">LLM-as-Judge</span><span class="tag">Eval Pipelines</span>
+            <span class="tag">CI/CD Gates</span><span class="tag">GitHub Actions</span>
+            <span class="tag">SQLite</span><span class="tag">FastAPI</span>
+            <span class="tag">Regression Detection</span><span class="tag">Observability</span>
+          </div>
+          <div class="demo-links">
+            <a href="https://victorisuo-agenteval.hf.space" target="_blank" class="demo-link">Live Dashboard <span>→</span></a>
+            <a href="https://github.com/victor-isuo/agenteval" target="_blank" class="demo-link ghost">GitHub <span>→</span></a>
+          </div>
+        </div>
+        <div class="project-right">
+          <div class="phase-table-label">System Breakdown</div>
           <div class="phase-row">
-            <div class="phase-top"><span class="phase-key">Source</span><a href="https://github.com/victor-isuo/industrial-ai-copilot" target="_blank" class="phase-demo">GitHub →</a></div>
+            <div class="phase-top"><span class="phase-key">RAG Eval</span></div>
+            <div class="phase-val"><strong>10 test cases</strong> — faithfulness, citation accuracy, relevance scored by LLM judge</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Agent Eval</span></div>
+            <div class="phase-val"><strong>10 test cases</strong> — tool selection, reasoning validity, task completion</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Multi-Agent</span></div>
+            <div class="phase-val"><strong>5 test cases</strong> — delegation accuracy, inter-agent consistency, synthesis quality</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Regression</span></div>
+            <div class="phase-val">Blocks deployment if score drops &gt;5% vs previous run</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">CI/CD</span></div>
+            <div class="phase-val">Push → pytest → regression check → auto-deploy to HuggingFace</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Dashboard</span><a href="https://victorisuo-agenteval.hf.space" target="_blank" class="phase-demo">Live →</a></div>
+            <div class="phase-val">Score trends, failure analysis, regression alerts — live</div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="project-coming reveal pre reveal-d2" style="margin-top:1px">
-      <div class="coming-inner">
-        <div>
-          <div class="project-header" style="margin-bottom:14px">
-            <span class="project-num">PROJECT 02</span>
-            <span class="live-badge" style="border-color:var(--sub);color:var(--sub)">BUILDING</span>
-          </div>
-          <div class="project-name" style="font-size:26px;margin-bottom:6px">LLM Eval Platform</div>
-          <div class="project-hook">Observability, regression testing &amp; cost tracking for LLM systems.</div>
-          <p class="project-desc" style="margin-bottom:18px">How do you know your system is still working? This answers that.</p>
-          <div class="tags">
-            <span class="tag">Eval Pipelines</span><span class="tag">LLM-as-Judge</span>
-            <span class="tag">CI Gates</span><span class="tag">Cost Tracking</span><span class="tag">FastAPI</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -468,31 +528,31 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
 <section id="failure" class="section">
   <div class="container">
     <div class="sec-eyebrow">Reliability</div>
-    <div class="sec-heading">Failure Modes</div>
+    <div class="sec-heading">Failure Modes &amp; How I Solve Them</div>
     <div class="failure-layout reveal pre">
       <div class="fm-card">
         <div class="fm-risk">Incorrect retrieval of critical constraints</div>
         <div class="fm-title">Wrong documents surface for high-stakes queries</div>
         <div class="fm-arrow">Solved via</div>
-        <div class="fm-solution">Hybrid BM25 + dense retrieval with Cohere neural reranking — precision over recall in technical domains</div>
+        <div class="fm-solution">Hybrid BM25 + dense retrieval with Cohere neural reranking — precision over recall in technical domains where a missed constraint is a safety issue</div>
       </div>
       <div class="fm-card">
         <div class="fm-risk">Hallucinated reasoning steps</div>
         <div class="fm-title">Model invents logic not grounded in retrieved facts</div>
         <div class="fm-arrow">Solved via</div>
-        <div class="fm-solution">Tool-constrained agent workflows with enforced citation — reasoning steps are traceable, not assumed</div>
-      </div>
-      <div class="fm-card">
-        <div class="fm-risk">Untraceable outputs</div>
-        <div class="fm-title">No way to audit why the system gave a specific answer</div>
-        <div class="fm-arrow">Solved via</div>
-        <div class="fm-solution">Mandatory source attribution, LangSmith trace logging, and structured agent decision paths</div>
+        <div class="fm-solution">Tool-constrained agent workflows with enforced citation — every reasoning step is traceable to a source, not assumed from parametric memory</div>
       </div>
       <div class="fm-card">
         <div class="fm-risk">Silent performance degradation</div>
-        <div class="fm-title">System quality drifts undetected over time</div>
+        <div class="fm-title">System quality drifts undetected after prompt or model changes</div>
         <div class="fm-arrow">Solved via</div>
-        <div class="fm-solution">30 hand-crafted eval cases with custom scoring + regression pipelines that catch drops before production</div>
+        <div class="fm-solution">AgentEval CI/CD — automated test suites run on every push, regression detection blocks deployment if scores drop &gt;5%, dashboard tracks quality trends over time</div>
+      </div>
+      <div class="fm-card">
+        <div class="fm-risk">Untraceable multi-agent outputs</div>
+        <div class="fm-title">No way to audit which specialist produced a wrong answer</div>
+        <div class="fm-arrow">Solved via</div>
+        <div class="fm-solution">Per-specialist result panels in the multi-agent UI + LangSmith trace logging — every specialist's contribution is visible, not merged into a black box</div>
       </div>
     </div>
   </div>
@@ -506,28 +566,28 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
     <div class="arch-layout reveal pre">
       <div class="arch-row">
         <div class="arch-layer">Retrieval</div>
-        <div class="arch-desc">Hybrid search — BM25 sparse + dense vectors, neural reranking for precision</div>
+        <div class="arch-desc">Hybrid search — BM25 sparse + dense vectors, neural reranking for precision over technical documentation</div>
         <div class="arch-tech"><span class="arch-pill">ChromaDB</span><span class="arch-pill">BM25</span><span class="arch-pill">Cohere Reranker v3</span><span class="arch-pill">Sentence Transformers</span></div>
       </div>
       <div class="arch-row">
         <div class="arch-layer">Reasoning</div>
-        <div class="arch-desc">LangGraph agent with 9 tools, structured multi-step workflows, memory</div>
+        <div class="arch-desc">LangGraph agent with 9 tools — spec checking, telemetry, vision, MCP, structured multi-step workflows</div>
         <div class="arch-tech"><span class="arch-pill">LangGraph</span><span class="arch-pill">LangChain</span><span class="arch-pill">Groq / Llama 4</span><span class="arch-pill">Gemini 2.5</span></div>
       </div>
       <div class="arch-row">
         <div class="arch-layer">Tooling</div>
-        <div class="arch-desc">Live telemetry ingestion, computer vision, external tool integration via MCP</div>
-        <div class="arch-tech"><span class="arch-pill">MCP</span><span class="arch-pill">Telemetry API</span><span class="arch-pill">Vision (Gemini)</span><span class="arch-pill">FastAPI</span></div>
+        <div class="arch-desc">Live telemetry ingestion, multimodal vision analysis, external system integration via MCP protocol</div>
+        <div class="arch-tech"><span class="arch-pill">MCP</span><span class="arch-pill">Telemetry API</span><span class="arch-pill">Gemini Vision</span><span class="arch-pill">FastAPI</span></div>
       </div>
       <div class="arch-row">
         <div class="arch-layer">Orchestration</div>
-        <div class="arch-desc">Supervisor delegates to 4 specialist agents — Retrieval, Telemetry, Analysis, Safety</div>
+        <div class="arch-desc">Supervisor delegates to 4 specialist agents — Retrieval, Telemetry, Analysis, Safety — Report Agent synthesises</div>
         <div class="arch-tech"><span class="arch-pill">Multi-Agent</span><span class="arch-pill">Supervisor Pattern</span><span class="arch-pill">Isolated Context</span></div>
       </div>
       <div class="arch-row">
         <div class="arch-layer">Evaluation</div>
-        <div class="arch-desc">Custom scoring on 30 test cases, regression checks, full trace visibility</div>
-        <div class="arch-tech"><span class="arch-pill">LangSmith</span><span class="arch-pill">Custom Eval Framework</span><span class="arch-pill">Regression Testing</span></div>
+        <div class="arch-desc">AgentEval runs automated scoring across all 3 system layers — regression detection blocks regressions before production</div>
+        <div class="arch-tech"><span class="arch-pill">LLM-as-Judge</span><span class="arch-pill">GitHub Actions</span><span class="arch-pill">LangSmith</span><span class="arch-pill">SQLite</span></div>
       </div>
     </div>
   </div>
@@ -536,9 +596,10 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
 <!-- TENSION BANNER -->
 <div class="tension-banner">
   <p class="tension-text">
-    <strong>Most RAG systems look impressive in demos.</strong> They fail quietly in production —
+    <strong>Most AI systems look impressive in demos.</strong> They fail quietly in production —
     wrong retrievals, untracked regressions, outputs nobody can audit. I build systems that make
-    those failure points <strong>visible, measurable, and fixable.</strong>
+    those failure points <strong>visible, measurable, and automatically caught before users see them.</strong>
+    That's the difference between a demo and a production system.
   </p>
 </div>
 
@@ -546,28 +607,46 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
 <section id="stack" class="section">
   <div class="container">
     <div class="sec-eyebrow">Stack</div>
-    <div class="sec-heading">Tech Stack</div>
+    <div class="sec-heading">Technical Foundation</div>
     <div class="stack-layout reveal pre">
       <div class="stack-cat-col">
         <div class="stack-cat-item active" data-panel="llm">LLM &amp; Agents</div>
         <div class="stack-cat-item" data-panel="retrieval">Retrieval</div>
+        <div class="stack-cat-item" data-panel="eval">Evaluation</div>
         <div class="stack-cat-item" data-panel="backend">Backend</div>
       </div>
       <div class="stack-content-col">
         <div class="stack-panel active" id="panel-llm">
-          <span class="s-pill">LangGraph</span><span class="s-pill">LangChain</span>
-          <span class="s-pill">Groq / Llama 4 Scout</span><span class="s-pill">Gemini 2.5 Flash</span>
-          <span class="s-pill">Model Context Protocol</span><span class="s-pill">LangSmith</span>
+          <span class="s-pill">LangGraph</span>
+          <span class="s-pill">LangChain</span>
+          <span class="s-pill">Groq / Llama 4 Scout</span>
+          <span class="s-pill">Gemini 2.5 Flash</span>
+          <span class="s-pill">Model Context Protocol</span>
+          <span class="s-pill">LangSmith</span>
         </div>
         <div class="stack-panel" id="panel-retrieval">
-          <span class="s-pill">ChromaDB</span><span class="s-pill">BM25 Sparse Search</span>
-          <span class="s-pill">Cohere Reranker v3</span><span class="s-pill">Sentence Transformers</span>
+          <span class="s-pill">ChromaDB</span>
+          <span class="s-pill">BM25 Sparse Search</span>
+          <span class="s-pill">Cohere Reranker v3</span>
+          <span class="s-pill">Sentence Transformers</span>
           <span class="s-pill">Hybrid Ensemble Retrieval</span>
+          <span class="s-pill">MQTT / HiveMQ</span>
+        </div>
+        <div class="stack-panel" id="panel-eval">
+          <span class="s-pill">LLM-as-Judge</span>
+          <span class="s-pill">Custom Eval Frameworks</span>
+          <span class="s-pill">GitHub Actions CI/CD</span>
+          <span class="s-pill">Regression Detection</span>
+          <span class="s-pill">pytest</span>
+          <span class="s-pill">SQLite Observability</span>
         </div>
         <div class="stack-panel" id="panel-backend">
-          <span class="s-pill">FastAPI</span><span class="s-pill">Python</span>
-          <span class="s-pill">Pydantic</span><span class="s-pill">Docker</span>
-          <span class="s-pill">Async / Background Tasks</span><span class="s-pill">Hugging Face Spaces</span>
+          <span class="s-pill">FastAPI</span>
+          <span class="s-pill">Python</span>
+          <span class="s-pill">Pydantic v2</span>
+          <span class="s-pill">Docker</span>
+          <span class="s-pill">Async / Background Tasks</span>
+          <span class="s-pill">Hugging Face Spaces</span>
         </div>
       </div>
     </div>
@@ -581,12 +660,12 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
     <div class="contact-layout reveal pre">
       <div class="contact-left">
         <div class="contact-heading">LET'S<em>BUILD.</em></div>
-        <p class="contact-sub">Open to remote roles with teams building serious LLM-powered products — where retrieval accuracy, system evaluation, and reliability are critical. If your team is solving problems where incorrect outputs carry real cost, I'd be glad to contribute.</p>
+        <p class="contact-sub">Open to remote roles with teams building serious LLM-powered products — where retrieval accuracy, system evaluation, and production reliability are critical.<br><br>If incorrect AI outputs carry real cost for your team, I'd be glad to contribute.</p>
       </div>
       <div class="contact-right">
-        <a href="mailto:victorisuo@proton.me" class="c-link">
+        <a href="/cdn-cgi/l/email-protection#64120d07100b160d17110b2414160b100b0a4a0901" class="c-link">
           <div class="c-ico">@</div>
-          <div class="c-info"><div class="c-type">Email</div><div class="c-val">victorisuo@proton.me</div></div>
+          <div class="c-info"><div class="c-type">Email</div><div class="c-val"><span class="__cf_email__" data-cfemail="cabca3a9bea5b8a3b9bfa58abab8a5bea5a4e4a7af">[email&#160;protected]</span></div></div>
           <span class="c-arr">→</span>
         </a>
         <a href="https://www.linkedin.com/in/victor-isuo-a02b65171" target="_blank" class="c-link">
@@ -599,6 +678,16 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
           <div class="c-info"><div class="c-type">GitHub</div><div class="c-val">github.com/victor-isuo</div></div>
           <span class="c-arr">→</span>
         </a>
+        <a href="https://victorisuo-industrial-ai-copilot.hf.space/multiagent-ui" target="_blank" class="c-link">
+          <div class="c-ico">◈</div>
+          <div class="c-info"><div class="c-type">Live Demo</div><div class="c-val">Industrial AI Copilot — Multi-Agent</div></div>
+          <span class="c-arr">→</span>
+        </a>
+        <a href="https://victorisuo-agenteval.hf.space" target="_blank" class="c-link">
+          <div class="c-ico">◈</div>
+          <div class="c-info"><div class="c-type">Live Demo</div><div class="c-val">AgentEval — LLM Observability Dashboard</div></div>
+          <span class="c-arr">→</span>
+        </a>
       </div>
     </div>
   </div>
@@ -606,10 +695,10 @@ footer span{font-family:var(--mono);font-size:10px;color:var(--sub);letter-spaci
 
 <footer>
   <span>Victor Isuo — Applied LLM Systems Engineer</span>
-  <span>© 2026 · Built with precision.</span>
+  <span>© 2026 · Two systems live. Open to remote.</span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // CURSOR
 const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
 let mx=0,my=0,rx=0,ry=0;
@@ -646,12 +735,16 @@ function drawCanvas(t){
 }
 window.addEventListener('resize',resize);resize();requestAnimationFrame(drawCanvas);
 
-// SCROLL REVEAL — only animate elements with .pre class
+// SCROLL REVEAL
 const revEls=document.querySelectorAll('.reveal.pre');
 const revObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');revObs.unobserve(e.target)}});
-},{threshold:0.08});
-revEls.forEach(el=>revObs.observe(el));
+},{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
+revEls.forEach(el=>{
+  const rect=el.getBoundingClientRect();
+  if(rect.top<window.innerHeight&&rect.bottom>0){el.classList.add('on');}
+  else{revObs.observe(el);}
+});
 
 // ACTIVE NAV
 const sections=document.querySelectorAll('section[id]');
@@ -688,8 +781,10 @@ function countUp(el,target,suffix=''){
 const statsObs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
-      const cells=document.querySelectorAll('.stat-n');
-      [27,5091,90,9].forEach((t,i)=>countUp(cells[i],t,['','','%',''][i]));
+      countUp(document.getElementById('s1'),27,'');
+      countUp(document.getElementById('s2'),5091,'');
+      countUp(document.getElementById('s3'),90,'%');
+      countUp(document.getElementById('s4'),2,'');
       statsObs.disconnect();
     }
   });
@@ -699,8 +794,249 @@ if(heroStats)statsObs.observe(heroStats);
 
 // HAMBURGER
 const hamburger=document.getElementById('hamburger'),drawer=document.getElementById('nav-drawer');
-hamburger.addEventListener('click',()=>{hamburger.classList.toggle('active');drawer.classList.toggle('open')});
-drawer.querySelectorAll('a').forEach(a=>{a.addEventListener('click',()=>{hamburger.classList.remove('active');drawer.classList.remove('open')})});
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('active');
+  drawer.classList.toggle('open');
+});
+drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+  hamburger.classList.remove('active');
+  drawer.classList.remove('open');
+}));
+
+// ============================================================
+// HIGH-LEVEL ANIMATIONS & INTERACTIONS
+// ============================================================
+
+// 1. TYPEWRITER — hero description cycles through phrases
+(function(){
+  const phrases=[
+    'production-grade AI systems',
+    'multi-agent orchestration',
+    'RAG retrieval pipelines',
+    'LLM evaluation infrastructure',
+    'agentic reasoning systems'
+  ];
+  const desc=document.querySelector('.hero-desc');
+  if(!desc)return;
+  const strongEl=desc.querySelector('strong');
+  if(!strongEl)return;
+  let pi=0,ci=0,deleting=false;
+  strongEl.style.borderRight='2px solid var(--accent)';
+  strongEl.style.paddingRight='2px';
+  function type(){
+    const word=phrases[pi];
+    if(!deleting){
+      strongEl.textContent=word.slice(0,ci+1);
+      ci++;
+      if(ci===word.length){deleting=true;setTimeout(type,1800);return;}
+    } else {
+      strongEl.textContent=word.slice(0,ci-1);
+      ci--;
+      if(ci===0){deleting=false;pi=(pi+1)%phrases.length;}
+    }
+    setTimeout(type,deleting?42:80);
+  }
+  setTimeout(type,1200);
+})();
+
+// 2. GLITCH EFFECT — hero name glitches on hover and randomly
+(function(){
+  const name=document.querySelector('.hero-name');
+  if(!name)return;
+  const chars='!<>-_\\/[]{}=+*^?#@$%';
+  function glitch(el,original,duration){
+    let start=null;
+    function step(ts){
+      if(!start)start=ts;
+      const p=(ts-start)/duration;
+      if(p<1){
+        el.textContent=original.split('').map(c=>Math.random()<0.15?chars[Math.floor(Math.random()*chars.length)]:c).join('');
+        requestAnimationFrame(step);
+      } else { el.textContent=original; }
+    }
+    requestAnimationFrame(step);
+  }
+  const outline=name.querySelector('.outline');
+  if(outline){
+    const orig=outline.textContent;
+    name.addEventListener('mouseenter',()=>glitch(outline,orig,500));
+    function schedRandom(){setTimeout(()=>{glitch(outline,orig,400);schedRandom();},6000+Math.random()*6000);}
+    schedRandom();
+  }
+})();
+
+// 3. MAGNETIC BUTTONS
+(function(){
+  document.querySelectorAll('.btn-primary,.demo-link,.nav-cta').forEach(btn=>{
+    btn.style.transition='transform 0.3s cubic-bezier(0.23,1,0.32,1),background 0.2s,color 0.2s,box-shadow 0.2s';
+    btn.addEventListener('mousemove',e=>{
+      const r=btn.getBoundingClientRect();
+      const dx=(e.clientX-r.left-r.width/2)*0.28;
+      const dy=(e.clientY-r.top-r.height/2)*0.28;
+      btn.style.transform=`translate(${dx}px,${dy}px)`;
+    });
+    btn.addEventListener('mouseleave',()=>{btn.style.transform='translate(0,0)';});
+  });
+})();
+
+// 4. ANIMATED GRAIN TEXTURE
+(function(){
+  const grain=document.createElement('canvas');
+  Object.assign(grain.style,{position:'fixed',top:0,left:0,width:'100%',height:'100%',pointerEvents:'none',zIndex:3,opacity:'0.032',mixBlendMode:'overlay'});
+  document.body.appendChild(grain);
+  const gc=grain.getContext('2d');
+  function drawGrain(){
+    grain.width=window.innerWidth;grain.height=window.innerHeight;
+    const id=gc.createImageData(grain.width,grain.height),d=id.data;
+    for(let i=0;i<d.length;i+=4){const v=Math.random()*255|0;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255;}
+    gc.putImageData(id,0,0);
+  }
+  drawGrain();setInterval(drawGrain,80);window.addEventListener('resize',drawGrain);
+})();
+
+// 5. SCROLL PROGRESS BAR
+(function(){
+  const bar=document.createElement('div');
+  Object.assign(bar.style,{position:'fixed',top:'58px',left:'0',height:'2px',width:'0%',background:'linear-gradient(90deg,var(--accent),var(--purple))',zIndex:600,pointerEvents:'none',boxShadow:'0 0 8px var(--accent)'});
+  document.body.appendChild(bar);
+  window.addEventListener('scroll',()=>{
+    const h=document.documentElement;
+    bar.style.width=((h.scrollTop/(h.scrollHeight-h.clientHeight))*100)+'%';
+  },{passive:true});
+})();
+
+// 6. STAGGERED SECTION REVEALS + EXTRA MICRO-INTERACTIONS
+(function(){
+  const style=document.createElement('style');
+  style.textContent=`
+    .anim-hidden{opacity:0;transform:translateY(36px)}
+    .anim-visible{opacity:1;transform:none;transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1)}
+    .anim-delay-1{transition-delay:0.06s}.anim-delay-2{transition-delay:0.13s}
+    .anim-delay-3{transition-delay:0.20s}.anim-delay-4{transition-delay:0.27s}
+    .anim-delay-5{transition-delay:0.34s}.anim-delay-6{transition-delay:0.41s}
+    @keyframes borderGlow{0%,100%{box-shadow:0 0 0 0 rgba(0,212,255,0)}50%{box-shadow:0 0 22px 2px rgba(0,212,255,0.18)}}
+    .project-featured:hover{animation:borderGlow 1.8s ease infinite}
+    @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+    .avail-badge{animation:floatY 3s ease-in-out infinite}
+    @keyframes scanMove{0%{transform:translateY(-4px)}100%{transform:translateY(100vh)}}
+    #scan-beam{position:fixed;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,transparent,rgba(0,212,255,0.06),transparent);pointer-events:none;z-index:2;animation:scanMove 9s linear infinite}
+    .fm-card{transition:background 0.2s,transform 0.3s cubic-bezier(0.22,1,0.36,1)!important}
+    .fm-card:hover{transform:translateY(-5px)!important}
+    .arch-row{transition:background 0.2s,transform 0.25s!important}
+    .arch-row:hover{transform:translateX(5px)!important}
+    .s-pill{transition:all 0.22s cubic-bezier(0.22,1,0.36,1)!important}
+    .s-pill:hover{transform:translateY(-3px) scale(1.05)!important;box-shadow:0 6px 20px rgba(0,212,255,0.2)!important;border-color:var(--accent)!important;color:var(--accent)!important}
+    .cert-item{transition:border-color 0.2s,transform 0.25s cubic-bezier(0.22,1,0.36,1)!important}
+    .cert-item:hover{transform:translateX(8px)!important}
+    @keyframes accentPulse{0%,100%{opacity:1}50%{opacity:0.4}}
+    .sec-eyebrow::before{animation:accentPulse 3s ease-in-out infinite}
+    .stat-cell{transition:background 0.2s,transform 0.25s!important}
+    .stat-cell:hover{transform:scale(1.04)!important}
+    .tag{transition:all 0.18s cubic-bezier(0.22,1,0.36,1)!important}
+    .tag:hover{transform:translateY(-3px)!important;border-color:var(--accent)!important;color:var(--accent)!important}
+    @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+    .live-badge{background-size:200% 100%;animation:shimmer 3s linear infinite}
+    .phase-row{transition:background 0.15s,padding-left 0.2s}
+    .phase-row:hover{padding-left:8px;background:rgba(0,212,255,0.03)}
+    @keyframes navGlow{0%,100%{text-shadow:none}50%{text-shadow:0 0 12px rgba(0,212,255,0.5)}}
+    .nav-links a.active-nav{animation:navGlow 2s ease-in-out infinite}
+  `;
+  document.head.appendChild(style);
+
+  const beam=document.createElement('div');beam.id='scan-beam';document.body.appendChild(beam);
+
+  const targets=['.spec-card','.fm-card','.arch-row','.stat-cell','.phase-row','.cert-item','.sec-heading','.sec-eyebrow','.contact-heading','.project-featured'];
+  targets.forEach(sel=>{
+    document.querySelectorAll(sel).forEach((el,i)=>{
+      el.classList.add('anim-hidden');
+      if(i<6)el.classList.add(`anim-delay-${i+1}`);
+    });
+  });
+
+  const obsAnim=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.remove('anim-hidden');
+        e.target.classList.add('anim-visible');
+        obsAnim.unobserve(e.target);
+      }
+    });
+  },{threshold:0.06});
+  document.querySelectorAll('.anim-hidden').forEach(el=>obsAnim.observe(el));
+})();
+
+// 7. CURSOR COLOR SHIFT per section
+(function(){
+  const colors={hero:'#00d4ff',about:'#00ff94',projects:'#00d4ff',failure:'#ff8c55',architecture:'#b06aff',stack:'#00d4ff',contact:'#00ff94'};
+  const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
+  if(!cur)return;
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const c=colors[e.target.id]||'#00d4ff';
+        cur.style.background=c;
+        if(ring){ring.style.borderColor=c;ring.style.opacity='0.5';}
+      }
+    });
+  },{threshold:0.3});
+  document.querySelectorAll('section[id]').forEach(s=>obs.observe(s));
+})();
+
+// 8. PARALLAX — subtle depth on hero elements
+(function(){
+  const heroTag=document.querySelector('.hero-tag');
+  const heroTitle=document.querySelector('.hero-title');
+  window.addEventListener('scroll',()=>{
+    const y=window.scrollY;
+    if(heroTag)heroTag.style.transform=`translateY(${y*0.12}px)`;
+    if(heroTitle)heroTitle.style.transform=`translateY(${y*0.07}px)`;
+  },{passive:true});
+})();
+
+// 9. TENSION BANNER — strong tags glow on scroll into view
+(function(){
+  const banner=document.querySelector('.tension-banner');
+  const text=document.querySelector('.tension-text');
+  if(!banner||!text)return;
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        text.querySelectorAll('strong').forEach((s,i)=>{
+          setTimeout(()=>{
+            s.style.transition='color 0.4s ease,text-shadow 0.4s ease';
+            s.style.color='var(--accent)';
+            s.style.textShadow='0 0 20px rgba(0,212,255,0.5)';
+            setTimeout(()=>{s.style.color='';s.style.textShadow='';},2000);
+          },i*320);
+        });
+        obs.unobserve(banner);
+      }
+    });
+  },{threshold:0.5});
+  obs.observe(banner);
+})();
+
+// 10. STAT NUMBERS — glow pulse after count-up
+(function(){
+  ['s1','s2','s3','s4'].forEach((id,i)=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    const obs=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          setTimeout(()=>{
+            el.style.transition='text-shadow 0.4s ease';
+            el.style.textShadow='0 0 32px rgba(0,212,255,0.8)';
+            setTimeout(()=>{el.style.textShadow='none';},900);
+          },1950+i*100);
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.3});
+    obs.observe(el);
+  });
+})();
+
 </script>
 </body>
 </html>
