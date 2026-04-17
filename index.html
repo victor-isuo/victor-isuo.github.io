@@ -508,12 +508,12 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.35}}
 @keyframes scrollPulse{0%{opacity:1}100%{opacity:0;transform:translateY(20px)}}
 
-.reveal{opacity:1;transform:none;transition:opacity 0.65s ease,transform 0.65s ease}
-.reveal.pre{opacity:1;transform:none}
-.reveal.pre.on{opacity:1;transform:none}
+.reveal{opacity:1;transform:none;transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1)}
+.reveal.pre{opacity:0;transform:translateY(32px)}
+.reveal.pre.on{opacity:1;transform:translateY(0)}
 .reveal-d1{transition-delay:0.1s}
-.reveal-d2{transition-delay:0.2s}
-.reveal-d3{transition-delay:0.3s}
+.reveal-d2{transition-delay:0.22s}
+.reveal-d3{transition-delay:0.34s}
 
 /* SCROLLBAR */
 ::-webkit-scrollbar{width:3px}
@@ -1240,6 +1240,529 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
   },{threshold:0.3});
   document.querySelectorAll('section[id]').forEach(s=>obs.observe(s));
 })();
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════
+     ANIMATION LAYER — scroll reveals, count-up, typewriter,
+     parallax, stagger, micro-interactions
+════════════════════════════════════════════════════════════ -->
+<script>
+(function(){
+'use strict';
+
+/* ─────────────────────────────────────────
+   1. SCROLL REVEAL — powers .reveal.pre
+───────────────────────────────────────── */
+const revObs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('on');
+      revObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.07, rootMargin:'0px 0px -24px 0px'});
+
+document.querySelectorAll('.reveal.pre').forEach(el=>{
+  // If already in viewport on load, show immediately
+  const r=el.getBoundingClientRect();
+  if(r.top < window.innerHeight && r.bottom > 0){
+    el.classList.add('on');
+  } else {
+    revObs.observe(el);
+  }
+});
+
+/* ─────────────────────────────────────────
+   2. STAGGERED CARD REVEALS
+   Applies to spec-cards, fm-cards, arch-rows,
+   phase-rows, cert-items, tags, audience/break items
+───────────────────────────────────────── */
+const staggerSelectors = [
+  {sel:'.spec-card',    delay:0.08},
+  {sel:'.fm-card',      delay:0.10},
+  {sel:'.arch-row',     delay:0.09},
+  {sel:'.phase-row',    delay:0.07},
+  {sel:'.cert-item',    delay:0.12},
+  {sel:'.tag',          delay:0.04},
+  {sel:'.audience-item',delay:0.10},
+  {sel:'.break-item',   delay:0.09},
+];
+
+staggerSelectors.forEach(({sel, delay})=>{
+  const els = document.querySelectorAll(sel);
+  els.forEach(el=>{
+    el.style.opacity='0';
+    el.style.transform='translateY(22px)';
+    el.style.transition=`opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)`;
+  });
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        // find index within parent group
+        const parent = e.target.parentElement;
+        const siblings = parent ? Array.from(parent.querySelectorAll(sel)) : [e.target];
+        const idx = siblings.indexOf(e.target);
+        const d = idx * delay;
+        setTimeout(()=>{
+          e.target.style.opacity='1';
+          e.target.style.transform='translateY(0)';
+        }, d * 1000);
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.05, rootMargin:'0px 0px -16px 0px'});
+  els.forEach(el=>obs.observe(el));
+});
+
+/* ─────────────────────────────────────────
+   3. COUNT-UP ANIMATION on stat numbers
+───────────────────────────────────────── */
+function countUp(el, target, suffix, duration){
+  const isFloat = target%1 !== 0;
+  const start = performance.now();
+  function step(now){
+    const p = Math.min((now-start)/duration, 1);
+    const ease = 1 - Math.pow(1-p, 3);
+    const val = isFloat
+      ? (target * ease).toFixed(1)
+      : Math.floor(target * ease);
+    el.textContent = val + suffix;
+    if(p < 1) requestAnimationFrame(step);
+    else el.textContent = target + suffix;
+  }
+  requestAnimationFrame(step);
+}
+
+const statMap = [
+  {id:'s1', val:84.7, suf:'%'},
+  {id:'s2', val:90.9, suf:'%'},
+  {id:'s3', val:90.5, suf:'%'},
+  {id:'s4', val:2,    suf:''},
+];
+
+const statsSection = document.querySelector('.hero-stats');
+if(statsSection){
+  let fired = false;
+  const statsObs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting && !fired){
+        fired = true;
+        statMap.forEach(({id,val,suf},i)=>{
+          const el = document.getElementById(id);
+          if(el){
+            setTimeout(()=>{
+              countUp(el, val, suf, 1600);
+              // glow flash after count-up
+              setTimeout(()=>{
+                el.style.transition='text-shadow 0.35s ease';
+                el.style.textShadow='0 0 28px rgba(0,201,240,0.85)';
+                setTimeout(()=>el.style.textShadow='none', 800);
+              }, 1700);
+            }, i * 120);
+          }
+        });
+        statsObs.disconnect();
+      }
+    });
+  },{threshold:0.25});
+  statsObs.observe(statsSection);
+}
+
+/* ─────────────────────────────────────────
+   4. TYPEWRITER on .hero-title
+───────────────────────────────────────── */
+(function(){
+  const el = document.querySelector('.hero-title');
+  if(!el) return;
+  const original = el.textContent;
+  el.textContent = '';
+  el.style.opacity = '1';
+  el.style.animation = 'none'; // override CSS animation
+  el.style.borderRight = '2px solid var(--accent)';
+
+  let i = 0;
+  // Wait for hero fade-in delay (0.4s) + a small buffer
+  setTimeout(()=>{
+    const iv = setInterval(()=>{
+      el.textContent = original.slice(0,i);
+      el.style.borderRight = (i % 2 === 0) ? '2px solid var(--accent)' : '2px solid transparent';
+      i++;
+      if(i > original.length){
+        clearInterval(iv);
+        // Blinking cursor, then remove
+        let blinks = 0;
+        const blink = setInterval(()=>{
+          el.style.borderRight = blinks%2===0 ? '2px solid var(--accent)' : '2px solid transparent';
+          blinks++;
+          if(blinks > 6){ clearInterval(blink); el.style.borderRight='none'; }
+        }, 400);
+      }
+    }, 28);
+  }, 700);
+})();
+
+/* ─────────────────────────────────────────
+   5. PARALLAX — hero elements on scroll
+───────────────────────────────────────── */
+(function(){
+  const heroTag   = document.querySelector('.hero-tag');
+  const heroName  = document.querySelector('.hero-name');
+  const heroStats = document.querySelector('.hero-stats');
+  const scrollHint= document.querySelector('.scroll-hint');
+  let ticking = false;
+  window.addEventListener('scroll',()=>{
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(()=>{
+      const y = window.scrollY;
+      if(heroTag)   heroTag.style.transform   = `translateY(${y*0.10}px)`;
+      if(heroName)  heroName.style.transform  = `translateY(${y*0.06}px)`;
+      if(heroStats) heroStats.style.transform = `translateY(${y*-0.04}px)`;
+      if(scrollHint)scrollHint.style.opacity  = Math.max(0, 1 - y/160)+'';
+      ticking = false;
+    });
+  },{passive:true});
+})();
+
+/* ─────────────────────────────────────────
+   6. NAV — shimmer underline on scroll
+───────────────────────────────────────── */
+(function(){
+  const nav = document.querySelector('nav');
+  if(!nav) return;
+  // Inject a shimmer element into nav
+  const shimmer = document.createElement('div');
+  Object.assign(shimmer.style,{
+    position:'absolute', bottom:'-1px', left:'0', height:'1px',
+    width:'0%', pointerEvents:'none',
+    background:'linear-gradient(90deg, transparent, var(--accent), var(--purple), transparent)',
+    transition:'width 0.6s ease',
+    zIndex:'1',
+  });
+  nav.style.position='fixed'; // ensure
+  nav.appendChild(shimmer);
+
+  let lastY = 0;
+  window.addEventListener('scroll',()=>{
+    const y = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = maxScroll > 0 ? (y / maxScroll) * 100 : 0;
+    shimmer.style.width = pct + '%';
+    lastY = y;
+  },{passive:true});
+})();
+
+/* ─────────────────────────────────────────
+   7. SECTION HEADINGS — slide-in from left
+───────────────────────────────────────── */
+document.querySelectorAll('.sec-heading').forEach(el=>{
+  el.style.opacity='0';
+  el.style.transform='translateX(-28px)';
+  el.style.transition='opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)';
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.style.opacity='1';
+        e.target.style.transform='translateX(0)';
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.1});
+  obs.observe(el);
+});
+
+/* ─────────────────────────────────────────
+   8. SECTION EYEBROWS — fade + line grow
+───────────────────────────────────────── */
+document.querySelectorAll('.sec-eyebrow').forEach(el=>{
+  el.style.opacity='0';
+  el.style.transition='opacity 0.5s ease 0.1s';
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.style.opacity='1';
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.2});
+  obs.observe(el);
+});
+
+/* ─────────────────────────────────────────
+   9. PROJECT CARDS — border glow on hover
+───────────────────────────────────────── */
+(function(){
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes borderGlow {
+      0%,100% { box-shadow: 0 0 0 0 rgba(0,201,240,0); }
+      50%      { box-shadow: 0 0 32px 2px rgba(0,201,240,0.14), inset 0 0 0 1px rgba(0,201,240,0.08); }
+    }
+    .project-featured:hover {
+      animation: borderGlow 2s ease-in-out infinite;
+    }
+    @keyframes floatBadge {
+      0%,100% { transform:translateY(0); }
+      50%      { transform:translateY(-5px); }
+    }
+    .avail-badge { animation: floatBadge 3s ease-in-out infinite; }
+
+    @keyframes scanBeam {
+      0%   { transform:translateY(-2px); }
+      100% { transform:translateY(101vh); }
+    }
+    #scan-beam {
+      position:fixed; top:0; left:0; width:100%; height:2px;
+      background:linear-gradient(90deg, transparent, rgba(0,201,240,0.055), transparent);
+      pointer-events:none; z-index:2;
+      animation: scanBeam 10s linear infinite;
+    }
+
+    /* Phase row hover */
+    .phase-row {
+      transition: background 0.15s ease, padding-left 0.22s cubic-bezier(0.22,1,0.36,1) !important;
+    }
+    .phase-row:hover {
+      background: rgba(0,201,240,0.03) !important;
+      padding-left: 10px !important;
+    }
+
+    /* Arch row slide */
+    .arch-row {
+      transition: background 0.18s ease, transform 0.28s cubic-bezier(0.22,1,0.36,1) !important;
+    }
+    .arch-row:hover { transform: translateX(6px) !important; }
+
+    /* Stat cell scale */
+    .stat-cell {
+      transition: background 0.2s ease, transform 0.28s cubic-bezier(0.22,1,0.36,1) !important;
+    }
+    .stat-cell:hover { transform: scale(1.04) !important; }
+
+    /* Tag hop */
+    .tag {
+      transition: all 0.2s cubic-bezier(0.22,1,0.36,1) !important;
+    }
+    .tag:hover {
+      transform: translateY(-3px) !important;
+      border-color: var(--accent) !important;
+      color: var(--accent) !important;
+    }
+
+    /* s-pill hop */
+    .s-pill {
+      transition: all 0.22s cubic-bezier(0.22,1,0.36,1) !important;
+    }
+    .s-pill:hover {
+      transform: translateY(-3px) scale(1.04) !important;
+      border-color: var(--accent) !important;
+      color: var(--accent) !important;
+      box-shadow: 0 6px 20px rgba(0,201,240,0.18) !important;
+    }
+
+    /* Cert item slide */
+    .cert-item {
+      transition: border-color 0.2s ease, transform 0.28s cubic-bezier(0.22,1,0.36,1) !important;
+    }
+    .cert-item:hover { transform: translateX(8px) !important; }
+
+    /* FM card lift */
+    .fm-card {
+      transition: background 0.2s ease, transform 0.3s cubic-bezier(0.22,1,0.36,1) !important;
+    }
+    .fm-card:hover { transform: translateY(-5px) !important; }
+
+    /* Active nav glow */
+    @keyframes navGlow {
+      0%,100% { text-shadow: none; }
+      50%      { text-shadow: 0 0 14px rgba(0,201,240,0.55); }
+    }
+    .nav-links a.active-nav { animation: navGlow 2.5s ease-in-out infinite; }
+
+    /* Live badge shimmer */
+    @keyframes liveShimmer {
+      0%   { box-shadow: 0 0 4px rgba(0,232,135,0.4); }
+      50%  { box-shadow: 0 0 12px rgba(0,232,135,0.7); }
+      100% { box-shadow: 0 0 4px rgba(0,232,135,0.4); }
+    }
+    .live-badge { animation: liveShimmer 2s ease-in-out infinite; }
+
+    /* Audience item slide */
+    .audience-item {
+      transition: background 0.2s ease, padding-left 0.28s cubic-bezier(0.22,1,0.36,1) !important;
+    }
+    .audience-item:hover { padding-left: 32px !important; }
+
+    /* Break item slide */
+    .break-item {
+      transition: background 0.18s ease, padding-left 0.28s cubic-bezier(0.22,1,0.36,1) !important;
+    }
+    .break-item:hover { padding-left: 28px !important; }
+
+    /* Eyebrow pulse */
+    @keyframes eyebrowPulse {
+      0%,100% { opacity:1; }
+      50%      { opacity:0.45; }
+    }
+    .sec-eyebrow::before { animation: eyebrowPulse 3s ease-in-out infinite; }
+  `;
+  document.head.appendChild(style);
+
+  // Scan beam element
+  const beam = document.createElement('div');
+  beam.id = 'scan-beam';
+  document.body.appendChild(beam);
+})();
+
+/* ─────────────────────────────────────────
+   10. FOOTER entrance
+───────────────────────────────────────── */
+(function(){
+  const footer = document.querySelector('footer');
+  if(!footer) return;
+  footer.style.opacity = '0';
+  footer.style.transition = 'opacity 0.8s ease';
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.style.opacity='1';
+        obs.disconnect();
+      }
+    });
+  },{threshold:0.2});
+  obs.observe(footer);
+})();
+
+/* ─────────────────────────────────────────
+   11. CONTACT LINKS — staggered entrance
+───────────────────────────────────────── */
+(function(){
+  const links = document.querySelectorAll('.c-link');
+  links.forEach((el,i)=>{
+    el.style.opacity='0';
+    el.style.transform='translateX(20px)';
+    el.style.transition=`opacity 0.55s ease ${i*0.09}s, transform 0.55s cubic-bezier(0.22,1,0.36,1) ${i*0.09}s`;
+  });
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(el=>{
+          el.style.opacity='1';
+          el.style.transform='translateX(0)';
+        });
+        obs.disconnect();
+      }
+    });
+  },{threshold:0.1});
+  const contactRight = document.querySelector('.contact-right');
+  if(contactRight) obs.observe(contactRight);
+})();
+
+/* ─────────────────────────────────────────
+   12. CONTACT HEADING — letter-by-letter glow
+───────────────────────────────────────── */
+(function(){
+  const heading = document.querySelector('.contact-heading');
+  if(!heading) return;
+  const obs = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        heading.style.transition='text-shadow 0.5s ease';
+        heading.style.textShadow='0 0 40px rgba(0,201,240,0.25)';
+        setTimeout(()=>{ heading.style.textShadow='none'; }, 1600);
+        obs.disconnect();
+      }
+    });
+  },{threshold:0.4});
+  obs.observe(heading);
+})();
+
+/* ─────────────────────────────────────────
+   13. STACK TABS — if present
+───────────────────────────────────────── */
+(function(){
+  const catItems = document.querySelectorAll('.stack-cat-item');
+  const panels   = document.querySelectorAll('.stack-panel');
+  if(!catItems.length) return;
+  catItems.forEach(item=>{
+    item.addEventListener('click',()=>{
+      catItems.forEach(c=>c.classList.remove('active'));
+      panels.forEach(p=>p.classList.remove('active'));
+      item.classList.add('active');
+      const target = item.dataset.cat || item.dataset.panel;
+      const panel  = document.getElementById('panel-'+target);
+      if(panel){
+        panel.classList.add('active');
+        // stagger pills
+        panel.querySelectorAll('.s-pill').forEach((pill,i)=>{
+          pill.style.opacity='0';
+          pill.style.transform='translateY(10px)';
+          setTimeout(()=>{
+            pill.style.opacity='1';
+            pill.style.transform='translateY(0)';
+          }, i*40);
+        });
+      }
+    });
+  });
+})();
+
+/* ─────────────────────────────────────────
+   14. DEMO LINKS — arrow pulse on hover
+───────────────────────────────────────── */
+(function(){
+  document.querySelectorAll('.demo-link').forEach(link=>{
+    const arrow = link.querySelector('span');
+    if(!arrow) return;
+    link.addEventListener('mouseenter',()=>{
+      arrow.style.transition='transform 0.3s cubic-bezier(0.22,1,0.36,1)';
+      arrow.style.transform='translateX(6px)';
+    });
+    link.addEventListener('mouseleave',()=>{
+      arrow.style.transform='translateX(0)';
+    });
+  });
+})();
+
+/* ─────────────────────────────────────────
+   15. AMBIENT GLOW ORBS — subtle depth behind sections
+───────────────────────────────────────── */
+(function(){
+  const orbs = [
+    {color:'rgba(0,201,240,0.055)', w:520, h:520, top:'8%',  left:'-8%'},
+    {color:'rgba(0,232,135,0.04)',  w:440, h:440, top:'45%', right:'-6%'},
+    {color:'rgba(163,102,255,0.04)',w:380, h:380, top:'78%', left:'30%'},
+  ];
+  orbs.forEach(o=>{
+    const div = document.createElement('div');
+    Object.assign(div.style,{
+      position:'fixed',
+      width:o.w+'px', height:o.h+'px',
+      background:o.color,
+      borderRadius:'50%',
+      filter:'blur(100px)',
+      pointerEvents:'none',
+      zIndex:'0',
+      top:o.top||'auto', left:o.left||'auto',
+      right:o.right||'auto',
+      animation:`orbDrift ${8+Math.random()*6}s ease-in-out infinite`,
+      animationDelay:Math.random()*-8+'s',
+    });
+    document.body.appendChild(div);
+  });
+
+  const orbStyle = document.createElement('style');
+  orbStyle.textContent=`
+    @keyframes orbDrift {
+      0%,100%{opacity:1;transform:scale(1) translate(0,0)}
+      33%{opacity:0.7;transform:scale(1.08) translate(12px,-8px)}
+      66%{opacity:0.85;transform:scale(0.95) translate(-8px,10px)}
+    }
+  `;
+  document.head.appendChild(orbStyle);
+})();
+
+})(); // end IIFE
 </script>
 </body>
 </html>
