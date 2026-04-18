@@ -678,8 +678,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
         AI systems <em>fail unnoticeably</em> —
         and get trusted anyway.<br>
         That's the real risk in production.<br><br>
-        I build LLM systems where behaviour is <strong>visible</strong>, decisions are <strong>traceable</strong>, and failures are <strong>caught early</strong> —
-        before they reach users.
+        I build LLM systems with <strong>observable</strong> behaviour, <strong>traceable</strong> decisions, and failure modes that are <strong>detected</strong> before production impact.
       </p>
       <div class="hero-actions">
         <a href="#projects" class="btn-primary">View Systems <span>→</span></a>
@@ -719,9 +718,9 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
     <div class="sec-eyebrow">About</div>
     <div class="about-layout">
       <div class="about-sidebar reveal pre">
-        <p>Most AI systems look reliable in demos. Production exposes the gaps.<br> I focus on that gap.</p>
+        <p>Most AI systems look reliable, but in production gaps are exposed.<br> I focus on those gaps.</p>
         <p>I build LLM systems that are <em>grounded, traceable, and continuously evaluated</em> — so outputs can be trusted in environments where incorrect outputs carry real consequences.</p>
-        <p>My background in <strong>Mechanical Engineering</strong> shapes how I approach this work. I think in failure modes, constraints, and system correctness. Because in real environments, it's not enough for a sytem to work — it has to <strong>fail predictably, or not at all</strong>.</p>
+        <p>My background in <strong>Mechanical Engineering</strong> shapes how I approach systems design: through failure modes, constraints, and system correctness under real-world conditions. In production environments, it is not enough for a sytem to function — it must degrade <strong>predictably, remain observable under stress, and fail in controlled ways</strong>.<br>This constrainst-driven approach informs how I design AI systems across four layers: retrieval, reasoning, coordination and evaluation.</p>
         <div class="cert-list">
           <div class="cert-item">
             <div class="cert-dot"></div>
@@ -743,22 +742,22 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
         <div class="spec-card">
           <div class="spec-n">01</div>
           <div class="spec-t">Hybrid RAG Systems</div>
-          <div class="spec-d">Dense + sparse retrieval with neural reranking. Built for technical domains where missing a constraint is not acceptable.</div>
+          <div class="spec-d">Dense + sparse retrieval with neural reranking for technical queries where exact constraints (fault codes, part IDs) must not be lost.</div>
         </div>
         <div class="spec-card">
           <div class="spec-n">02</div>
           <div class="spec-t">Agentic Reasoning</div>
-          <div class="spec-d">Tool-augmented LangGraph agents with structured workflows — multi-step reasoning beyond single-pass generation.</div>
+          <div class="spec-d">LangGraph-based tool-augmented agents with explicit state transitions for multi-step workflows beyond single-pass generation.</div>
         </div>
         <div class="spec-card">
           <div class="spec-n">03</div>
           <div class="spec-t">Multi-Agent Systems</div>
-          <div class="spec-d">Supervisor-specialist architectures with isolated context — modular, scalable, and debuggable at every coordination layer.</div>
+          <div class="spec-d">Supervisor-specialist coordination with isolated contexts to reduce interference, improve debuggability, and structure complex task decomposition.</div>
         </div>
         <div class="spec-card">
           <div class="spec-n">04</div>
           <div class="spec-t">Eval &amp; Observability</div>
-          <div class="spec-d">LLM-as-judge pipelines, regression testing with CI/CD gates, and LangSmith tracing — quality degradation caught before users see it.</div>
+          <div class="spec-d">LLM-as-judge evaluation pipelines with CI/CD regression gates and LangSmith tracing to detect quality drift before production impact.</div>
         </div>
       </div>
     </div>
@@ -846,7 +845,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
           </p>
           <div class="project-impact">
             <span class="impact-label">Why this matters</span>
-            Quality doesn't usually fail all at once — it degrades quietly. Without evaluation, teams only discover after users do. AgentEval ensures every change is tested, and every regression is caught early.
+            AI sytems quality doesn't usually fail all at once — it degrades silently.<br> Without evaluation, teams only discover after users do. AgentEval ensures every change is tested, and every regression is caught early.
           </div>
           <div class="tags">
             <span class="tag">LLM-as-Judge</span><span class="tag">Eval Pipelines</span>
@@ -935,7 +934,6 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
     trust is already gone and the cost is already paid.
     I build systems that make those failure points <strong>visible, measurable, and automatically caught</strong> —
     before users see them, before the cost lands.
-    That's the difference between a demo and a system you can stake a product on.
   </p>
 </div>
 
