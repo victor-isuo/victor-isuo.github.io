@@ -680,7 +680,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
         That's the real risk in production.<br><br>
         I build LLM systems where behaviour is <strong>visible</strong>, decisions are <strong>traceable</strong>, and failures are <strong>caught early</strong> —
         before they reach users.<br><br>
-        This matters anywhere incorrect outputs carry serious cost and risk — not just in industrial systems.
+        This same design <strong>applies to any system</strong> where correctness isn't optional.
       </p>
       <div class="hero-actions">
         <a href="#projects" class="btn-primary">View Systems <span>→</span></a>
@@ -720,9 +720,9 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
     <div class="sec-eyebrow">About</div>
     <div class="about-layout">
       <div class="about-sidebar reveal pre">
-        <p>Most AI systems look reliable in demos. Production exposes the gaps. I focus on that gap.</p>
-        <p>I build end-to-end LLM systems — from retrieval and agent orchestration to evaluation pipelines and observability that are <em>grounded, traceable, and continuously evaluated</em> — so outputs can be trusted under real world conditions.</p>
-        <p>My background in <strong>Mechanical Engineering</strong> shapes how I approach this work. I think in failure modes, safety constraints, and system correctness. Because in real environments, it's not enough for a sytem to work — it has to <strong>fail predictably, or not at all</strong>.</p>
+        <p>Most AI systems look reliable in demos. Production exposes the gaps.<br> I focus on that gap.</p>
+        <p>I build LLM systems that are <em>grounded, traceable, and continuously evaluated</em> — so outputs can be trusted in environments where incorrect outputs carry real consequences.</p>
+        <p>My background in <strong>Mechanical Engineering</strong> shapes how I approach this work. I think in failure modes, constraints, and system correctness. Because in real environments, it's not enough for a sytem to work — it has to <strong>fail predictably, or not at all</strong>.</p>
         <div class="cert-list">
           <div class="cert-item">
             <div class="cert-dot"></div>
@@ -841,13 +841,13 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
             <span class="live-badge"><span class="live-dot"></span>LIVE</span>
           </div>
           <div class="project-name">AgentEval</div>
-          <div class="project-hook">Most teams don't know when their AI system breaks — they find out from users, <em>too late</em>. AgentEval turns evaluation into a first-class system layer — automatically scoring outputs, tracking quality over time, and blocking deployments when performance regresses.</div>
+          <div class="project-hook">AI systems don't usually break suddenly — they degrade quietly. AgentEval makes evaluation a <strong>first-class system layer</strong> — scoring outputs, tracking quality over time, and blocking regressions before deployment.</div>
           <p class="project-desc">
-            The evaluation layer built for the Industrial AI Copilot — and deployable for any LLM system. Runs automated test suites across <strong>three evaluation modes</strong> (RAG pipeline, single-agent, multi-agent) using custom LLM-as-judge scoring. Current scores: <strong>84.7% RAG · 90.9% single-agent · 90.5% multi-agent</strong> with 100% pass rates on agent tiers. Blocks deployments when quality regresses via GitHub Actions CI/CD.
+            Built alongside the Industrial AI Copilot — but designed for any LLM system. Runs automated test suites across RAG pipeline, single-agent, and multi-agent modes using custom LLM-as-judge scoring, and CI/CD integration to block quality regressions.<br> <strong>Current performance: 84.7% (RAG) · 90.9% (single-agent) · 90.5% (multi-agent)</strong> with 100% pass rates on agent tiers. Blocks deployments when quality regresses via GitHub Actions CI/CD.
           </p>
           <div class="project-impact">
             <span class="impact-label">Why this matters</span>
-            Silent quality regression is how production AI systems erode trust. Without automated evaluation, teams only discover degradation after users do. AgentEval closes that gap: every push is scored, every regression is blocked before deployment.
+            Quality doesn't usually fail all at once — it degrades quietly. Without evaluation, teams only discover after users do. AgentEval ensures every change is tested, and every regression is caught early.
           </div>
           <div class="tags">
             <span class="tag">LLM-as-Judge</span><span class="tag">Eval Pipelines</span>
@@ -948,22 +948,22 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
     <div class="arch-layout reveal pre">
       <div class="arch-row">
         <div class="arch-layer">Retrieval</div>
-        <div class="arch-desc">Hybrid BM25 + dense over pure vector search — sparse excels on exact technical terms (part numbers, fault codes) that embedding models compress poorly. Neural reranking resolves conflicts at the precision boundary.</div>
+        <div class="arch-desc">Hybrid (BM25 + dense) retrieval, with neural reranking for precision-critical tokens (part IDs, fault codes) that embedding-only retrieval misses.</div>
         <div class="arch-tech"><span class="arch-pill">ChromaDB</span><span class="arch-pill">BM25</span><span class="arch-pill">Cohere Reranker v3</span><span class="arch-pill">Sentence Transformers</span></div>
       </div>
       <div class="arch-row">
         <div class="arch-layer">Orchestration</div>
-        <div class="arch-desc">LangGraph over LangChain LCEL for stateful multi-step agents — graph-based execution gives explicit branching control and deterministic recovery paths that chain-based abstractions can't provide.</div>
+        <div class="arch-desc">LangGraph for stateful agent workflows with explicit branching and recovery paths.</div>
         <div class="arch-tech"><span class="arch-pill">LangGraph</span><span class="arch-pill">Supervisor Pattern</span><span class="arch-pill">Groq / Llama 4</span><span class="arch-pill">Gemini 2.5</span></div>
       </div>
       <div class="arch-row">
         <div class="arch-layer">Evaluation</div>
-        <div class="arch-desc">Custom LLM-as-judge over RAGAS — domain-specific scoring criteria that match what "correct" means in industrial contexts, not generic benchmark proxies. CI/CD gate prevents silent regression.</div>
+        <div class="arch-desc">Custom LLM-as-judge integrated into CI/CD to enforce domain-specific correctness over generic similarity metrics.</div>
         <div class="arch-tech"><span class="arch-pill">LLM-as-Judge</span><span class="arch-pill">GitHub Actions</span><span class="arch-pill">LangSmith</span><span class="arch-pill">pytest</span></div>
       </div>
       <div class="arch-row">
         <div class="arch-layer">Integration</div>
-        <div class="arch-desc">MCP for external tool integration over bespoke APIs — standardised protocol means new data sources attach without rewriting agent logic. Telemetry ingested over MQTT for real-time plant data.</div>
+        <div class="arch-desc">MCP-based tool integration + MQTT ingestion for real time external system data.</div>
         <div class="arch-tech"><span class="arch-pill">MCP</span><span class="arch-pill">MQTT / HiveMQ</span><span class="arch-pill">FastAPI</span><span class="arch-pill">Pydantic v2</span></div>
       </div>
     </div>
