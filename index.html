@@ -740,17 +740,17 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
         <div class="spec-card">
           <div class="spec-n">01</div>
           <div class="spec-t">Hybrid RAG Systems</div>
-          <div class="spec-d">Dense + sparse retrieval with neural reranking for technical queries where exact constraints (fault codes, part IDs) must not be lost.</div>
+          <div class="spec-d">BM25 + dense retrieval + Cohere nBM25 + dense retrieval + Cohere neural reranking over 27 documents, 1,109 pages, 5,091 chunks with page-level citations.</div>
         </div>
         <div class="spec-card">
           <div class="spec-n">02</div>
           <div class="spec-t">Agentic Reasoning</div>
-          <div class="spec-d">LangGraph-based tool-augmented agents with explicit state transitions for multi-step workflows beyond single-pass generation.</div>
+          <div class="spec-d">LangGraph stateful agent with 9 tools — autonomous tool selection, 90% accuracy on 30-case custom evaluation suite, 3.09s avg. Optimized with Live PDF ingestion pipeline, equipment telemetry with fault detection, Gemini 2.5 Flash multimodal vision analysis, MCP server + client integration </div>
         </div>
         <div class="spec-card">
           <div class="spec-n">03</div>
           <div class="spec-t">Multi-Agent Systems</div>
-          <div class="spec-d">Supervisor-specialist coordination with isolated contexts to reduce interference, improve debuggability, and structure complex task decomposition.</div>
+          <div class="spec-d"> Supervisor Agent delegates to Retrieval, Telemetry, Analysis, and Safety specialists; Report Agent synthesises cross-agent findings.</div>
         </div>
         <div class="spec-card">
           <div class="spec-n">04</div>
