@@ -682,7 +682,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
         <a href="#projects" class="btn-primary">View Systems <span>→</span></a>
         <a href="#contact" class="btn-ghost">Get in touch <span>↗</span></a>
       </div>
-      <div class="avail-badge"><span class="avail-dot"></span>Live Deployed Systems</div>
+      <div class="avail-badge"><span class="avail-dot"></span>3 Live Systems · Open to Remote Roles</div>
     </div>
     <div class="hero-stats" aria-label="Performance metrics">
       <div class="stat-cell">
@@ -718,7 +718,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
       <div class="about-sidebar reveal pre">
         <p>Most AI systems appear reliable until production exposes their failure modes. I focus on those gaps.</p>
         <p>I build LLM systems that are <em>grounded, traceable, and continuously evaluated</em> — so outputs remain trustworthy in environments where incorrect decisions carry real consequences.</p>
-        <p>My background in <strong>Mechanical Engineering</strong> shapes how I approach systems design: through failure modes, constraints, and system correctness under real-world conditions. In production, it is not enough for a sytem to function — it must degrade <strong>predictably, remain observable under stress, and fail in controlled ways</strong>.<br><br>This constraint-driven approach informs how I design AI systems across four layers: retrieval, reasoning, coordination and evaluation.</p>
+        <p>My background in <strong>Mechanical Engineering</strong> shapes how I approach systems design: through failure modes, constraints, and system correctness under real-world conditions. In production, it is not enough for a system to function — it must degrade <strong>predictably, remain observable under stress, and fail in controlled ways</strong>.<br><br>This constraint-driven approach informs how I design AI systems across four layers: retrieval, reasoning, coordination and evaluation.</p>
         <div class="cert-list">
           <div class="cert-item">
             <div class="cert-dot"></div>
@@ -745,7 +745,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
         <div class="spec-card">
           <div class="spec-n">02</div>
           <div class="spec-t">Agentic Reasoning</div>
-          <div class="spec-d">LangGraph stateful agent with 9 tools — autonomous tool selection, 90% accuracy on 30-case custom evaluation suite, 3.09s avg. Optimized with Live PDF ingestion pipeline, equipment telemetry with fault detection, Gemini 2.5 Flash multimodal vision analysis, MCP server + client integration </div>
+          <div class="spec-d">LangGraph stateful agent with 9 tools — autonomous tool selection, 90% accuracy on 30-case custom evaluation suite. Live telemetry, Gemini 2.5 Flash multimodal vision, MCP server + client integration.</div>
         </div>
         <div class="spec-card">
           <div class="spec-n">03</div>
@@ -843,7 +843,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
           </p>
           <div class="project-impact">
             <span class="impact-label">Why this matters</span>
-            AI sytems quality doesn't usually fail all at once — it degrades silently.<br> Without evaluation, teams only discover after users do. AgentEval ensures every change is tested, and every regression is caught early.
+            AI systems quality doesn't usually fail all at once — it degrades silently.<br> Without evaluation, teams only discover after users do. AgentEval ensures every change is tested, and every regression is caught early.
           </div>
           <div class="tags">
             <span class="tag">LLM-as-Judge</span><span class="tag">Eval Pipelines</span>
@@ -886,8 +886,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
       </div>
     </div>
 
-        <!-- PROJECT 03 -->
-<div class="project-featured reveal reveal-d3" style="margin-top:1px">
+<div class="project-featured reveal pre reveal-d3" style="margin-top:1px">
   <div class="project-inner">
     <div class="project-left">
       <div class="project-header">
@@ -896,16 +895,23 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
       </div>
       <div class="project-name">LexAI</div>
       <div class="project-hook">
-        AI contract analysis grounded in Common Law principles —
-        <strong>finds the clauses that carry real risk</strong>
-        before you sign.
+        Most people sign contracts without understanding what they've agreed to.
+        LexAI changes that — <em>four specialist agents</em> working sequentially
+        to surface every clause that carries real risk, grounded in Common Law.
       </div>
       <p class="project-desc">
         Four-agent CrewAI pipeline — Contract Analyst, Legal Researcher,
-        Risk Assessor, Plain Language Agent — running sequentially on Groq. Clause-aware PDF parsing, ChromaDB knowledge base of
-        Common Law and UNIDROIT standards, LLM-as-judge evaluation.
+        Risk Assessor, Plain Language Agent — running sequentially on Groq.
+        Clause-aware PDF parsing, ChromaDB knowledge base of Common Law and
+        UNIDROIT standards, LLM-as-judge evaluation.
         <strong>Applicable across 80+ Common Law jurisdictions.</strong>
       </p>
+      <div class="project-impact">
+        <span class="impact-label">Why this matters</span>
+        A missed liability clause or an unspecified governing law can cost more
+        than the contract is worth. LexAI surfaces those risks before signing —
+        grounded in legal principles, not generic AI pattern-matching.
+      </div>
       <div class="tags">
         <span class="tag">CrewAI</span>
         <span class="tag">Groq</span>
@@ -1000,7 +1006,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
     wrong retrievals, untracked regressions, outputs nobody can audit. By the time you notice,
     trust is already gone and the cost is already paid.
     I build systems that make those failure points <strong>visible, measurable, and automatically caught</strong> —
-    before users see them, before the cost lands.
+    Three live systems. Every one of them designed so that when something goes wrong, <strong>you can see it, trace it, and fix it.</strong>
   </p>
 </div>
 
@@ -1069,6 +1075,11 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
           <div class="c-info"><div class="c-type">Live Dashboard</div><div class="c-val">AgentEval — LLM Observability Dashboard</div></div>
           <span class="c-arr">→</span>
         </a>
+        <a href="https://victorisuo-lexai.hf.space/ui" target="_blank" rel="noopener noreferrer" class="c-link">
+          <div class="c-ico">◈</div>
+          <div class="c-info"><div class="c-type">Live System</div><div class="c-val">LexAI — AI Contract Intelligence</div></div>
+          <span class="c-arr">→</span>
+        </a>
       </div>
     </div>
   </div>
@@ -1076,7 +1087,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
 
 <footer>
   <span>Victor Isuo — Applied LLM Systems Engineer</span>
-  <span>© 2026 · Built with precision</span>
+  <span>© 2026 · Three systems live. Built with precision.</span>
 </footer>
 
 <script>
