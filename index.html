@@ -701,9 +701,9 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
         <div class="stat-sub">Supervisor + 4 domain specialists</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-n" id="s4">2</div>
+        <div class="stat-n" id="s4">3</div>
         <div class="stat-l">Live Systems</div>
-        <div class="stat-sub">Both deployed, public demos available</div>
+        <div class="stat-sub">All deployed, public demos available</div>
       </div>
     </div>
   </div>
@@ -885,6 +885,75 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
         </div>
       </div>
     </div>
+
+        <!-- PROJECT 03 -->
+<div class="project-featured reveal reveal-d3" style="margin-top:1px">
+  <div class="project-inner">
+    <div class="project-left">
+      <div class="project-header">
+        <span class="project-num">PROJECT 03</span>
+        <span class="live-badge"><span class="live-dot"></span>LIVE</span>
+      </div>
+      <div class="project-name">LexAI</div>
+      <div class="project-hook">
+        AI contract analysis grounded in Common Law principles —
+        <strong>finds the clauses that carry real risk</strong>
+        before you sign.
+      </div>
+      <p class="project-desc">
+        Four-agent CrewAI pipeline — Contract Analyst, Legal Researcher,
+        Risk Assessor, Plain Language Agent — running sequentially on Groq. Clause-aware PDF parsing, ChromaDB knowledge base of
+        Common Law and UNIDROIT standards, LLM-as-judge evaluation.
+        <strong>Applicable across 80+ Common Law jurisdictions.</strong>
+      </p>
+      <div class="tags">
+        <span class="tag">CrewAI</span>
+        <span class="tag">Groq</span>
+        <span class="tag">Legal RAG</span>
+        <span class="tag">Contract Analysis</span>
+        <span class="tag">LLM-as-Judge</span>
+        <span class="tag">ChromaDB</span>
+        <span class="tag">FastAPI</span>
+        <span class="tag">Common Law</span>
+      </div>
+      <div class="demo-links">
+        <a href="https://victorisuo-lexai.hf.space/ui"
+           target="_blank" rel="noopener noreferrer"
+           class="demo-link">Live Demo <span>→</span></a>
+        <a href="https://github.com/victor-isuo/lexai"
+           target="_blank" rel="noopener noreferrer"
+           class="demo-link ghost">GitHub <span>→</span></a>
+      </div>
+    </div>
+    <div class="project-right">
+      <div class="phase-table-label">System Breakdown</div>
+      <div class="phase-row">
+        <div class="phase-top"><span class="phase-key">Parser</span></div>
+        <div class="phase-val"><strong>Clause-aware extraction</strong> — heading detection, type classification, 10 risk signal patterns</div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-top"><span class="phase-key">Knowledge Base</span></div>
+        <div class="phase-val"><strong>12 legal entries</strong> — Common Law principles, UNIDROIT, clause analysis, risk framework</div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-top"><span class="phase-key">Agent 1</span></div>
+        <div class="phase-val"><strong>Contract Analyst</strong> — extracts and categorises all significant clauses</div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-top"><span class="phase-key">Agent 2</span></div>
+        <div class="phase-val"><strong>Legal Researcher</strong> — grounds every finding in the knowledge base</div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-top"><span class="phase-key">Agent 3</span></div>
+        <div class="phase-val"><strong>Risk Assessor</strong> — scores CRITICAL / HIGH / MEDIUM / LOW with justification</div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-top"><span class="phase-key">Agent 4</span></div>
+        <div class="phase-val"><strong>Plain Language</strong> — structured report, specific recommendations</div>
+      </div>
+    </div>
+  </div>
+</div>
 
   </div>
 </section>
@@ -1333,7 +1402,7 @@ const statMap = [
   {id:'s1', val:84.7, suf:'%'},
   {id:'s2', val:90.9, suf:'%'},
   {id:'s3', val:90.5, suf:'%'},
-  {id:'s4', val:2,    suf:''},
+  {id:'s4', val:3,    suf:''},
 ];
 
 const statsSection = document.querySelector('.hero-stats');
