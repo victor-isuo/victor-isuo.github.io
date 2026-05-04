@@ -660,8 +660,35 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
   .c-ico{width:34px;height:34px;font-size:12px}
   .c-val{font-size:14px}
 
-  .pattern-table{font-size:11px}
-  .pattern-table th,.pattern-table td{padding:12px 14px}
+  /* Pattern table → stacked cards on mobile */
+  .pattern-table thead{display:none}
+  .pattern-table,.pattern-table tbody,.pattern-table tr,.pattern-table td{
+    display:block;width:100%
+  }
+  .pattern-table{border:none;margin-top:36px}
+  .pattern-table tr{
+    border:1px solid var(--border);margin-bottom:10px;
+    background:var(--bg1);position:relative;overflow:hidden
+  }
+  .pattern-table tr::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:1px;
+    background:linear-gradient(90deg,var(--accent),transparent)
+  }
+  .pattern-table tr:last-child td{border-bottom:none}
+  .pattern-table td{
+    padding:10px 16px;border-bottom:1px solid var(--border);
+    font-size:12px;line-height:1.5
+  }
+  .pattern-table td:last-child{border-bottom:none;padding-bottom:14px}
+  .pattern-table td::before{
+    content:attr(data-label);
+    display:block;
+    font-family:var(--mono);font-size:9px;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--dim);margin-bottom:4px
+  }
+  .pattern-table td:first-child{padding-top:16px}
+  .pattern-table .pt-name{color:var(--text);font-size:13px;font-weight:500}
+  .pattern-table .pt-badge{white-space:normal;font-size:10px;display:inline-flex;flex-wrap:wrap}
 
   footer{padding:18px 20px;flex-direction:column;gap:6px;text-align:center}
   footer span{font-size:10px}
@@ -1082,24 +1109,24 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
       </thead>
       <tbody>
         <tr>
-          <td>RAG + Agentic Reasoning</td>
-          <td class="pt-name">Industrial AI Copilot</td>
-          <td><span class="pt-badge">Human-initiated queries</span></td>
+          <td data-label="Pattern">RAG + Agentic Reasoning</td>
+          <td data-label="System" class="pt-name">Industrial AI Copilot</td>
+          <td data-label="Execution"><span class="pt-badge">Human-initiated queries</span></td>
         </tr>
         <tr>
-          <td>Evaluation Infrastructure</td>
-          <td class="pt-name">AgentEval</td>
-          <td><span class="pt-badge">CI/CD triggered</span></td>
+          <td data-label="Pattern">Evaluation Infrastructure</td>
+          <td data-label="System" class="pt-name">AgentEval</td>
+          <td data-label="Execution"><span class="pt-badge">CI/CD triggered/Human triggered</span></td>
         </tr>
         <tr>
-          <td>Multi-Agent Legal Analysis</td>
-          <td class="pt-name">LexAI</td>
-          <td><span class="pt-badge">Document-initiated pipeline</span></td>
+          <td data-label="Pattern">Multi-Agent Legal Analysis</td>
+          <td data-label="System" class="pt-name">LexAI</td>
+          <td data-label="Execution"><span class="pt-badge">Document-initiated pipeline</span></td>
         </tr>
         <tr>
-          <td>Autonomous Intelligence Pipeline</td>
-          <td class="pt-name">Busiv</td>
-          <td><span class="pt-badge auto">Schedule-driven · no human input</span></td>
+          <td data-label="Pattern">Autonomous Intelligence Pipeline</td>
+          <td data-label="System" class="pt-name">Busiv</td>
+          <td data-label="Execution"><span class="pt-badge auto">Schedule-driven · no human input</span></td>
         </tr>
       </tbody>
     </table>
