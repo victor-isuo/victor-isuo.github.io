@@ -18,18 +18,21 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --bg:#04060d;
-  --bg1:#070a14;
-  --bg2:#0b0f1c;
-  --bg3:#101526;
-  --border:#192033;
-  --border2:#1f2d45;
+  --bg:#03050c;
+  --bg1:#060910;
+  --bg2:#090d18;
+  --bg3:#0d1220;
+  --border:#172030;
+  --border2:#1c2b3e;
   --accent:#00c9f0;
   --accent2:#0098b8;
+  --accent3:#00e5d4;
   --glow:rgba(0,201,240,0.12);
+  --glow2:rgba(0,229,212,0.08);
   --green:#00e887;
   --orange:#ff7a45;
   --purple:#a366ff;
+  --gold:#f0b429;
   --text:#eef4ff;
   --body:#a8c4dc;
   --sub:#6688aa;
@@ -68,7 +71,7 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 56px;height:60px;
-  background:rgba(4,6,13,0.92);
+  background:rgba(3,5,12,0.94);
   backdrop-filter:blur(28px);
   border-bottom:1px solid var(--border)
 }
@@ -102,7 +105,7 @@ nav{
 .nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--accent);transition:all 0.3s}
 .nav-drawer{
   display:none;position:fixed;top:60px;left:0;right:0;bottom:0;
-  background:rgba(4,6,13,0.97);backdrop-filter:blur(28px);
+  background:rgba(3,5,12,0.97);backdrop-filter:blur(28px);
   z-index:499;flex-direction:column;align-items:center;justify-content:center;gap:40px
 }
 .nav-drawer.open{display:flex}
@@ -194,9 +197,10 @@ nav{
   opacity:0;animation:fadeIn 1s ease forwards 0.5s;
   position:relative
 }
-.hero-stats::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),transparent)}
+.hero-stats::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent3),transparent)}
 .stat-cell{background:var(--bg1);padding:26px 30px;position:relative;overflow:hidden;transition:background 0.2s}
 .stat-cell:hover{background:var(--bg2)}
+.stat-cell:nth-child(4) .stat-n{color:var(--gold)}
 .stat-n{
   font-family:var(--display);font-weight:900;font-size:46px;
   line-height:1;color:var(--accent);letter-spacing:-0.04em;margin-bottom:6px
@@ -280,6 +284,7 @@ nav{
   content:'';position:absolute;top:0;left:0;right:0;height:2px;
   background:linear-gradient(90deg,var(--accent),var(--accent2),transparent)
 }
+
 .project-inner{display:grid;grid-template-columns:1fr 360px;gap:0}
 .project-left{padding:52px;border-right:1px solid var(--border)}
 .project-right{padding:52px;background:var(--bg1)}
@@ -292,6 +297,15 @@ nav{
 }
 .live-dot{width:5px;height:5px;border-radius:50%;background:var(--green);box-shadow:0 0 6px var(--green);animation:pulse 2s infinite}
 
+/* Autonomous badge variant */
+.auto-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--mono);font-size:10px;letter-spacing:0.1em;
+  padding:5px 14px;border:1px solid var(--accent3);color:var(--accent3);
+  position:relative;overflow:hidden
+}
+.auto-dot{width:5px;height:5px;border-radius:50%;background:var(--accent3);box-shadow:0 0 6px var(--accent3);animation:pulse 2s infinite}
+
 .project-name{
   font-family:var(--display);font-weight:900;font-size:38px;
   letter-spacing:-0.03em;color:var(--text);
@@ -303,6 +317,7 @@ nav{
   font-style:italic;border-left:2px solid var(--orange);padding-left:18px
 }
 .project-hook em{color:var(--accent);font-style:normal;font-weight:500}
+
 .project-desc{
   font-size:15px;font-weight:300;color:var(--body);
   line-height:1.85;margin-bottom:24px;max-width:500px
@@ -319,6 +334,7 @@ nav{
   text-transform:uppercase;color:var(--accent);
   display:block;margin-bottom:8px
 }
+
 .tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:32px}
 .tag{
   font-family:var(--mono);font-size:10px;letter-spacing:0.07em;
@@ -400,7 +416,7 @@ nav{
 }
 .tension-banner::before{
   content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,var(--accent),var(--accent2),transparent)
+  background:linear-gradient(90deg,var(--accent),var(--accent3),transparent)
 }
 .tension-text{
   font-family:var(--sans);
@@ -441,6 +457,35 @@ nav{
 .arch-row:hover .arch-pill{border-color:var(--accent2);color:var(--body)}
 
 /* =============================================
+   PORTFOLIO PATTERN TABLE
+   ============================================= */
+.pattern-table{
+  width:100%;border-collapse:collapse;margin-top:52px;
+  border:1px solid var(--border);
+  font-family:var(--mono);font-size:12px;letter-spacing:0.06em
+}
+.pattern-table th{
+  padding:14px 20px;text-align:left;
+  background:var(--bg1);color:var(--sub);
+  font-size:10px;letter-spacing:0.14em;text-transform:uppercase;
+  border-bottom:1px solid var(--border)
+}
+.pattern-table td{
+  padding:16px 20px;color:var(--body);
+  border-bottom:1px solid var(--border);
+  vertical-align:middle;line-height:1.5
+}
+.pattern-table tr:last-child td{border-bottom:none}
+.pattern-table tr:hover td{background:rgba(0,201,240,0.02)}
+.pattern-table .pt-name{color:var(--text);font-weight:500}
+.pattern-table .pt-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:3px 10px;border:1px solid var(--border2);
+  color:var(--accent);font-size:10px;white-space:nowrap
+}
+.pattern-table .pt-badge.auto{color:var(--accent3);border-color:rgba(0,229,212,0.3)}
+
+/* =============================================
    CONTACT
    ============================================= */
 #contact{background:var(--bg)}
@@ -451,7 +496,7 @@ nav{
 }
 .contact-layout::before{
   content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--accent),transparent)
+  background:linear-gradient(90deg,var(--accent),var(--accent3),transparent)
 }
 .contact-left{background:var(--bg1);padding:72px 60px}
 .contact-heading{
@@ -514,6 +559,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
 .reveal-d1{transition-delay:0.1s}
 .reveal-d2{transition-delay:0.22s}
 .reveal-d3{transition-delay:0.34s}
+.reveal-d4{transition-delay:0.46s}
 
 /* SCROLLBAR */
 ::-webkit-scrollbar{width:3px}
@@ -609,10 +655,13 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
   .contact-left{padding:44px 20px}
   .contact-right{padding:36px 20px}
   .contact-heading{font-size:clamp(34px,10vw,52px)}
-  .contact-sub{font-size:14px;max-width:100%}
+  .contact-sub{font-size:13px;max-width:100%;line-height:1.85}
   .c-link{padding:18px 0;gap:16px}
   .c-ico{width:34px;height:34px;font-size:12px}
   .c-val{font-size:14px}
+
+  .pattern-table{font-size:11px}
+  .pattern-table th,.pattern-table td{padding:12px 14px}
 
   footer{padding:18px 20px;flex-direction:column;gap:6px;text-align:center}
   footer span{font-size:10px}
@@ -675,14 +724,14 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
       <div class="hero-name">VICTOR<span class="outline">ISUO.</span></div>
       <div class="hero-title">RAG &amp; AGENTIC AI · MULTI-AGENT SYSTEMS · LLM EVALUATION</div>
       <p class="hero-desc">
-        3 production AI systems deployed. <em>Observable behaviour, measurable accuracy, traceable decisions.</em> <br><br>
+        4 production AI systems deployed. <em>Observable behaviour, measurable accuracy, traceable decisions.</em> <br><br>
         I build LLM systems for environments where <strong>incorrect outputs</strong> carry real cost.
       </p>
       <div class="hero-actions">
         <a href="#projects" class="btn-primary">View Systems <span>→</span></a>
         <a href="#contact" class="btn-ghost">Get in touch <span>↗</span></a>
       </div>
-      <div class="avail-badge"><span class="avail-dot"></span>3 Live Systems · Open to Remote Roles</div>
+
     </div>
     <div class="hero-stats" aria-label="Performance metrics">
       <div class="stat-cell">
@@ -701,7 +750,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
         <div class="stat-sub">Supervisor + 4 domain specialists</div>
       </div>
       <div class="stat-cell">
-        <div class="stat-n" id="s4">3</div>
+        <div class="stat-n" id="s4">4</div>
         <div class="stat-l">Live Systems</div>
         <div class="stat-sub">All deployed, public demos available</div>
       </div>
@@ -784,7 +833,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
           <div class="project-impact">
             <span class="impact-label">Why this matters</span>
             When systems fail silently, the cost compounds.<br>
-            In industrial settings, that means downtime. In other environments, it means incorrect decisions made with confidence. 
+            In industrial settings, that means downtime. In other environments, it means incorrect decisions made with confidence.
             This system is designed so that every answer can be traced, every decision can be audited, and failures are visible — not hidden.
           </div>
           <div class="tags">
@@ -886,80 +935,174 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
       </div>
     </div>
 
-<div class="project-featured reveal pre reveal-d3" style="margin-top:1px">
-  <div class="project-inner">
-    <div class="project-left">
-      <div class="project-header">
-        <span class="project-num">PROJECT 03</span>
-        <span class="live-badge"><span class="live-dot"></span>LIVE</span>
-      </div>
-      <div class="project-name">LexAI</div>
-      <div class="project-hook">
-        Most people sign contracts without understanding what they've agreed to.
-        LexAI changes that — <em>four specialist agents</em> working sequentially
-        to surface every clause that carries real risk, grounded in Common Law.
-      </div>
-      <p class="project-desc">
-        Four-agent CrewAI pipeline — Contract Analyst, Legal Researcher,
-        Risk Assessor, Plain Language Agent — running sequentially on Groq.
-        Clause-aware PDF parsing, ChromaDB knowledge base of Common Law and
-        UNIDROIT standards, LLM-as-judge evaluation.
-        <strong>Applicable across 80+ Common Law jurisdictions.</strong>
-      </p>
-      <div class="project-impact">
-        <span class="impact-label">Why this matters</span>
-        A missed liability clause or an unspecified governing law can cost more
-        than the contract is worth. LexAI surfaces those risks before signing —
-        grounded in legal principles, not generic AI pattern-matching.
-      </div>
-      <div class="tags">
-        <span class="tag">CrewAI</span>
-        <span class="tag">Groq</span>
-        <span class="tag">Legal RAG</span>
-        <span class="tag">Contract Analysis</span>
-        <span class="tag">LLM-as-Judge</span>
-        <span class="tag">ChromaDB</span>
-        <span class="tag">FastAPI</span>
-        <span class="tag">Common Law</span>
-      </div>
-      <div class="demo-links">
-        <a href="https://victorisuo-lexai.hf.space/ui"
-           target="_blank" rel="noopener noreferrer"
-           class="demo-link">Live Demo <span>→</span></a>
-        <a href="https://github.com/victor-isuo/lexai"
-           target="_blank" rel="noopener noreferrer"
-           class="demo-link ghost">GitHub <span>→</span></a>
+    <!-- PROJECT 03 -->
+    <div class="project-featured reveal pre reveal-d3" style="margin-top:1px">
+      <div class="project-inner">
+        <div class="project-left">
+          <div class="project-header">
+            <span class="project-num">PROJECT 03</span>
+            <span class="live-badge"><span class="live-dot"></span>LIVE</span>
+          </div>
+          <div class="project-name">LexAI</div>
+          <div class="project-hook">
+            Most people sign contracts without understanding what they've agreed to.
+            LexAI changes that — <em>four specialist agents</em> working sequentially
+            to surface every clause that carries real risk, grounded in Common Law.
+          </div>
+          <p class="project-desc">
+            Four-agent CrewAI pipeline — Contract Analyst, Legal Researcher,
+            Risk Assessor, Plain Language Agent — running sequentially on Groq.
+            Clause-aware PDF parsing, ChromaDB knowledge base of Common Law and
+            UNIDROIT standards, LLM-as-judge evaluation.
+            <strong>Applicable across 80+ Common Law jurisdictions.</strong>
+          </p>
+          <div class="project-impact">
+            <span class="impact-label">Why this matters</span>
+            A missed liability clause or an unspecified governing law can cost more
+            than the contract is worth. LexAI surfaces those risks before signing —
+            grounded in legal principles, not generic AI pattern-matching.
+          </div>
+          <div class="tags">
+            <span class="tag">CrewAI</span>
+            <span class="tag">Groq</span>
+            <span class="tag">Legal RAG</span>
+            <span class="tag">Contract Analysis</span>
+            <span class="tag">LLM-as-Judge</span>
+            <span class="tag">ChromaDB</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Common Law</span>
+          </div>
+          <div class="demo-links">
+            <a href="https://victorisuo-lexai.hf.space/ui"
+               target="_blank" rel="noopener noreferrer"
+               class="demo-link">Live Demo <span>→</span></a>
+            <a href="https://github.com/victor-isuo/lexai"
+               target="_blank" rel="noopener noreferrer"
+               class="demo-link ghost">GitHub <span>→</span></a>
+          </div>
+        </div>
+        <div class="project-right">
+          <div class="phase-table-label">System Breakdown</div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Parser</span></div>
+            <div class="phase-val"><strong>Clause-aware extraction</strong> — heading detection, type classification, 14 risk signal patterns</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Knowledge Base</span></div>
+            <div class="phase-val"><strong>12 legal entries</strong> — Common Law principles, UNIDROIT, clause analysis, risk framework</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Agent 1</span></div>
+            <div class="phase-val"><strong>Contract Analyst</strong> — extracts and categorises all significant clauses</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Agent 2</span></div>
+            <div class="phase-val"><strong>Legal Researcher</strong> — grounds every finding in the knowledge base</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Agent 3</span></div>
+            <div class="phase-val"><strong>Risk Assessor</strong> — scores CRITICAL / HIGH / MEDIUM / LOW with justification</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Agent 4</span></div>
+            <div class="phase-val"><strong>Plain Language</strong> — structured report, specific recommendations</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="project-right">
-      <div class="phase-table-label">System Breakdown</div>
-      <div class="phase-row">
-        <div class="phase-top"><span class="phase-key">Parser</span></div>
-        <div class="phase-val"><strong>Clause-aware extraction</strong> — heading detection, type classification, 14 risk signal patterns</div>
-      </div>
-      <div class="phase-row">
-        <div class="phase-top"><span class="phase-key">Knowledge Base</span></div>
-        <div class="phase-val"><strong>12 legal entries</strong> — Common Law principles, UNIDROIT, clause analysis, risk framework</div>
-      </div>
-      <div class="phase-row">
-        <div class="phase-top"><span class="phase-key">Agent 1</span></div>
-        <div class="phase-val"><strong>Contract Analyst</strong> — extracts and categorises all significant clauses</div>
-      </div>
-      <div class="phase-row">
-        <div class="phase-top"><span class="phase-key">Agent 2</span></div>
-        <div class="phase-val"><strong>Legal Researcher</strong> — grounds every finding in the knowledge base</div>
-      </div>
-      <div class="phase-row">
-        <div class="phase-top"><span class="phase-key">Agent 3</span></div>
-        <div class="phase-val"><strong>Risk Assessor</strong> — scores CRITICAL / HIGH / MEDIUM / LOW with justification</div>
-      </div>
-      <div class="phase-row">
-        <div class="phase-top"><span class="phase-key">Agent 4</span></div>
-        <div class="phase-val"><strong>Plain Language</strong> — structured report, specific recommendations</div>
+
+    <!-- PROJECT 04 — BUSIV -->
+    <div class="project-featured busiv-card reveal pre reveal-d4" style="margin-top:1px">
+      <div class="project-inner">
+        <div class="project-left">
+          <div class="project-header">
+            <span class="project-num">PROJECT 04</span>
+            <span class="live-badge"><span class="live-dot"></span>LIVE · AUTONOMOUS</span>
+          </div>
+          <div class="project-name">Busiv</div>
+          <div class="project-hook">
+            Most intelligence tools wait for you to ask a question. Busiv runs while you sleep — <em>ingesting signals, synthesising findings, and delivering structured briefings on a schedule with no human input required.</em>
+          </div>
+          <p class="project-desc">
+            An autonomous AI pipeline that monitors industry signals every 6 hours, synthesises findings using a LangGraph reasoning agent, and delivers structured intelligence briefings daily. Demonstrated on Nigerian fintech — <strong>configurable for any domain</strong>. Every 24 hours it produces a categorised briefing across Regulatory, Product, Market, and Hiring signals, delivered to a dashboard and email. No user query. No human trigger.
+          </p>
+          <div class="project-impact">
+            <span class="impact-label">Why this matters</span>
+            Nigerian fintechs are acutely sensitive to CBN and SEC policy changes — a new circular can alter KYC requirements or licensing conditions overnight. Busiv detects high-priority regulatory signals, classifies them automatically, fires a priority alert, and delivers a structured explanation. That is a genuine enterprise pain point solved autonomously.
+          </div>
+          <div class="tags">
+            <span class="tag">LangGraph</span><span class="tag">APScheduler</span>
+            <span class="tag">Groq Llama 4</span><span class="tag">ChromaDB</span>
+            <span class="tag">FastAPI</span><span class="tag">SendGrid</span>
+            <span class="tag">feedparser</span><span class="tag">Autonomous Pipeline</span>
+          </div>
+          <div class="demo-links">
+            <a href="https://victorisuo-busiv.hf.space" target="_blank" rel="noopener noreferrer" class="demo-link">Live System <span>→</span></a>
+            <a href="https://github.com/victor-isuo/busiv" target="_blank" rel="noopener noreferrer" class="demo-link ghost">GitHub <span>→</span></a>
+          </div>
+        </div>
+        <div class="project-right">
+          <div class="phase-table-label">System Breakdown</div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Ingestion</span></div>
+            <div class="phase-val"><strong>Every 6 hours</strong> — 9 RSS feeds, relevance scoring, SHA256 dedup, ChromaDB store</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Synthesis</span></div>
+            <div class="phase-val"><strong>LangGraph 3-node pipeline</strong> — load → synthesise → structured JSON briefing with citations</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Signal Scope</span></div>
+            <div class="phase-val"><strong>10 companies · 4 regulators</strong> — Regulatory, Product, Market, Hiring signals</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Delivery</span></div>
+            <div class="phase-val">Dashboard (FastAPI) · Email (SendGrid HTTP API) · JSONL history</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Schedule</span></div>
+            <div class="phase-val">Ingestion 00:00 · 06:00 · 12:00 · 18:00 WAT — Briefing daily 07:00 WAT</div>
+          </div>
+          <div class="phase-row">
+            <div class="phase-top"><span class="phase-key">Execution</span></div>
+            <div class="phase-val">Schedule-driven — zero human input required to operate</div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+
+    <!-- EXECUTION PATTERN TABLE -->
+    <table class="pattern-table reveal pre" style="margin-top:48px" aria-label="Portfolio execution patterns">
+      <thead>
+        <tr>
+          <th>Pattern</th>
+          <th>System</th>
+          <th>Execution Model</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>RAG + Agentic Reasoning</td>
+          <td class="pt-name">Industrial AI Copilot</td>
+          <td><span class="pt-badge">Human-initiated queries</span></td>
+        </tr>
+        <tr>
+          <td>Evaluation Infrastructure</td>
+          <td class="pt-name">AgentEval</td>
+          <td><span class="pt-badge">CI/CD triggered</span></td>
+        </tr>
+        <tr>
+          <td>Multi-Agent Legal Analysis</td>
+          <td class="pt-name">LexAI</td>
+          <td><span class="pt-badge">Document-initiated pipeline</span></td>
+        </tr>
+        <tr>
+          <td>Autonomous Intelligence Pipeline</td>
+          <td class="pt-name">Busiv</td>
+          <td><span class="pt-badge auto">Schedule-driven · no human input</span></td>
+        </tr>
+      </tbody>
+    </table>
 
   </div>
 </section>
@@ -1006,7 +1149,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
     wrong retrievals, untracked regressions, outputs nobody can audit. By the time you notice,
     trust is already gone and the cost is already paid.
     I build systems that make those failure points <strong>visible, measurable, and automatically caught</strong> —
-    Three live systems. Every one of them designed so that when something goes wrong, <strong>you can see it, trace it, and fix it.</strong>
+    Four live systems. Every one of them designed so that when something goes wrong, <strong>you can see it, trace it, and fix it.</strong>
   </p>
 </div>
 
@@ -1023,7 +1166,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
       </div>
       <div class="arch-row">
         <div class="arch-layer">Orchestration</div>
-        <div class="arch-desc">LangGraph for stateful agent workflows with explicit branching and recovery paths.</div>
+        <div class="arch-desc">LangGraph for stateful agent workflows with explicit branching and recovery paths. APScheduler for autonomous pipeline execution.</div>
         <div class="arch-tech"><span class="arch-pill">LangGraph</span><span class="arch-pill">Supervisor Pattern</span><span class="arch-pill">Groq / Llama 4</span><span class="arch-pill">Gemini 2.5</span></div>
       </div>
       <div class="arch-row">
@@ -1033,7 +1176,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
       </div>
       <div class="arch-row">
         <div class="arch-layer">Integration</div>
-        <div class="arch-desc">MCP-based tool integration + MQTT ingestion for real time external system data.</div>
+        <div class="arch-desc">MCP-based tool integration + MQTT ingestion for real-time external system data. SendGrid HTTP API for autonomous delivery pipelines.</div>
         <div class="arch-tech"><span class="arch-pill">MCP</span><span class="arch-pill">MQTT / HiveMQ</span><span class="arch-pill">FastAPI</span><span class="arch-pill">Pydantic v2</span></div>
       </div>
     </div>
@@ -1047,7 +1190,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
     <div class="contact-layout reveal pre">
       <div class="contact-left">
         <div class="contact-heading">LET'S<em>BUILD.</em></div>
-        <p class="contact-sub">I take on a small number of remote engagements with teams building LLM-powered products where reliability is critical.<br><br>If incorrect outputs carry operational, financial, or reputational risk for you, that's the class of problem I work on.</p>
+        <p class="contact-sub">The systems in this portfolio were built to a single constraint: every output must be traceable, every failure visible, every regression caught before users see it.<br><br>If you're building LLM-powered products where incorrect outputs carry real operational or financial consequence — and you need an engineer who treats evaluation as a first-class system layer, not an afterthought — that's the work I take on.<br><br>Remote engagements only. Small number of clients at a time.</p>
       </div>
       <div class="contact-right">
         <a href="mailto:victorisuo@proton.me" class="c-link">
@@ -1080,6 +1223,11 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
           <div class="c-info"><div class="c-type">Live System</div><div class="c-val">LexAI — AI Contract Intelligence</div></div>
           <span class="c-arr">→</span>
         </a>
+        <a href="https://victorisuo-busiv.hf.space" target="_blank" rel="noopener noreferrer" class="c-link">
+          <div class="c-ico">◈</div>
+          <div class="c-info"><div class="c-type">Live System</div><div class="c-val">Busiv — Autonomous Business Intelligence</div></div>
+          <span class="c-arr">→</span>
+        </a>
       </div>
     </div>
   </div>
@@ -1087,7 +1235,7 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
 
 <footer>
   <span>Victor Isuo — Applied LLM Systems Engineer</span>
-  <span>© 2026 · Three systems live. Built with precision.</span>
+  <span>© 2026 · Four systems live. Built with precision.</span>
 </footer>
 
 <script>
@@ -1098,534 +1246,131 @@ footer span{font-family:var(--mono);font-size:11px;color:var(--sub);letter-spaci
   if(!cur||!ring)return;
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-  function animRing(){
-    rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;
-    ring.style.left=rx+'px';ring.style.top=ry+'px';
-    requestAnimationFrame(animRing);
-  }
-  animRing();
-  document.querySelectorAll('a,button').forEach(el=>{
-    el.addEventListener('mouseenter',()=>{cur.style.width='16px';cur.style.height='16px';});
-    el.addEventListener('mouseleave',()=>{cur.style.width='9px';cur.style.height='9px';});
+  function lerp(a,b,t){return a+(b-a)*t}
+  function loop(){rx=lerp(rx,mx,0.12);ry=lerp(ry,my,0.12);ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)}
+  loop();
+  document.querySelectorAll('a,button,.spec-card,.fm-card,.stat-cell,.cert-item').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cur.style.width='16px';cur.style.height='16px';ring.style.width='48px';ring.style.height='48px'});
+    el.addEventListener('mouseleave',()=>{cur.style.width='9px';cur.style.height='9px';ring.style.width='32px';ring.style.height='32px'});
   });
 })();
 
-// CANVAS BACKGROUND — animated node graph
+// CANVAS
 (function(){
   const canvas=document.getElementById('canvas-bg');
+  if(!canvas)return;
   const ctx=canvas.getContext('2d');
-  let W,H,nodes=[];
-  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;init();}
-  function init(){
-    nodes=[];
-    const count=Math.floor((W*H)/16000);
-    for(let i=0;i<count;i++){
-      nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3,r:Math.random()*1.5+0.5});
-    }
+  let W,H,particles=[];
+  function resize(){W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight}
+  resize();
+  window.addEventListener('resize',resize);
+  for(let i=0;i<55;i++){
+    particles.push({
+      x:Math.random()*1440,y:Math.random()*900,
+      vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3,
+      r:Math.random()*1.5+0.5,
+      c:Math.random()>0.6?'rgba(0,201,240,':'rgba(0,229,212,'
+    });
   }
   function draw(){
     ctx.clearRect(0,0,W,H);
-    nodes.forEach(n=>{
-      n.x+=n.vx;n.y+=n.vy;
-      if(n.x<0||n.x>W)n.vx*=-1;
-      if(n.y<0||n.y>H)n.vy*=-1;
-      ctx.beginPath();ctx.arc(n.x,n.y,n.r,0,Math.PI*2);
-      ctx.fillStyle='rgba(0,201,240,0.7)';ctx.fill();
-    });
-    nodes.forEach((a,i)=>{
-      for(let j=i+1;j<nodes.length;j++){
-        const b=nodes[j];
-        const d=Math.hypot(a.x-b.x,a.y-b.y);
-        if(d<140){
-          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);
-          ctx.strokeStyle=`rgba(0,201,240,${0.18*(1-d/140)})`;
-          ctx.lineWidth=0.6;ctx.stroke();
+    particles.forEach((p,i)=>{
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0)p.x=W;if(p.x>W)p.x=0;
+      if(p.y<0)p.y=H;if(p.y>H)p.y=0;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=p.c+'0.6)';ctx.fill();
+      for(let j=i+1;j<particles.length;j++){
+        const q=particles[j];
+        const d=Math.hypot(p.x-q.x,p.y-q.y);
+        if(d<110){
+          ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(q.x,q.y);
+          ctx.strokeStyle=`rgba(0,201,240,${0.06*(1-d/110)})`;
+          ctx.lineWidth=0.5;ctx.stroke();
         }
       }
     });
     requestAnimationFrame(draw);
   }
-  window.addEventListener('resize',resize);
-  resize();draw();
+  draw();
 })();
 
-// NAV HAMBURGER
+// HAMBURGER
 (function(){
   const btn=document.getElementById('hamburger');
   const drawer=document.getElementById('nav-drawer');
   if(!btn||!drawer)return;
   btn.addEventListener('click',()=>{
-    const open=drawer.classList.toggle('open');
-    btn.classList.toggle('active',open);
-    btn.setAttribute('aria-expanded',open);
-    document.body.style.overflow=open?'hidden':'';
+    btn.classList.toggle('active');
+    drawer.classList.toggle('open');
   });
   drawer.querySelectorAll('a').forEach(a=>{
-    a.addEventListener('click',()=>{
-      drawer.classList.remove('open');
-      btn.classList.remove('active');
-      document.body.style.overflow='';
-    });
+    a.addEventListener('click',()=>{btn.classList.remove('active');drawer.classList.remove('open')});
   });
 })();
 
-// ACTIVE NAV on scroll
+// SCROLL REVEAL
 (function(){
-  const sections=document.querySelectorAll('section[id]');
+  const els=document.querySelectorAll('.reveal.pre');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');obs.unobserve(e.target)}});
+  },{threshold:0.07});
+  els.forEach(el=>obs.observe(el));
+})();
+
+// ACTIVE NAV
+(function(){
+  const sections=document.querySelectorAll('section[id],div[id]');
   const links=document.querySelectorAll('.nav-links a');
   const obs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
-        links.forEach(l=>{l.classList.toggle('active-nav',l.getAttribute('href')==='#'+e.target.id);});
+        links.forEach(l=>l.classList.remove('active-nav'));
+        const link=document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+        if(link)link.classList.add('active-nav');
       }
     });
-  },{threshold:0.35});
+  },{threshold:0.4});
   sections.forEach(s=>obs.observe(s));
 })();
 
-// SCROLL PROGRESS BAR
+// COUNTER ANIMATION
 (function(){
-  const bar=document.createElement('div');
-  Object.assign(bar.style,{
-    position:'fixed',top:'60px',left:'0',height:'2px',width:'0%',
-    background:'linear-gradient(90deg,var(--accent),var(--purple))',
-    zIndex:'600',pointerEvents:'none',boxShadow:'0 0 8px var(--accent)'
-  });
-  document.body.appendChild(bar);
-  window.addEventListener('scroll',()=>{
-    const h=document.documentElement;
-    bar.style.width=((h.scrollTop/(h.scrollHeight-h.clientHeight))*100)+'%';
-  },{passive:true});
-})();
-
-// GLITCH EFFECT on hero name
-(function(){
-  const name=document.querySelector('.hero-name');
-  if(!name)return;
-  const chars='!<>-_\\/[]{}=+*^?#@$%';
-  function glitch(el,original,duration){
-    let start=null;
-    function step(ts){
-      if(!start)start=ts;
-      const p=(ts-start)/duration;
-      if(p<1){
-        el.textContent=original.split('').map(c=>Math.random()<0.15?chars[Math.floor(Math.random()*chars.length)]:c).join('');
-        requestAnimationFrame(step);
-      } else {el.textContent=original;}
-    }
-    requestAnimationFrame(step);
-  }
-  const outline=name.querySelector('.outline');
-  if(outline){
-    const orig=outline.textContent;
-    name.addEventListener('mouseenter',()=>glitch(outline,orig,500));
-    function schedRandom(){setTimeout(()=>{glitch(outline,orig,400);schedRandom();},7000+Math.random()*5000);}
-    schedRandom();
-  }
-})();
-
-// TENSION BANNER strong glow
-(function(){
-  const banner=document.querySelector('.tension-banner');
-  const text=document.querySelector('.tension-text');
-  if(!banner||!text)return;
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        text.querySelectorAll('strong').forEach((s,i)=>{
-          setTimeout(()=>{
-            s.style.transition='color 0.4s ease,text-shadow 0.4s ease';
-            s.style.color='var(--accent)';
-            s.style.textShadow='0 0 20px rgba(0,201,240,0.5)';
-            setTimeout(()=>{s.style.color='';s.style.textShadow='';},2000);
-          },i*320);
-        });
-        obs.unobserve(banner);
-      }
-    });
-  },{threshold:0.5});
-  obs.observe(banner);
-})();
-
-// STAT GLOW PULSE
-(function(){
-  ['s1','s2','s3','s4'].forEach((id,i)=>{
+  const counters=[
+    {id:'s1',end:84.7,suffix:'%',decimals:1},
+    {id:'s2',end:90.9,suffix:'%',decimals:1},
+    {id:'s3',end:90.5,suffix:'%',decimals:1},
+    {id:'s4',end:4,suffix:'',decimals:0},
+  ];
+  counters.forEach(({id,end,suffix,decimals})=>{
     const el=document.getElementById(id);
     if(!el)return;
     const obs=new IntersectionObserver(entries=>{
       entries.forEach(e=>{
         if(e.isIntersecting){
-          setTimeout(()=>{
-            el.style.transition='text-shadow 0.4s ease';
-            el.style.textShadow='0 0 32px rgba(0,201,240,0.8)';
-            setTimeout(()=>{el.style.textShadow='none';},900);
-          },600+i*150);
-          obs.unobserve(e.target);
+          let start=0;const dur=1400;const s=performance.now();
+          function tick(now){
+            const t=Math.min((now-s)/dur,1);
+            const ease=1-Math.pow(1-t,3);
+            const val=(start+(end-start)*ease);
+            el.textContent=val.toFixed(decimals)+suffix;
+            if(t<1)requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+          obs.disconnect();
         }
       });
-    },{threshold:0.3});
+    },{threshold:0.5});
     obs.observe(el);
   });
 })();
 
-// MAGNETIC BUTTONS
-(function(){
-  document.querySelectorAll('.btn-primary,.demo-link,.nav-cta').forEach(btn=>{
-    btn.style.transition='transform 0.3s cubic-bezier(0.23,1,0.32,1),background 0.2s,color 0.2s,box-shadow 0.2s';
-    btn.addEventListener('mousemove',e=>{
-      const r=btn.getBoundingClientRect();
-      const dx=(e.clientX-r.left-r.width/2)*0.26;
-      const dy=(e.clientY-r.top-r.height/2)*0.26;
-      btn.style.transform=`translate(${dx}px,${dy}px)`;
-    });
-    btn.addEventListener('mouseleave',()=>{btn.style.transform='translate(0,0)';});
-  });
-})();
-
-// ANIMATED GRAIN
-(function(){
-  const grain=document.createElement('canvas');
-  Object.assign(grain.style,{
-    position:'fixed',top:0,left:0,width:'100%',height:'100%',
-    pointerEvents:'none',zIndex:3,opacity:'0.028',mixBlendMode:'overlay'
-  });
-  document.body.appendChild(grain);
-  const gc=grain.getContext('2d');
-  function drawGrain(){
-    grain.width=window.innerWidth;grain.height=window.innerHeight;
-    const id=gc.createImageData(grain.width,grain.height),d=id.data;
-    for(let i=0;i<d.length;i+=4){const v=Math.random()*255|0;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255;}
-    gc.putImageData(id,0,0);
-  }
-  drawGrain();setInterval(drawGrain,90);window.addEventListener('resize',drawGrain);
-})();
-
-// CURSOR COLOR SHIFT per section
-(function(){
-  const colors={hero:'#00c9f0',about:'#00e887',projects:'#00c9f0',failure:'#ff7a45',stack:'#a366ff',contact:'#00e887'};
-  const cur=document.getElementById('cursor'),ring=document.getElementById('cursor-ring');
-  if(!cur)return;
-  const obs=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        const c=colors[e.target.id]||'#00c9f0';
-        cur.style.background=c;
-        if(ring){ring.style.borderColor=c;ring.style.opacity='0.5';}
-      }
-    });
-  },{threshold:0.3});
-  document.querySelectorAll('section[id]').forEach(s=>obs.observe(s));
-})();
-</script>
-
-<!-- ═══════════════════════════════════════════════════════════
-     ANIMATION LAYER — scroll reveals, count-up, typewriter,
-     parallax, stagger, micro-interactions
-════════════════════════════════════════════════════════════ -->
-<script>
-(function(){
-'use strict';
-
 /* ─────────────────────────────────────────
-   1. SCROLL REVEAL — powers .reveal.pre
-───────────────────────────────────────── */
-const revObs = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('on');
-      revObs.unobserve(e.target);
-    }
-  });
-},{threshold:0.07, rootMargin:'0px 0px -24px 0px'});
-
-document.querySelectorAll('.reveal.pre').forEach(el=>{
-  // If already in viewport on load, show immediately
-  const r=el.getBoundingClientRect();
-  if(r.top < window.innerHeight && r.bottom > 0){
-    el.classList.add('on');
-  } else {
-    revObs.observe(el);
-  }
-});
-
-/* ─────────────────────────────────────────
-   2. STAGGERED CARD REVEALS
-   Applies to spec-cards, fm-cards, arch-rows,
-   phase-rows, cert-items, tags, audience/break items
-───────────────────────────────────────── */
-const staggerSelectors = [
-  {sel:'.spec-card',    delay:0.08},
-  {sel:'.fm-card',      delay:0.10},
-  {sel:'.arch-row',     delay:0.09},
-  {sel:'.phase-row',    delay:0.07},
-  {sel:'.cert-item',    delay:0.12},
-  {sel:'.tag',          delay:0.04},
-  {sel:'.audience-item',delay:0.10},
-  {sel:'.break-item',   delay:0.09},
-];
-
-staggerSelectors.forEach(({sel, delay})=>{
-  const els = document.querySelectorAll(sel);
-  els.forEach(el=>{
-    el.style.opacity='0';
-    el.style.transform='translateY(22px)';
-    el.style.transition=`opacity 0.6s cubic-bezier(0.22,1,0.36,1), transform 0.6s cubic-bezier(0.22,1,0.36,1)`;
-  });
-  const obs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        // find index within parent group
-        const parent = e.target.parentElement;
-        const siblings = parent ? Array.from(parent.querySelectorAll(sel)) : [e.target];
-        const idx = siblings.indexOf(e.target);
-        const d = idx * delay;
-        setTimeout(()=>{
-          e.target.style.opacity='1';
-          e.target.style.transform='translateY(0)';
-        }, d * 1000);
-        obs.unobserve(e.target);
-      }
-    });
-  },{threshold:0.05, rootMargin:'0px 0px -16px 0px'});
-  els.forEach(el=>obs.observe(el));
-});
-
-/* ─────────────────────────────────────────
-   3. COUNT-UP ANIMATION on stat numbers
-───────────────────────────────────────── */
-function countUp(el, target, suffix, duration){
-  const isFloat = target%1 !== 0;
-  const start = performance.now();
-  function step(now){
-    const p = Math.min((now-start)/duration, 1);
-    const ease = 1 - Math.pow(1-p, 3);
-    const val = isFloat
-      ? (target * ease).toFixed(1)
-      : Math.floor(target * ease);
-    el.textContent = val + suffix;
-    if(p < 1) requestAnimationFrame(step);
-    else el.textContent = target + suffix;
-  }
-  requestAnimationFrame(step);
-}
-
-const statMap = [
-  {id:'s1', val:84.7, suf:'%'},
-  {id:'s2', val:90.9, suf:'%'},
-  {id:'s3', val:90.5, suf:'%'},
-  {id:'s4', val:3,    suf:''},
-];
-
-const statsSection = document.querySelector('.hero-stats');
-if(statsSection){
-  let fired = false;
-  const statsObs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting && !fired){
-        fired = true;
-        statMap.forEach(({id,val,suf},i)=>{
-          const el = document.getElementById(id);
-          if(el){
-            setTimeout(()=>{
-              countUp(el, val, suf, 1600);
-              // glow flash after count-up
-              setTimeout(()=>{
-                el.style.transition='text-shadow 0.35s ease';
-                el.style.textShadow='0 0 28px rgba(0,201,240,0.85)';
-                setTimeout(()=>el.style.textShadow='none', 800);
-              }, 1700);
-            }, i * 120);
-          }
-        });
-        statsObs.disconnect();
-      }
-    });
-  },{threshold:0.25});
-  statsObs.observe(statsSection);
-}
-
-/* ─────────────────────────────────────────
-   4. TYPEWRITER on .hero-title
-───────────────────────────────────────── */
-(function(){
-  const el = document.querySelector('.hero-title');
-  if(!el) return;
-  const original = el.textContent;
-  el.textContent = '';
-  el.style.opacity = '1';
-  el.style.animation = 'none'; // override CSS animation
-  el.style.borderRight = '2px solid var(--accent)';
-
-  let i = 0;
-  // Wait for hero fade-in delay (0.4s) + a small buffer
-  setTimeout(()=>{
-    const iv = setInterval(()=>{
-      el.textContent = original.slice(0,i);
-      el.style.borderRight = (i % 2 === 0) ? '2px solid var(--accent)' : '2px solid transparent';
-      i++;
-      if(i > original.length){
-        clearInterval(iv);
-        // Blinking cursor, then remove
-        let blinks = 0;
-        const blink = setInterval(()=>{
-          el.style.borderRight = blinks%2===0 ? '2px solid var(--accent)' : '2px solid transparent';
-          blinks++;
-          if(blinks > 6){ clearInterval(blink); el.style.borderRight='none'; }
-        }, 400);
-      }
-    }, 28);
-  }, 700);
-})();
-
-/* ─────────────────────────────────────────
-   5. PARALLAX — hero elements on scroll
-───────────────────────────────────────── */
-(function(){
-  const heroTag   = document.querySelector('.hero-tag');
-  const heroName  = document.querySelector('.hero-name');
-  const heroStats = document.querySelector('.hero-stats');
-  const scrollHint= document.querySelector('.scroll-hint');
-  let ticking = false;
-  window.addEventListener('scroll',()=>{
-    if(ticking) return;
-    ticking = true;
-    requestAnimationFrame(()=>{
-      const y = window.scrollY;
-      if(heroTag)   heroTag.style.transform   = `translateY(${y*0.10}px)`;
-      if(heroName)  heroName.style.transform  = `translateY(${y*0.06}px)`;
-      if(heroStats) heroStats.style.transform = `translateY(${y*-0.04}px)`;
-      if(scrollHint)scrollHint.style.opacity  = Math.max(0, 1 - y/160)+'';
-      ticking = false;
-    });
-  },{passive:true});
-})();
-
-/* ─────────────────────────────────────────
-   6. NAV — shimmer underline on scroll
-───────────────────────────────────────── */
-(function(){
-  const nav = document.querySelector('nav');
-  if(!nav) return;
-  // Inject a shimmer element into nav
-  const shimmer = document.createElement('div');
-  Object.assign(shimmer.style,{
-    position:'absolute', bottom:'-1px', left:'0', height:'1px',
-    width:'0%', pointerEvents:'none',
-    background:'linear-gradient(90deg, transparent, var(--accent), var(--purple), transparent)',
-    transition:'width 0.6s ease',
-    zIndex:'1',
-  });
-  nav.style.position='fixed'; // ensure
-  nav.appendChild(shimmer);
-
-  let lastY = 0;
-  window.addEventListener('scroll',()=>{
-    const y = window.scrollY;
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = maxScroll > 0 ? (y / maxScroll) * 100 : 0;
-    shimmer.style.width = pct + '%';
-    lastY = y;
-  },{passive:true});
-})();
-
-/* ─────────────────────────────────────────
-   7. SECTION HEADINGS — slide-in from left
-───────────────────────────────────────── */
-document.querySelectorAll('.sec-heading').forEach(el=>{
-  el.style.opacity='0';
-  el.style.transform='translateX(-28px)';
-  el.style.transition='opacity 0.7s cubic-bezier(0.22,1,0.36,1), transform 0.7s cubic-bezier(0.22,1,0.36,1)';
-  const obs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.style.opacity='1';
-        e.target.style.transform='translateX(0)';
-        obs.unobserve(e.target);
-      }
-    });
-  },{threshold:0.1});
-  obs.observe(el);
-});
-
-/* ─────────────────────────────────────────
-   8. SECTION EYEBROWS — fade + line grow
-───────────────────────────────────────── */
-document.querySelectorAll('.sec-eyebrow').forEach(el=>{
-  el.style.opacity='0';
-  el.style.transition='opacity 0.5s ease 0.1s';
-  const obs = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        e.target.style.opacity='1';
-        obs.unobserve(e.target);
-      }
-    });
-  },{threshold:0.2});
-  obs.observe(el);
-});
-
-/* ─────────────────────────────────────────
-   9. PROJECT CARDS — border glow on hover
+   MICRO-INTERACTIONS + EFFECTS
 ───────────────────────────────────────── */
 (function(){
   const style = document.createElement('style');
   style.textContent = `
-    @keyframes borderGlow {
-      0%,100% { box-shadow: 0 0 0 0 rgba(0,201,240,0); }
-      50%      { box-shadow: 0 0 32px 2px rgba(0,201,240,0.14), inset 0 0 0 1px rgba(0,201,240,0.08); }
-    }
-    .project-featured:hover {
-      animation: borderGlow 2s ease-in-out infinite;
-    }
-    @keyframes floatBadge {
-      0%,100% { transform:translateY(0); }
-      50%      { transform:translateY(-5px); }
-    }
-    .avail-badge { animation: floatBadge 3s ease-in-out infinite; }
-
-    @keyframes scanBeam {
-      0%   { transform:translateY(-2px); }
-      100% { transform:translateY(101vh); }
-    }
-    #scan-beam {
-      position:fixed; top:0; left:0; width:100%; height:2px;
-      background:linear-gradient(90deg, transparent, rgba(0,201,240,0.055), transparent);
-      pointer-events:none; z-index:2;
-      animation: scanBeam 10s linear infinite;
-    }
-
-    /* Phase row hover */
-    .phase-row {
-      transition: background 0.15s ease, padding-left 0.22s cubic-bezier(0.22,1,0.36,1) !important;
-    }
-    .phase-row:hover {
-      background: rgba(0,201,240,0.03) !important;
-      padding-left: 10px !important;
-    }
-
-    /* Arch row slide */
-    .arch-row {
-      transition: background 0.18s ease, transform 0.28s cubic-bezier(0.22,1,0.36,1) !important;
-    }
-    .arch-row:hover { transform: translateX(6px) !important; }
-
-    /* Stat cell scale */
-    .stat-cell {
-      transition: background 0.2s ease, transform 0.28s cubic-bezier(0.22,1,0.36,1) !important;
-    }
-    .stat-cell:hover { transform: scale(1.04) !important; }
-
-    /* Tag hop */
-    .tag {
-      transition: all 0.2s cubic-bezier(0.22,1,0.36,1) !important;
-    }
-    .tag:hover {
-      transform: translateY(-3px) !important;
-      border-color: var(--accent) !important;
-      color: var(--accent) !important;
-    }
-
-    /* s-pill hop */
     .s-pill {
       transition: all 0.22s cubic-bezier(0.22,1,0.36,1) !important;
     }
@@ -1663,17 +1408,18 @@ document.querySelectorAll('.sec-eyebrow').forEach(el=>{
     }
     .live-badge { animation: liveShimmer 2s ease-in-out infinite; }
 
-    /* Audience item slide */
-    .audience-item {
-      transition: background 0.2s ease, padding-left 0.28s cubic-bezier(0.22,1,0.36,1) !important;
+    /* Auto badge shimmer (teal variant) */
+    @keyframes autoShimmer {
+      0%   { box-shadow: 0 0 4px rgba(0,229,212,0.4); }
+      50%  { box-shadow: 0 0 14px rgba(0,229,212,0.65); }
+      100% { box-shadow: 0 0 4px rgba(0,229,212,0.4); }
     }
-    .audience-item:hover { padding-left: 32px !important; }
+    .auto-badge { animation: autoShimmer 2s ease-in-out infinite; }
 
-    /* Break item slide */
-    .break-item {
-      transition: background 0.18s ease, padding-left 0.28s cubic-bezier(0.22,1,0.36,1) !important;
+    /* Pattern table row */
+    .pattern-table tbody tr {
+      transition: background 0.2s ease;
     }
-    .break-item:hover { padding-left: 28px !important; }
 
     /* Eyebrow pulse */
     @keyframes eyebrowPulse {
@@ -1684,14 +1430,10 @@ document.querySelectorAll('.sec-eyebrow').forEach(el=>{
   `;
   document.head.appendChild(style);
 
-  // Scan beam element
-  const beam = document.createElement('div');
-  beam.id = 'scan-beam';
-  document.body.appendChild(beam);
 })();
 
 /* ─────────────────────────────────────────
-   10. FOOTER entrance
+   FOOTER entrance
 ───────────────────────────────────────── */
 (function(){
   const footer = document.querySelector('footer');
@@ -1710,7 +1452,7 @@ document.querySelectorAll('.sec-eyebrow').forEach(el=>{
 })();
 
 /* ─────────────────────────────────────────
-   11. CONTACT LINKS — staggered entrance
+   CONTACT LINKS — staggered entrance
 ───────────────────────────────────────── */
 (function(){
   const links = document.querySelectorAll('.c-link');
@@ -1735,7 +1477,7 @@ document.querySelectorAll('.sec-eyebrow').forEach(el=>{
 })();
 
 /* ─────────────────────────────────────────
-   12. CONTACT HEADING — letter-by-letter glow
+   CONTACT HEADING — letter-by-letter glow
 ───────────────────────────────────────── */
 (function(){
   const heading = document.querySelector('.contact-heading');
@@ -1754,37 +1496,7 @@ document.querySelectorAll('.sec-eyebrow').forEach(el=>{
 })();
 
 /* ─────────────────────────────────────────
-   13. STACK TABS — if present
-───────────────────────────────────────── */
-(function(){
-  const catItems = document.querySelectorAll('.stack-cat-item');
-  const panels   = document.querySelectorAll('.stack-panel');
-  if(!catItems.length) return;
-  catItems.forEach(item=>{
-    item.addEventListener('click',()=>{
-      catItems.forEach(c=>c.classList.remove('active'));
-      panels.forEach(p=>p.classList.remove('active'));
-      item.classList.add('active');
-      const target = item.dataset.cat || item.dataset.panel;
-      const panel  = document.getElementById('panel-'+target);
-      if(panel){
-        panel.classList.add('active');
-        // stagger pills
-        panel.querySelectorAll('.s-pill').forEach((pill,i)=>{
-          pill.style.opacity='0';
-          pill.style.transform='translateY(10px)';
-          setTimeout(()=>{
-            pill.style.opacity='1';
-            pill.style.transform='translateY(0)';
-          }, i*40);
-        });
-      }
-    });
-  });
-})();
-
-/* ─────────────────────────────────────────
-   14. DEMO LINKS — arrow pulse on hover
+   DEMO LINKS — arrow pulse on hover
 ───────────────────────────────────────── */
 (function(){
   document.querySelectorAll('.demo-link').forEach(link=>{
@@ -1801,13 +1513,14 @@ document.querySelectorAll('.sec-eyebrow').forEach(el=>{
 })();
 
 /* ─────────────────────────────────────────
-   15. AMBIENT GLOW ORBS — subtle depth behind sections
+   AMBIENT GLOW ORBS
 ───────────────────────────────────────── */
 (function(){
   const orbs = [
     {color:'rgba(0,201,240,0.055)', w:520, h:520, top:'8%',  left:'-8%'},
     {color:'rgba(0,232,135,0.04)',  w:440, h:440, top:'45%', right:'-6%'},
     {color:'rgba(163,102,255,0.04)',w:380, h:380, top:'78%', left:'30%'},
+    {color:'rgba(0,229,212,0.04)',  w:360, h:360, top:'62%', left:'-4%'},
   ];
   orbs.forEach(o=>{
     const div = document.createElement('div');
@@ -1838,7 +1551,6 @@ document.querySelectorAll('.sec-eyebrow').forEach(el=>{
   document.head.appendChild(orbStyle);
 })();
 
-})(); // end IIFE
 </script>
 </body>
 </html>
