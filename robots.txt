@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://victor-isuo.github.io/sitemap.xml
