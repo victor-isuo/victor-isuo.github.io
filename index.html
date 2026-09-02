@@ -3,12 +3,48 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Victor Isuo — Applied LLM & Agentic Systems Engineer</title>
-<meta name="description" content="Victor Isuo — Applied LLM Engineer building production-grade multi-agent AI systems, RAG architectures, and agentic pipelines. Open to remote roles globally.">
-<meta property="og:title" content="Victor Isuo — Applied LLM & Agentic Systems Engineer">
-<meta property="og:description" content="Four deployed AI systems. Production-grade multi-agent pipelines, RAG architectures, and evaluation infrastructure.">
+<title>Victor Isuo — AI Systems Engineer for Knowledge-Heavy & Operational Workflows</title>
+<meta name="description" content="I build production-grade RAG systems, AI agents, and intelligent automation that turn expensive manual workflows — research, documentation, diagnostics, reporting — into reliable software.">
+<link rel="canonical" href="https://victor-isuo.github.io/">
+<meta name="theme-color" content="#080810">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23080810'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' fill='%23C8A96E' text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E">
+<meta property="og:title" content="Victor Isuo — AI Systems Engineer for Knowledge-Heavy & Operational Workflows">
+<meta property="og:description" content="I build production-grade RAG systems, AI agents, and intelligent automation that turn expensive manual workflows into reliable software — evaluated, observable, and built to fail safely.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://victor-isuo.github.io/">
+<meta property="og:image" content="https://victor-isuo.github.io/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Victor Isuo — AI Systems Engineer for Knowledge-Heavy & Operational Workflows">
+<meta name="twitter:description" content="Production-grade RAG systems, AI agents, and intelligent automation for expensive manual workflows.">
+<meta name="twitter:image" content="https://victor-isuo.github.io/og-image.png">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Victor Isuo — AI Systems Engineering",
+  "url": "https://victor-isuo.github.io/",
+  "description": "Production-grade RAG systems, AI agents, and evaluation infrastructure for knowledge-heavy and operational workflows.",
+  "provider": {
+    "@type": "Person",
+    "name": "Victor Isuo",
+    "email": "victorisuo@proton.me",
+    "url": "https://victor-isuo.github.io/",
+    "sameAs": [
+      "https://github.com/victor-isuo",
+      "https://linkedin.com/in/victor-isuo-a02b65171",
+      "https://victorisuo.hashnode.dev/"
+    ],
+    "jobTitle": "AI Systems Engineer",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Uyo"
+    }
+  },
+  "areaServed": "Worldwide",
+  "serviceType": ["RAG system engineering", "AI agent development", "AI evaluation infrastructure", "Workflow automation"]
+}
+</script>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -36,6 +72,18 @@
   html { scroll-behavior: smooth; background: var(--bg); color: var(--text); font-family: var(--sans); }
   body { min-height: 100vh; overflow-x: hidden; }
   ::selection { background: rgba(200,169,110,0.22); }
+
+  /* ── ACCESSIBILITY ── */
+  a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 2px solid var(--gold); outline-offset: 3px;
+  }
+  .skip-link {
+    position: absolute; top: -100px; left: 1rem; z-index: 300;
+    background: var(--gold); color: var(--bg); font-family: var(--mono);
+    font-size: 0.8rem; padding: 0.75rem 1.25rem; text-decoration: none;
+    transition: top 0.2s;
+  }
+  .skip-link:focus { top: 1rem; }
 
   /* ── NAV ── */
   nav {
@@ -109,8 +157,11 @@
   .cursor { display: inline-block; width: 2px; height: 1.1em; background: var(--gold); margin-left: 2px; vertical-align: middle; animation: blink 1s step-end infinite; }
   @keyframes blink { 50% { opacity: 0; } }
 
-  .hero-desc { font-size: 1.0625rem; line-height: 1.82; color: var(--text-mid); max-width: 580px; margin-bottom: 2.75rem; }
+  .hero-tech-line { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.03em; margin-bottom: 2rem; }
+  .hero-desc { font-size: 1.0625rem; line-height: 1.82; color: var(--text-mid); max-width: 580px; margin-bottom: 1.25rem; }
+  .hero-desc:last-of-type { margin-bottom: 2.75rem; }
   .hero-desc strong { color: var(--text); font-weight: 500; }
+  .hero-footnote { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); margin-top: 1.25rem; letter-spacing: 0.02em; }
 
   .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 4rem; }
   .btn-primary { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--bg); background: var(--gold); padding: 0.9rem 2.25rem; text-decoration: none; font-weight: 500; transition: background 0.2s; border: 1px solid var(--gold); }
@@ -158,7 +209,7 @@
   .about-text p:last-of-type { margin-bottom: 0; }
   .about-text p strong { color: var(--text); font-weight: 500; }
   .about-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2.25rem; }
-  .skill-tag { font-family: var(--mono); font-size: 0.67rem; color: var(--gold-dim); border: 1px solid rgba(200,169,110,0.18); padding: 0.3rem 0.7rem; letter-spacing: 0.04em; text-transform: uppercase; background: var(--gold-faint); }
+  .skill-tag { font-family: var(--mono); font-size: 0.63rem; color: var(--text-dim); border: 1px solid var(--border-faint); padding: 0.26rem 0.6rem; letter-spacing: 0.03em; text-transform: uppercase; background: transparent; }
   .about-aside { border-left: 1px solid var(--border); padding-left: 3.25rem; }
   .aside-item { margin-bottom: 2.25rem; }
   .aside-item:last-child { margin-bottom: 0; }
@@ -185,23 +236,81 @@
   .project-name { font-family: var(--display); font-size: 1.3rem; font-weight: 600; color: var(--text); margin-bottom: 0.45rem; line-height: 1.25; }
   .project-tagline { font-size: 0.8rem; color: var(--gold); font-family: var(--mono); margin-bottom: 1.125rem; letter-spacing: 0.02em; }
   .project-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.72; margin-bottom: 0; flex: 1; }
+  .case-block { margin-bottom: 1.125rem; }
+  .case-block:last-of-type { margin-bottom: 0; }
+  .case-label { font-family: var(--mono); font-size: 0.63rem; color: var(--gold-dim); letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 0.3rem; }
+  .case-text { font-size: 0.875rem; color: var(--text-mid); line-height: 1.65; }
+  .case-disclaimer { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); margin-top: 0.5rem; letter-spacing: 0.02em; font-style: italic; }
   .project-meta { margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--border-faint); }
   .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
   .stack-tag { font-family: var(--mono); font-size: 0.63rem; color: var(--text-dim); background: rgba(240,235,225,0.03); border: 1px solid var(--border-faint); padding: 0.22rem 0.55rem; letter-spacing: 0.04em; text-transform: uppercase; }
-  .project-links { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; }
+  .project-links { display: flex; gap: 1.375rem; flex-wrap: wrap; align-items: center; }
   .project-link { font-family: var(--mono); font-size: 0.7rem; color: var(--text-mid); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 0.35rem; transition: color 0.2s; }
   .project-link:hover { color: var(--gold); }
   .project-link::after { content: '↗'; font-size: 0.65rem; }
   .project-link.no-arrow::after { display: none; }
+  .project-link.case-study { color: var(--gold-dim); }
+  .project-link.case-study:hover { color: var(--gold); }
   .project-eval { font-family: var(--mono); font-size: 0.67rem; color: var(--green); letter-spacing: 0.04em; margin-left: auto; }
+
+  /* ── HERO STAT (single, attributed) ── */
+  .hero-proof { display: flex; align-items: flex-start; gap: 1rem; padding-top: 2.5rem; border-top: 1px solid var(--border-faint); flex-wrap: wrap; }
+  .hero-proof-label { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.03em; padding-top: 0.3rem; white-space: nowrap; }
+  .hero-proof-values { display: flex; gap: 2.25rem; flex-wrap: wrap; }
+  .hero-proof-num { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--gold); line-height: 1; }
+  .hero-proof-item-label { font-size: 0.68rem; color: var(--text-dim); margin-top: 0.4rem; letter-spacing: 0.03em; text-transform: uppercase; }
+
+  /* ── PROBLEMS I SOLVE (who buys) ── */
+  .problem-item { display: flex; gap: 0.4rem; margin-top: 0.65rem; }
+  .problem-item-marker { color: var(--gold-dim); flex-shrink: 0; }
+  .problem-item-text { font-size: 0.8rem; color: var(--text-dim); line-height: 1.55; }
+
+  /* ── ASSESSMENT BOX ── */
+  .assessment-box { border: 1px solid var(--border); background: var(--bg-alt); padding: 2.5rem; margin-top: 3rem; }
+  .assessment-label { font-family: var(--mono); font-size: 0.67rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+  .assessment-title { font-family: var(--display); font-size: 1.15rem; font-weight: 600; color: var(--text); margin-bottom: 1rem; }
+  .assessment-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.72; margin-bottom: 1.5rem; max-width: 640px; }
+  .assessment-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem 2rem; }
+  .assessment-list-item { font-size: 0.83rem; color: var(--text-mid); display: flex; gap: 0.55rem; line-height: 1.5; }
+  .assessment-list-item::before { content: '—'; color: var(--gold-dim); flex-shrink: 0; }
+
+  /* ── ARCHITECTURE DIAGRAM ── */
+  .arch-section { background: var(--bg-alt); border-top: 1px solid var(--border-faint); border-bottom: 1px solid var(--border-faint); }
+  .arch-wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3.5rem; align-items: center; }
+  .arch-diagram { font-family: var(--mono); font-size: 0.78rem; line-height: 1.9; color: var(--text-mid); background: var(--bg); border: 1px solid var(--border-faint); padding: 2rem; white-space: pre; overflow-x: auto; }
+  .arch-diagram .n { color: var(--gold); }
+  .arch-diagram .l { color: var(--text-dim); }
+  .arch-stats { display: flex; flex-wrap: wrap; gap: 1.75rem; margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--border-faint); }
+  .arch-stat-num { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--gold); line-height: 1; }
+  .arch-stat-label { font-size: 0.68rem; color: var(--text-dim); margin-top: 0.4rem; letter-spacing: 0.03em; text-transform: uppercase; }
+
+  /* ── FUNNEL / SECONDARY CTA ── */
+  .funnel-cta { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border-faint); }
+  .funnel-cta-text { font-size: 0.9375rem; color: var(--text-mid); }
+  .funnel-cta-text strong { color: var(--text); font-weight: 500; }
+
+  /* ── SOLUTIONS ── */
+  .solutions-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px; background: var(--border-faint); }
+  .solution-card { background: var(--bg); padding: 2.25rem 2rem; transition: background 0.25s; }
+  .solution-card:hover { background: var(--bg-card); }
+  .solution-card .cap-icon { display: block; margin-bottom: 1.25rem; font-size: 1rem; }
+  .solution-title { font-family: var(--display); font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.75rem; line-height: 1.3; }
+  .solution-desc { font-size: 0.85rem; color: var(--text-mid); line-height: 1.68; }
 
   /* ── WHAT I BRING ── */
   .bring-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .bring-grid-4 { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
   .bring-card { padding: 2rem; border: 1px solid var(--border-faint); background: var(--bg-alt); }
   .bring-card-label { font-family: var(--mono); font-size: 0.67rem; color: var(--gold-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.875rem; }
   .bring-card-title { font-family: var(--display); font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.75rem; line-height: 1.35; }
   .bring-card-desc { font-size: 0.875rem; color: var(--text-mid); line-height: 1.72; }
   .bring-card-desc strong { color: var(--text); font-weight: 500; }
+
+  /* ── WHO I HELP ── */
+  .who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+  .who-card { padding: 2rem 0; border-top: 1px solid var(--border); }
+  .who-title { font-family: var(--display); font-size: 1.0625rem; font-weight: 600; color: var(--text); margin-bottom: 0.875rem; }
+  .who-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.72; }
 
   /* ── CONTACT ── */
   .contact-section { background: var(--bg-alt); border-top: 1px solid var(--border-faint); }
@@ -222,6 +331,8 @@
     outline: none; transition: border-color 0.2s; appearance: none; border-radius: 0;
   }
   .form-input:focus, .form-textarea:focus { border-color: var(--gold-dim); }
+  select.form-input { cursor: pointer; }
+  select.form-input option { background: var(--bg-card); color: var(--text); }
   .form-textarea { resize: vertical; min-height: 130px; }
   .form-input::placeholder, .form-textarea::placeholder { color: var(--text-dim); }
   .form-submit {
@@ -252,12 +363,17 @@
     .cap-item { border-right: none; padding: 0; border-bottom: 1px solid var(--border-faint); padding-bottom: 1.5rem; }
     .cap-item:last-child { border-bottom: none; padding-bottom: 0; }
     .bring-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .bring-grid-4 { grid-template-columns: 1fr 1fr; }
+    .solutions-grid { grid-template-columns: 1fr 1fr; }
+    .who-grid { grid-template-columns: 1fr; gap: 1rem; }
   }
 
   @media (max-width: 860px) {
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
     .about-aside { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 2rem; }
+    .arch-wrap { grid-template-columns: 1fr; gap: 2rem; }
+    .assessment-list { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 768px) {
@@ -277,10 +393,16 @@
     .project-card { padding: 2rem 1.25rem; }
     .bring-card { padding: 1.5rem 1.25rem; }
     .bring-grid { grid-template-columns: 1fr; }
+    .bring-grid-4 { grid-template-columns: 1fr; }
+    .solutions-grid { grid-template-columns: 1fr; }
+    .solution-card { padding: 2rem 1.25rem; }
     .form-submit { width: 100%; align-self: stretch; }
     .hero-actions { flex-direction: column; align-items: stretch; }
     .hero-actions .btn-primary, .hero-actions .btn-secondary { text-align: center; }
     .project-eval { margin-left: 0; margin-top: 0.5rem; }
+    .arch-diagram { font-size: 0.7rem; padding: 1.25rem; }
+    .assessment-box { padding: 1.75rem 1.25rem; }
+    .funnel-cta { flex-direction: column; align-items: flex-start; }
   }
 
   @media (max-width: 480px) {
@@ -301,114 +423,134 @@
 </head>
 <body>
 
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <a href="#problems" onclick="closeMobileMenu()">Problems I Solve</a>
+  <a href="#projects" onclick="closeMobileMenu()">Systems</a>
+  <a href="#case-study" onclick="closeMobileMenu()">Case Study</a>
+  <a href="#approach" onclick="closeMobileMenu()">How I Work</a>
   <a href="#about" onclick="closeMobileMenu()">About</a>
-  <a href="#projects" onclick="closeMobileMenu()">Work</a>
-  <a href="#approach" onclick="closeMobileMenu()">Approach</a>
-  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
-  <a href="#contact" class="mobile-cta" onclick="closeMobileMenu()">Get in touch</a>
+  <a href="#contact" class="mobile-cta" onclick="closeMobileMenu()">Discuss a Project</a>
 </div>
 
 <nav>
   <a href="#top" class="nav-logo">Victor<span>.</span>Isuo</a>
   <ul class="nav-links" aria-label="Navigation">
+    <li><a href="#problems">Problems I Solve</a></li>
+    <li><a href="#projects">Systems</a></li>
+    <li><a href="#case-study">Case Study</a></li>
+    <li><a href="#approach">How I Work</a></li>
     <li><a href="#about">About</a></li>
-    <li><a href="#projects">Work</a></li>
-    <li><a href="#approach">Approach</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Get in touch</a>
-  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+  <a href="#contact" class="nav-cta">Discuss a Project →</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
+<main id="main-content">
+
 <!-- ── HERO ── -->
 <section class="hero" id="top">
   <div class="hero-inner">
-    <p class="hero-eyebrow">Open to remote roles globally &mdash; UTC+1</p>
+    <p class="hero-eyebrow">Available for selected AI engineering projects &mdash; UTC+1</p>
     <h1 class="hero-headline">
-      Production AI systems,<br>not <span class="gold">wrapped API calls.</span>
+      AI systems that<br>do <span class="gold">real work.</span>
     </h1>
-    <p class="terminal-line">
-      <span class="terminal-prompt">~/victor $</span>
-      <span class="terminal-text" id="typed-role"></span><span class="cursor"></span>
+    <p class="hero-tech-line">RAG · AI Agents · Workflow Automation · Evaluation</p>
+    <p class="hero-desc">
+      I help teams automate <strong>knowledge-heavy and operational workflows</strong> — research, documentation, diagnostics, reporting — with AI systems built for real-world operation.
     </p>
     <p class="hero-desc">
-      I build <strong>multi-agent pipelines, hybrid RAG architectures, and autonomous agentic workflows</strong> with evaluation infrastructure baked in from day one. Every system I ship runs in Docker, has documented tradeoffs, and answers the hard questions before they're asked.
+      Evaluation, observability, failure handling, and deployment are considered from the beginning — not added after the demo.
     </p>
     <div class="hero-actions">
-      <a href="#projects" class="btn-primary">See the systems</a>
-      <a href="#contact" class="btn-secondary">Let's talk</a>
+      <a href="#contact" class="btn-primary">Discuss a Project →</a>
+      <a href="#approach" class="btn-secondary">See How I Build</a>
     </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-number">4</div>
-        <div class="stat-label">Deployed AI systems</div>
-      </div>
-      <div>
-        <div class="stat-number">90%</div>
-        <div class="stat-label">Eval accuracy, Industrial Copilot</div>
-      </div>
-      <div>
-        <div class="stat-number">3</div>
-        <div class="stat-label">Agentic frameworks in production</div>
-      </div>
-      <div>
-        <div class="stat-number">30</div>
-        <div class="stat-label">Custom eval cases, AgentEval</div>
+    <div class="hero-proof">
+      <span class="hero-proof-label">Industrial AI Copilot,<br>30-case eval suite</span>
+      <div class="hero-proof-values">
+        <div>
+          <div class="hero-proof-num">90%</div>
+          <div class="hero-proof-item-label">Answer accuracy</div>
+        </div>
+        <div>
+          <div class="hero-proof-num">100%</div>
+          <div class="hero-proof-item-label">Retrieval precision</div>
+        </div>
+        <div>
+          <div class="hero-proof-num">3.09s</div>
+          <div class="hero-proof-item-label">Avg. latency</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── CAPABILITY STRIP ── -->
-<div class="cap-strip">
-  <div class="cap-strip-inner">
-    <div class="cap-item">
-      <span class="cap-icon">⬡</span>
-      <div class="cap-text">
-        <strong>Multi-Agent Orchestration</strong>
-        <span>Supervisor + specialist architectures in LangGraph and CrewAI — isolated context windows, explicit reasoning chains</span>
+<!-- ── PROBLEMS I SOLVE ── -->
+<section id="problems">
+  <div class="section-inner">
+    <p class="section-label reveal">Problems I solve</p>
+    <h2 class="section-title reveal">What can AI take off your team's plate?</h2>
+    <p class="section-sub reveal">I build systems around workflows where teams spend too much time searching, researching, analyzing, classifying, reporting, or moving information between tools.</p>
+    <div class="solutions-grid">
+      <div class="solution-card reveal">
+        <span class="cap-icon">⬡</span>
+        <h3 class="solution-title">Knowledge &amp; RAG Systems</h3>
+        <p class="solution-desc">Turn internal documents, technical knowledge, SOPs, and research material into AI systems your team can actually use.</p>
+        <div class="problem-item"><span class="problem-item-marker">—</span><span class="problem-item-text">Internal documentation, SOPs, technical manuals, policies, research libraries.</span></div>
+      </div>
+      <div class="solution-card reveal">
+        <span class="cap-icon">⬡</span>
+        <h3 class="solution-title">Intelligent Workflow Automation</h3>
+        <p class="solution-desc">Automate repetitive research, classification, monitoring, reporting, and decision-support workflows.</p>
+        <div class="problem-item"><span class="problem-item-marker">—</span><span class="problem-item-text">Research, reporting, classification, monitoring, and information processing.</span></div>
+      </div>
+      <div class="solution-card reveal">
+        <span class="cap-icon">⬡</span>
+        <h3 class="solution-title">AI Agents &amp; Decision Workflows</h3>
+        <p class="solution-desc">Connect AI models to tools, data, and business processes to execute structured multi-step work.</p>
+        <div class="problem-item"><span class="problem-item-marker">—</span><span class="problem-item-text">Multi-step workflows that require reasoning, tool use, and structured decisions.</span></div>
+      </div>
+      <div class="solution-card reveal">
+        <span class="cap-icon">⬡</span>
+        <h3 class="solution-title">AI Evaluation &amp; Reliability</h3>
+        <p class="solution-desc">Measure AI quality continuously and catch regressions before they reach users.</p>
+        <div class="problem-item"><span class="problem-item-marker">—</span><span class="problem-item-text">Teams already running AI systems that need measurable quality and regression protection.</span></div>
       </div>
     </div>
-    <div class="cap-item">
-      <span class="cap-icon">⬡</span>
-      <div class="cap-text">
-        <strong>Hybrid RAG Pipelines</strong>
-        <span>Dense + BM25 retrieval, Cohere reranking, live ingestion — built for domains where semantic search alone fails</span>
-      </div>
-    </div>
-    <div class="cap-item">
-      <span class="cap-icon">⬡</span>
-      <div class="cap-text">
-        <strong>Evaluation Infrastructure</strong>
-        <span>LLM-as-judge scoring, CI/CD regression gates, structured rubrics — quality signals that block bad deployments</span>
-      </div>
-    </div>
-    <div class="cap-item">
-      <span class="cap-icon">⬡</span>
-      <div class="cap-text">
-        <strong>Production Deployment</strong>
-        <span>Docker, FastAPI, cloud-ready architecture — systems that run the same in your environment as they do in mine</span>
+
+    <div class="assessment-box reveal">
+      <p class="assessment-label">Before we build anything</p>
+      <h3 class="assessment-title">AI Workflow Assessment</h3>
+      <p class="assessment-desc">I'll help determine whether AI is actually a good fit for your workflow — and what I would build if it is. Not every problem needs an agent; some need a script, and some don't need AI at all.</p>
+      <div class="assessment-list">
+        <div class="assessment-list-item">Is the workflow actually suitable for AI?</div>
+        <div class="assessment-list-item">What data is available to work with?</div>
+        <div class="assessment-list-item">What should stay deterministic, not AI?</div>
+        <div class="assessment-list-item">Where can the system fail, and how loudly?</div>
+        <div class="assessment-list-item">What level of human oversight is needed?</div>
+        <div class="assessment-list-item">What would success be measured against?</div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <div class="gold-rule"></div>
 
 <!-- ── ABOUT ── -->
 <section id="about">
   <div class="section-inner">
-    <p class="section-label reveal">Background</p>
+    <p class="section-label reveal">Why I build this way</p>
     <div class="about-grid">
       <div class="about-text reveal">
-        <h2 class="section-title">Systems thinking from a different discipline.</h2>
-        <p>My foundation is Mechanical Engineering — failure analysis, constraint optimization, systems that fail in predictable and recoverable ways. When I moved into AI, I brought that same lens. I don't build demos that impress in a notebook and break in production. I build systems with documented tradeoffs, observable behavior, and clear failure modes.</p>
-        <p>My four deployed systems are built around the questions senior engineers actually ask: <strong>Why multi-agent instead of a single chain? How do you handle context accumulation across agent handoffs? What's your retrieval strategy when domain-specific terminology breaks semantic search?</strong> I have specific, defensible answers backed by real implementations.</p>
-        <p>I'm available for remote roles as an Applied LLM Engineer or Agentic Systems Engineer — with teams that are serious about production quality and want someone who can own an AI system end-to-end, from architecture decisions through deployment and continuous evaluation.</p>
+        <h2 class="section-title">I approach AI systems as engineering systems — not experiments.</h2>
+        <p>My foundation in Mechanical Engineering trained me to think in terms of constraints, failure modes, tradeoffs, and system behavior. I brought that mindset into AI engineering: I design systems with real-world operation in mind — measurable evaluation, failure handling, observability, and reproducible deployment, considered from the start.</p>
+        <p>Each system in my portfolio started with a concrete workflow problem, not a technology I wanted to try. That means I can walk through <strong>why a given architecture was chosen, where it would break, and what changes under a different constraint</strong> — the kind of scrutiny a serious technical buyer or hiring manager should apply.</p>
+        <p>I'm available for AI engineering projects, contract work, and remote roles — with teams and founders who want someone who can own a system end-to-end, from diagnosing the workflow through architecture, deployment, and evaluation.</p>
         <div class="about-skills">
           <span class="skill-tag">LangGraph</span>
           <span class="skill-tag">CrewAI</span>
@@ -431,7 +573,7 @@
       <div class="about-aside reveal">
         <div class="aside-item">
           <div class="aside-item-label">Location</div>
-          <div class="aside-item-value">Abuja, Nigeria <span>— open to remote globally</span></div>
+          <div class="aside-item-value">Nigeria, UTC+1 <span>— available remote or on-site</span></div>
         </div>
         <div class="aside-item">
           <div class="aside-item-label">Education</div>
@@ -455,7 +597,7 @@
         <div class="aside-item">
           <div class="aside-item-label">Availability</div>
           <div class="aside-item-value">
-            <span class="avail-badge"><span class="avail-dot"></span>Available for remote roles</span>
+            <span class="avail-badge"><span class="avail-dot"></span>Available for projects</span>
           </div>
         </div>
       </div>
@@ -468,19 +610,33 @@
 <!-- ── PROJECTS ── -->
 <section id="projects">
   <div class="section-inner">
-    <p class="section-label reveal">Selected work</p>
-    <h2 class="section-title reveal">Four systems. Four patterns. All deployed.</h2>
-    <p class="section-sub reveal">Not prototypes. Containerized, evaluated AI systems — each built to represent a distinct engineering pattern and answer hard architectural questions about the decisions behind it.</p>
+    <p class="section-label reveal">Systems I've built</p>
+    <h2 class="section-title reveal">Proof through working systems.</h2>
+    <p class="section-sub reveal">Each system started with a concrete problem, an architectural constraint, and a measurable definition of success.</p>
     <div class="projects-grid">
 
       <div class="project-card reveal">
         <div class="project-badge">
-          <span class="project-num">01 / 04</span>
           <span class="project-flagship">Flagship</span>
         </div>
         <h3 class="project-name">Industrial AI Copilot</h3>
-        <p class="project-tagline">Multi-agent fault diagnosis · LangGraph · 9 tools</p>
-        <p class="project-desc">A production-grade diagnostic platform built in four phases — from hybrid RAG retrieval over 27 industrial documents to full multi-agent orchestration with a Supervisor routing queries to four specialist agents. Features live MQTT telemetry, Gemini Vision for equipment image analysis, MCP server/client integration, and a custom 30-case evaluation suite. Every architectural decision — why multi-agent over a single chain, why hybrid retrieval over pure semantic search, why ChromaDB over a hosted vector DB — is documented and defensible.</p>
+        <p class="project-tagline">AI-assisted industrial knowledge and fault diagnosis</p>
+        <div class="case-block">
+          <span class="case-label">Problem</span>
+          <p class="case-text">Industrial troubleshooting can require searching technical documentation, interpreting equipment information, and combining multiple sources of evidence.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-label">System</span>
+          <p class="case-text">Built a multi-agent diagnostic system combining hybrid retrieval, specialist agents, live telemetry, image analysis, and tool integration.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-label">Engineering challenge</span>
+          <p class="case-text">Domain-specific terminology made pure semantic retrieval insufficient, leading to a hybrid dense + BM25 retrieval strategy with reranking.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-label">Measured evidence</span>
+          <p class="case-text">30-case eval suite · 90% answer accuracy · 100% retrieval precision · 3.09s average latency</p>
+        </div>
         <div class="project-meta">
           <div class="project-stack">
             <span class="stack-tag">LangGraph</span>
@@ -496,65 +652,29 @@
           <div class="project-links">
             <a href="https://victorisuo-industrial-ai-copilot.hf.space/multiagent-ui" class="project-link" target="_blank" rel="noopener">Live demo</a>
             <a href="https://github.com/victor-isuo/industrial-ai-copilot" class="project-link" target="_blank" rel="noopener">Source code</a>
-            <span class="project-eval">✓ 90% eval accuracy · 30 cases</span>
+            <a href="https://victorisuo.hashnode.dev/why-i-don-t-trust-vanilla-rag-and-the-retrieval-architecture-i-built-instead" class="project-link case-study" target="_blank" rel="noopener">Case study</a>
           </div>
         </div>
       </div>
 
       <div class="project-card reveal">
         <div class="project-badge">
-          <span class="project-num">02 / 04</span>
-        </div>
-        <h3 class="project-name">AgentEval</h3>
-        <p class="project-tagline">LLM evaluation & regression platform · CI/CD integrated</p>
-        <p class="project-desc">Evaluation infrastructure for the Industrial AI Copilot — and the pattern that separates production AI engineering from demo-quality builds. An LLM-as-judge scorer evaluates RAG faithfulness, single-agent tool selection, and multi-agent synthesis quality across three distinct rubrics. A 5% regression in any mode triggers an automatic CI block before deployment. The gap between a one-time benchmark and continuous quality monitoring is exactly what AgentEval closes.</p>
-        <div class="project-meta">
-          <div class="project-stack">
-            <span class="stack-tag">Groq Llama 4 Scout</span>
-            <span class="stack-tag">LLM-as-Judge</span>
-            <span class="stack-tag">SQLite</span>
-            <span class="stack-tag">GitHub Actions</span>
-            <span class="stack-tag">FastAPI</span>
-            <span class="stack-tag">Docker</span>
-          </div>
-          <div class="project-links">
-            <a href="https://victorisuo-agenteval.hf.space" class="project-link" target="_blank" rel="noopener">Live demo</a>
-            <a href="https://github.com/victor-isuo/agenteval" class="project-link" target="_blank" rel="noopener">Source code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-badge">
-          <span class="project-num">03 / 04</span>
-        </div>
-        <h3 class="project-name">LexAI</h3>
-        <p class="project-tagline">AI contract intelligence · CrewAI · 4-agent sequential pipeline</p>
-        <p class="project-desc">AI-powered contract analysis grounded in Common Law and UNIDROIT standards — demonstrating that the same agentic RAG architecture transfers to high-stakes legal domains. A four-agent CrewAI pipeline (Senior Analyst → Legal Researcher → Risk Assessor → Plain Language Specialist) produces structured risk reports with per-clause severity ratings and cited legal standards. Fourteen risk patterns detected automatically before any LLM call. Applicable across 80+ Common Law jurisdictions including UK, USA, Nigeria, and India.</p>
-        <div class="project-meta">
-          <div class="project-stack">
-            <span class="stack-tag">CrewAI</span>
-            <span class="stack-tag">ChromaDB</span>
-            <span class="stack-tag">LLM-as-Judge</span>
-            <span class="stack-tag">pdfplumber</span>
-            <span class="stack-tag">LangSmith</span>
-            <span class="stack-tag">FastAPI</span>
-            <span class="stack-tag">Docker</span>
-          </div>
-          <div class="project-links">
-            <a href="https://victorisuo-lexai.hf.space/ui" class="project-link" target="_blank" rel="noopener">Live demo</a>
-            <a href="https://github.com/victor-isuo/lexai" class="project-link" target="_blank" rel="noopener">Source code</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-badge">
-          <span class="project-num">04 / 04</span>
+          <span class="project-flagship">Commercial fit</span>
         </div>
         <h3 class="project-name">Busiv</h3>
-        <p class="project-tagline">Autonomous intelligence pipeline · LangGraph · schedule-driven</p>
-        <p class="project-desc">A fully autonomous agent pipeline that monitors industry news, scores articles for relevance, and synthesises structured intelligence briefings on a timer — no human trigger after deployment. Built on APScheduler + LangGraph with SHA-256 deduplication, four-category signal classification (Regulatory, Product, Market, Hiring), and a priority alert layer for breaking regulatory signals. Deployed for Nigerian fintech intelligence but domain-agnostic by design — point it at any industry by updating a single config file.</p>
+        <p class="project-tagline">Autonomous business intelligence workflow</p>
+        <div class="case-block">
+          <span class="case-label">Problem</span>
+          <p class="case-text">Monitoring industry news and producing structured intelligence can consume hours of manual research every week.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-label">System</span>
+          <p class="case-text">Collect → filter → classify → deduplicate → synthesize → deliver. An autonomous pipeline that produces scheduled intelligence briefings — no human trigger required after deployment.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-label">Engineering challenge</span>
+          <p class="case-text">Raw news volume is mostly noise. A relevance-scoring and four-category signal layer (Regulatory, Product, Market, Hiring) filters what reaches synthesis, with a priority path for time-sensitive regulatory signals.</p>
+        </div>
         <div class="project-meta">
           <div class="project-stack">
             <span class="stack-tag">LangGraph</span>
@@ -568,10 +688,141 @@
           <div class="project-links">
             <a href="https://victorisuo-busiv.hf.space" class="project-link" target="_blank" rel="noopener">Live demo</a>
             <a href="https://github.com/victor-isuo/busiv" class="project-link" target="_blank" rel="noopener">Source code</a>
+            <a href="https://victorisuo.hashnode.dev/i-built-an-ai-system-that-runs-while-i-sleep-here-s-the-architecture-that-makes-that-possible" class="project-link case-study" target="_blank" rel="noopener">Case study</a>
           </div>
         </div>
       </div>
 
+      <div class="project-card reveal">
+        <div class="project-badge"></div>
+        <h3 class="project-name">AgentEval</h3>
+        <p class="project-tagline">AI quality and regression infrastructure</p>
+        <div class="case-block">
+          <span class="case-label">Problem</span>
+          <p class="case-text">AI systems can silently degrade as prompts, models, retrieval strategies, or orchestration logic change.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-label">System</span>
+          <p class="case-text">Built an evaluation framework for RAG, single-agent, and multi-agent workflows with LLM-as-judge scoring and CI/CD regression gates.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-label">Business relevance</span>
+          <p class="case-text">Provides a repeatable quality signal before changes are deployed.</p>
+        </div>
+        <div class="project-meta">
+          <div class="project-stack">
+            <span class="stack-tag">Groq Llama 4 Scout</span>
+            <span class="stack-tag">LLM-as-Judge</span>
+            <span class="stack-tag">SQLite</span>
+            <span class="stack-tag">GitHub Actions</span>
+            <span class="stack-tag">FastAPI</span>
+            <span class="stack-tag">Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://victorisuo-agenteval.hf.space" class="project-link" target="_blank" rel="noopener">Live demo</a>
+            <a href="https://github.com/victor-isuo/agenteval" class="project-link" target="_blank" rel="noopener">Source code</a>
+            <a href="https://victorisuo.hashnode.dev/why-i-built-a-separate-evaluation-system-before-trusting-my-own-ai" class="project-link case-study" target="_blank" rel="noopener">Case study</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-badge"></div>
+        <h3 class="project-name">LexAI</h3>
+        <p class="project-tagline">AI-assisted contract intelligence prototype</p>
+        <div class="case-block">
+          <span class="case-label">Problem</span>
+          <p class="case-text">Contract review involves extracting clauses, identifying risk patterns, and presenting complex language in a structured form.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-label">System</span>
+          <p class="case-text">Built a multi-agent document analysis pipeline (Senior Analyst → Legal Researcher → Risk Assessor → Plain Language Specialist) with structured risk extraction and domain-grounded retrieval against Common Law and UNIDROIT reference material.</p>
+        </div>
+        <p class="case-disclaimer">Research prototype — not legal advice.</p>
+        <div class="project-meta">
+          <div class="project-stack">
+            <span class="stack-tag">CrewAI</span>
+            <span class="stack-tag">ChromaDB</span>
+            <span class="stack-tag">LLM-as-Judge</span>
+            <span class="stack-tag">pdfplumber</span>
+            <span class="stack-tag">LangSmith</span>
+            <span class="stack-tag">FastAPI</span>
+            <span class="stack-tag">Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://victorisuo-lexai.hf.space/ui" class="project-link" target="_blank" rel="noopener">Live demo</a>
+            <a href="https://github.com/victor-isuo/lexai" class="project-link" target="_blank" rel="noopener">Source code</a>
+            <a href="https://victorisuo.hashnode.dev/what-mechanical-engineering-taught-me-about-building-ai-systems" class="project-link case-study" target="_blank" rel="noopener">Case study</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="funnel-cta reveal">
+      <p class="funnel-cta-text">Not ready to talk yet? <strong>Read the flagship case study</strong> and see the architecture behind the numbers.</p>
+      <a href="#case-study" class="btn-secondary">See the Case Study →</a>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- ── FLAGSHIP CASE STUDY / ARCHITECTURE ── -->
+<section class="arch-section" id="case-study">
+  <div class="section-inner">
+    <p class="section-label reveal">Flagship case study</p>
+    <h2 class="section-title reveal">From fragmented documentation to an AI-assisted diagnostic workflow.</h2>
+    <p class="section-sub reveal">Industrial troubleshooting means searching manuals, reading equipment telemetry, and interpreting visual evidence — usually across three separate tools. The Industrial AI Copilot does this in one conversation.</p>
+    <div class="arch-wrap">
+      <div class="arch-diagram reveal" role="img" aria-label="Architecture diagram: user query goes to an orchestrator, which fans out to retrieval, telemetry, and vision. Retrieval combines dense and BM25 search through a reranker. All three feed specialist agents, which produce a diagnostic synthesis and an evidence-backed response.">
+<span class="l">           </span><span class="n">USER QUERY</span>
+<span class="l">                │</span>
+<span class="l">                ▼</span>
+<span class="l">         </span><span class="n">Orchestrator</span>
+<span class="l">                │</span>
+<span class="l">    ┌───────────┼───────────┐</span>
+<span class="l">    ▼           ▼           ▼</span>
+<span class="n">Retrieval</span>   <span class="n">Telemetry</span>    <span class="n">Vision</span>
+<span class="l">    │           │           │</span>
+<span class="l">Dense+BM25    MQTT      Gemini</span>
+<span class="l">    │</span>
+<span class="l">Reranker</span>
+<span class="l">    │</span>
+<span class="l">    └───────────┼───────────┘</span>
+<span class="l">                ▼</span>
+<span class="l">        </span><span class="n">Specialist Agents</span>
+<span class="l">                │</span>
+<span class="l">                ▼</span>
+<span class="l">      </span><span class="n">Diagnostic Synthesis</span>
+<span class="l">                │</span>
+<span class="l">                ▼</span>
+<span class="l">     </span><span class="n">Evidence-backed Response</span></div>
+      <div class="reveal">
+        <div class="case-block">
+          <span class="case-label">Why not a basic chatbot</span>
+          <p class="case-text">Domain-specific terminology made pure semantic retrieval insufficient. Combining dense vector search with BM25 keyword matching, then reranking, closed the gap between what the model retrieved and what a technician actually needed.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-label">Limitations</span>
+          <p class="case-text">Vision analysis depends on image quality from the field; telemetry integration currently assumes MQTT-compatible sensors. Both are documented, not hidden, in the source repository.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-label">Where this generalizes</span>
+          <p class="case-text">The same pattern — hybrid retrieval + live data + specialist agents + evaluation — applies to any operational workflow combining documentation, sensor data, and visual evidence.</p>
+        </div>
+        <div class="arch-stats">
+          <div><div class="arch-stat-num">90%</div><div class="arch-stat-label">Answer accuracy</div></div>
+          <div><div class="arch-stat-num">100%</div><div class="arch-stat-label">Retrieval precision</div></div>
+          <div><div class="arch-stat-num">3.09s</div><div class="arch-stat-label">Avg. latency</div></div>
+          <div><div class="arch-stat-num">30</div><div class="arch-stat-label">Evaluation cases</div></div>
+        </div>
+        <div class="project-links" style="margin-top:1.75rem;">
+          <a href="https://victorisuo-industrial-ai-copilot.hf.space/multiagent-ui" class="project-link" target="_blank" rel="noopener">Live demo</a>
+          <a href="https://github.com/victor-isuo/industrial-ai-copilot" class="project-link" target="_blank" rel="noopener">Source code</a>
+          <a href="https://victorisuo.hashnode.dev/why-i-don-t-trust-vanilla-rag-and-the-retrieval-architecture-i-built-instead" class="project-link case-study" target="_blank" rel="noopener">Full case study</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -581,24 +832,53 @@
 <!-- ── WHAT I BRING ── -->
 <section id="approach">
   <div class="section-inner">
-    <p class="section-label reveal">What I bring</p>
-    <h2 class="section-title reveal">Engineering discipline applied to AI.</h2>
+    <p class="section-label reveal">Engineering</p>
+    <h2 class="section-title reveal">How I build AI systems.</h2>
     <p class="section-sub reveal">A mechanical engineering foundation means I think about systems the way systems actually behave — with edge cases, failure modes, and constraints that matter in the real world.</p>
-    <div class="bring-grid">
+    <div class="bring-grid bring-grid-4">
       <div class="bring-card reveal">
-        <div class="bring-card-label">Constraint-first thinking</div>
-        <h3 class="bring-card-title">I find the real problem before touching the architecture.</h3>
-        <p class="bring-card-desc">Most AI projects fail because the engineering solution gets built before the actual constraint is understood. I start there — <strong>cost, latency, data quality, retrieval reliability</strong> — and work backward to the architecture. That usually saves weeks of rebuilding.</p>
+        <div class="bring-card-label">Start with the constraint</div>
+        <h3 class="bring-card-title">Architecture follows the constraint, not the other way around.</h3>
+        <p class="bring-card-desc"><strong>Cost, latency, data quality, reliability, and workflow complexity</strong> determine architecture. I start there and work backward, which usually saves weeks of rebuilding.</p>
       </div>
       <div class="bring-card reveal">
-        <div class="bring-card-label">Explainability by default</div>
-        <h3 class="bring-card-title">Every architectural decision has a reason I can state out loud.</h3>
-        <p class="bring-card-desc">Why multi-agent instead of a single chain? Why hybrid retrieval? Why this chunking strategy? I have <strong>specific, defensible answers</strong> — not intuition. That's what you need when a skeptical technical leader asks hard questions in a design review.</p>
+        <div class="bring-card-label">Choose the simplest architecture</div>
+        <h3 class="bring-card-title">Use a single chain when a single chain is enough.</h3>
+        <p class="bring-card-desc">Introduce agents only when they provide a <strong>real capability advantage</strong>. Reaching for multi-agent orchestration by default is a tell of inexperience, not sophistication.</p>
       </div>
       <div class="bring-card reveal">
-        <div class="bring-card-label">Production mindset</div>
-        <h3 class="bring-card-title">Containerized, evaluated, and wired for observability from day one.</h3>
-        <p class="bring-card-desc">Everything I build is <strong>Dockerized, version-controlled, and connected to an evaluation pipeline</strong>. Not because I'm tidy — because I've seen too many AI projects die in Jupyter notebooks. The system should run the same on your infrastructure as mine, and you should know immediately when quality degrades.</p>
+        <div class="bring-card-label">Evaluate before trusting</div>
+        <h3 class="bring-card-title">A system that hasn't been measured hasn't been proven to work.</h3>
+        <p class="bring-card-desc">I define <strong>measurable quality criteria and regression tests</strong> before assuming the system works — not after users start noticing problems.</p>
+      </div>
+      <div class="bring-card reveal">
+        <div class="bring-card-label">Design for operation</div>
+        <h3 class="bring-card-title">Deployment is part of the system, not cleanup work.</h3>
+        <p class="bring-card-desc"><strong>Containerization, observability, failure handling, versioning, and reproducible deployment</strong> are considered from the start, not bolted on before a demo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- ── WHO I HELP ── -->
+<section id="who">
+  <div class="section-inner">
+    <p class="section-label reveal">Who I help</p>
+    <h2 class="section-title reveal">Where I can create leverage.</h2>
+    <div class="who-grid">
+      <div class="who-card reveal">
+        <h3 class="who-title">Founders building AI products</h3>
+        <p class="who-desc">You have a validated problem and need someone who can turn the workflow into a reliable, production-grade AI system.</p>
+      </div>
+      <div class="who-card reveal">
+        <h3 class="who-title">Teams drowning in information</h3>
+        <p class="who-desc">Your people spend hours searching documents, researching markets, preparing reports, or processing information manually.</p>
+      </div>
+      <div class="who-card reveal">
+        <h3 class="who-title">Companies with an AI prototype</h3>
+        <p class="who-desc">You've built something that works in a demo but need better retrieval, evaluation, orchestration, or deployment to trust it in production.</p>
       </div>
     </div>
   </div>
@@ -612,8 +892,8 @@
     <p class="section-label reveal">Get in touch</p>
     <div class="contact-grid">
       <div class="contact-left reveal">
-        <h2 class="contact-headline">If you're building something real with AI, let's talk.</h2>
-        <p class="contact-desc">Open to full-time remote roles, contract engagements, and consulting. If your team needs someone who can own an AI system from architecture to deployment — and walk through every decision clearly — reach out. I respond within 24 hours.</p>
+        <h2 class="contact-headline">Have an AI workflow worth automating?</h2>
+        <p class="contact-desc">Tell me what your team currently does manually, where the bottleneck is, and what you've already tried. I'll help determine whether AI is actually a good fit — and what I would build if it is.</p>
         <div class="contact-info-item">
           <span class="contact-info-label">Email</span>
           <span class="contact-info-value"><a href="mailto:victorisuo@proton.me">victorisuo@proton.me</a></span>
@@ -634,18 +914,48 @@
       <div class="reveal">
         <form class="contact-form" id="contactForm" action="https://formspree.io/f/xkolrayl" method="POST">
           <div class="form-group">
-            <label class="form-label" for="f-name">Your name</label>
+            <label class="form-label" for="f-name">Name</label>
             <input class="form-input" type="text" id="f-name" name="name" placeholder="Sarah Chen" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-company">Company</label>
+            <input class="form-input" type="text" id="f-company" name="company" placeholder="Company name">
           </div>
           <div class="form-group">
             <label class="form-label" for="f-email">Work email</label>
             <input class="form-input" type="email" id="f-email" name="email" placeholder="sarah@company.com" required>
           </div>
           <div class="form-group">
-            <label class="form-label" for="f-msg">What you're working on</label>
-            <textarea class="form-textarea" id="f-msg" name="message" placeholder="Tell me about the role or project — the problem you're solving, your stack, what's not working, or what you're trying to build. The more specific, the better." required></textarea>
+            <label class="form-label" for="f-situation">What best describes your situation?</label>
+            <select class="form-input" id="f-situation" name="situation">
+              <option value="">Select one</option>
+              <option value="Automating a manual workflow">Automating a manual workflow</option>
+              <option value="Building an internal knowledge/RAG system">Building an internal knowledge/RAG system</option>
+              <option value="Exploring AI agents">Exploring AI agents</option>
+              <option value="Improving an existing AI prototype">Improving an existing AI prototype</option>
+              <option value="AI evaluation/reliability">AI evaluation/reliability</option>
+              <option value="Other">Other</option>
+            </select>
           </div>
-          <button class="form-submit" type="submit" id="submitBtn">Send message</button>
+          <div class="form-group">
+            <label class="form-label" for="f-stage">Project stage</label>
+            <select class="form-input" id="f-stage" name="stage">
+              <option value="">Select one</option>
+              <option value="Exploring an idea">Exploring an idea</option>
+              <option value="Already have a prototype">Already have a prototype</option>
+              <option value="Internal system in production">Internal system in production</option>
+              <option value="Looking to automate an existing workflow">Looking to automate an existing workflow</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-msg">What are you trying to build or automate?</label>
+            <textarea class="form-textarea" id="f-msg" name="message" placeholder="What does your team currently do manually, where's the bottleneck, and what have you already tried?" required></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="f-success">What would success look like?</label>
+            <textarea class="form-textarea" id="f-success" name="success" placeholder="What outcome would make this worth doing?"></textarea>
+          </div>
+          <button class="form-submit" type="submit" id="submitBtn">Start a conversation →</button>
           <p class="form-msg" id="formMsg"></p>
         </form>
       </div>
@@ -653,35 +963,19 @@
   </div>
 </section>
 
+</main>
+
 <footer>
-  <p class="footer-copy">© 2026 Victor Isuo &mdash; Applied LLM Systems Engineer</p>
+  <p class="footer-copy">© 2026 Victor Isuo &mdash; Independent AI Systems Engineer</p>
   <div class="footer-links">
     <a href="https://github.com/victor-isuo" target="_blank" rel="noopener">GitHub</a>
     <a href="https://linkedin.com/in/victor-isuo-a02b65171" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://victorisuo.hashnode.dev/" target="_blank" rel="noopener">Blog</a>
     <a href="mailto:victorisuo@proton.me">Email</a>
   </div>
 </footer>
 
 <script>
-  /* ── TYPEWRITER ── */
-  const roles = ['Applied LLM Engineer', 'Agentic Systems Engineer', 'RAG Pipeline Architect', 'Multi-Agent Systems Builder'];
-  let rIdx = 0, cIdx = 0, deleting = false;
-  const el = document.getElementById('typed-role');
-  function type() {
-    const current = roles[rIdx];
-    if (!deleting) {
-      el.textContent = current.slice(0, cIdx + 1);
-      cIdx++;
-      if (cIdx === current.length) { deleting = true; setTimeout(type, 2400); return; }
-    } else {
-      el.textContent = current.slice(0, cIdx - 1);
-      cIdx--;
-      if (cIdx === 0) { deleting = false; rIdx = (rIdx + 1) % roles.length; }
-    }
-    setTimeout(type, deleting ? 38 : 65);
-  }
-  type();
-
   /* ── MOBILE MENU ── */
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
@@ -741,7 +1035,7 @@
       formMsg.className = 'form-msg error';
     }
     submitBtn.disabled = false;
-    submitBtn.textContent = 'Send message';
+    submitBtn.textContent = 'Start a conversation →';
   });
 </script>
 </body>
