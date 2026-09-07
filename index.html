@@ -560,7 +560,8 @@
           <span class="skill-tag">MCP</span>
           <span class="skill-tag">FastAPI</span>
           <span class="skill-tag">Docker</span>
-          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">AWS ECS Fargate</span>
+          <span class="skill-tag">CI/CD (OIDC)</span>
           <span class="skill-tag">Gemini Vision</span>
           <span class="skill-tag">Groq / Llama</span>
           <span class="skill-tag">Cohere Rerank</span>
@@ -582,7 +583,7 @@
         <div class="aside-item">
           <div class="aside-item-label">Certifications</div>
           <div class="aside-item-value">
-            <div class="cert-item"><span>IBM RAG &amp; Agentic AI Professional Certificate <span style="color:var(--gold-dim);font-size:0.8rem;">· 2026</span></span></div>
+            <div class="cert-item"><span>IBM RAG &amp; Agentic AI Professional Certificate</span></div>
             <div class="cert-item"><span>Microsoft AI &amp; ML Engineering Professional Certificate</span></div>
           </div>
         </div>
@@ -634,6 +635,10 @@
           <p class="case-text">Domain-specific terminology made pure semantic retrieval insufficient, leading to a hybrid dense + BM25 retrieval strategy with reranking.</p>
         </div>
         <div class="case-block">
+          <span class="case-label">Deployment</span>
+          <p class="case-text">Migrated from Hugging Face Spaces to AWS: containerized on ECS Fargate behind an Application Load Balancer, with S3-backed vector store persistence and a GitHub Actions CI/CD pipeline authenticated via OIDC — no long-lived AWS credentials stored in CI.</p>
+        </div>
+        <div class="case-block">
           <span class="case-label">Measured evidence</span>
           <p class="case-text">30-case eval suite · 90% answer accuracy · 100% retrieval precision · 3.09s average latency</p>
         </div>
@@ -648,11 +653,15 @@
             <span class="stack-tag">MQTT</span>
             <span class="stack-tag">FastAPI</span>
             <span class="stack-tag">Docker</span>
+            <span class="stack-tag">AWS ECS Fargate</span>
+            <span class="stack-tag">ECR</span>
+            <span class="stack-tag">S3</span>
+            <span class="stack-tag">GitHub Actions / OIDC</span>
           </div>
           <div class="project-links">
-            <a href="https://victorisuo-industrial-ai-copilot.hf.space/multiagent-ui" class="project-link" target="_blank" rel="noopener">Live demo</a>
+            <a href="http://industrial-copilot-alb-998145074.us-east-1.elb.amazonaws.com/multiagent-ui" class="project-link" target="_blank" rel="noopener">Live demo (AWS)</a>
             <a href="https://github.com/victor-isuo/industrial-ai-copilot" class="project-link" target="_blank" rel="noopener">Source code</a>
-            <a href="https://victorisuo.hashnode.dev/why-i-don-t-trust-vanilla-rag-and-the-retrieval-architecture-i-built-instead" class="project-link case-study" target="_blank" rel="noopener">Case study</a>
+            <a href="https://victorisuo.hashnode.dev/industrial-ai-copilot-from-rag-to-production-oriented-agentic-system?utm_source=hashnode&utm_medium=feed" class="project-link case-study" target="_blank" rel="noopener">Case study</a>
           </div>
         </div>
       </div>
@@ -811,6 +820,10 @@
           <span class="case-label">Where this generalizes</span>
           <p class="case-text">The same pattern — hybrid retrieval + live data + specialist agents + evaluation — applies to any operational workflow combining documentation, sensor data, and visual evidence.</p>
         </div>
+        <div class="case-block">
+          <span class="case-label">From demo to production</span>
+          <p class="case-text">Originally deployed on Hugging Face Spaces, later migrated to AWS — ECS Fargate, ECR, an Application Load Balancer, S3-backed persistence, and a GitHub Actions pipeline authenticated via OIDC rather than stored credentials. The migration surfaced a real production lesson: an ALB health check race condition, fixed by separating liveness from readiness so the service only reports healthy once retrieval and agents are actually loaded.</p>
+        </div>
         <div class="arch-stats">
           <div><div class="arch-stat-num">90%</div><div class="arch-stat-label">Answer accuracy</div></div>
           <div><div class="arch-stat-num">100%</div><div class="arch-stat-label">Retrieval precision</div></div>
@@ -818,9 +831,9 @@
           <div><div class="arch-stat-num">30</div><div class="arch-stat-label">Evaluation cases</div></div>
         </div>
         <div class="project-links" style="margin-top:1.75rem;">
-          <a href="https://victorisuo-industrial-ai-copilot.hf.space/multiagent-ui" class="project-link" target="_blank" rel="noopener">Live demo</a>
+          <a href="http://industrial-copilot-alb-998145074.us-east-1.elb.amazonaws.com/multiagent-ui" class="project-link" target="_blank" rel="noopener">Live demo (AWS)</a>
           <a href="https://github.com/victor-isuo/industrial-ai-copilot" class="project-link" target="_blank" rel="noopener">Source code</a>
-          <a href="https://victorisuo.hashnode.dev/why-i-don-t-trust-vanilla-rag-and-the-retrieval-architecture-i-built-instead" class="project-link case-study" target="_blank" rel="noopener">Full case study</a>
+          <a href="https://victorisuo.hashnode.dev/industrial-ai-copilot-from-rag-to-production-oriented-agentic-system?utm_source=hashnode&utm_medium=feed" class="project-link case-study" target="_blank" rel="noopener">Full case study</a>
         </div>
       </div>
     </div>
@@ -854,7 +867,7 @@
       <div class="bring-card reveal">
         <div class="bring-card-label">Design for operation</div>
         <h3 class="bring-card-title">Deployment is part of the system, not cleanup work.</h3>
-        <p class="bring-card-desc"><strong>Containerization, observability, failure handling, versioning, and reproducible deployment</strong> are considered from the start, not bolted on before a demo.</p>
+        <p class="bring-card-desc"><strong>Containerization, observability, failure handling, versioning, and reproducible deployment</strong> are considered from the start, not bolted on before a demo. The flagship system runs on AWS ECS Fargate with an automated, OIDC-authenticated CI/CD pipeline — not just a hosted demo link.</p>
       </div>
     </div>
   </div>
