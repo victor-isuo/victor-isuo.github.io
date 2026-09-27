@@ -3,46 +3,39 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Victor Isuo — AI Systems Engineer for Knowledge-Heavy & Operational Workflows</title>
-<meta name="description" content="I build production-grade RAG systems, AI agents, and intelligent automation that turn expensive manual workflows — research, documentation, diagnostics, reporting — into reliable software.">
+<title>Victor Isuo — AI Systems Engineer</title>
+<meta name="description" content="AI Systems Engineer. I architect, evaluate, and deploy production-oriented agentic AI systems — RAG, multi-agent orchestration, evaluation infrastructure, and cloud deployment — across industrial, legal, and business-intelligence workflows.">
 <link rel="canonical" href="https://victor-isuo.github.io/">
 <meta name="theme-color" content="#080810">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23080810'/%3E%3Ctext x='50' y='68' font-family='Georgia,serif' font-size='58' fill='%23C8A96E' text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E">
-<meta property="og:title" content="Victor Isuo — AI Systems Engineer for Knowledge-Heavy & Operational Workflows">
-<meta property="og:description" content="I build production-grade RAG systems, AI agents, and intelligent automation that turn expensive manual workflows into reliable software — evaluated, observable, and built to fail safely.">
+<meta property="og:title" content="Victor Isuo — AI Systems Engineer">
+<meta property="og:description" content="Production-oriented agentic AI systems — architecture, retrieval, orchestration, evaluation, and cloud deployment — across industrial, legal, and business-intelligence domains.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://victor-isuo.github.io/">
 <meta property="og:image" content="https://victor-isuo.github.io/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Victor Isuo — AI Systems Engineer for Knowledge-Heavy & Operational Workflows">
-<meta name="twitter:description" content="Production-grade RAG systems, AI agents, and intelligent automation for expensive manual workflows.">
+<meta name="twitter:title" content="Victor Isuo — AI Systems Engineer">
+<meta name="twitter:description" content="Production-oriented agentic AI systems — architecture, retrieval, orchestration, evaluation, and cloud deployment — across industrial, legal, and business-intelligence domains.">
 <meta name="twitter:image" content="https://victor-isuo.github.io/og-image.png">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Victor Isuo — AI Systems Engineering",
+  "@type": "Person",
+  "name": "Victor Isuo",
   "url": "https://victor-isuo.github.io/",
-  "description": "Production-grade RAG systems, AI agents, and evaluation infrastructure for knowledge-heavy and operational workflows.",
-  "provider": {
-    "@type": "Person",
-    "name": "Victor Isuo",
-    "email": "victorisuo@proton.me",
-    "url": "https://victor-isuo.github.io/",
-    "sameAs": [
-      "https://github.com/victor-isuo",
-      "https://linkedin.com/in/victor-isuo-a02b65171",
-      "https://victorisuo.hashnode.dev/"
-    ],
-    "jobTitle": "AI Systems Engineer",
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "University of Uyo"
-    }
+  "email": "victorisuo@proton.me",
+  "sameAs": [
+    "https://github.com/victor-isuo",
+    "https://linkedin.com/in/victor-isuo-a02b65171",
+    "https://victorisuo.hashnode.dev/"
+  ],
+  "jobTitle": "AI Systems Engineer",
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "University of Uyo"
   },
-  "areaServed": "Worldwide",
-  "serviceType": ["RAG system engineering", "AI agent development", "AI evaluation infrastructure", "Workflow automation"]
+  "knowsAbout": ["Retrieval-Augmented Generation", "AI Agents", "Multi-Agent Orchestration", "LLM Evaluation", "AWS Deployment", "FastAPI", "LangGraph", "CrewAI"]
 }
 </script>
 <style>
@@ -62,18 +55,19 @@
     --text-dim: #52504a;
     --border: rgba(200,169,110,0.16);
     --border-faint: rgba(240,235,225,0.06);
-    --mono: 'JetBrains Mono', monospace;
-    --sans: 'Inter', sans-serif;
-    --display: 'Sora', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'Public Sans', sans-serif;
+    --display: 'Source Serif 4', Georgia, serif;
     --green: #5ec46a;
     --blue: #6898d4;
+    --amber: #d4a24c;
+    --red: #d4706c;
   }
 
   html { scroll-behavior: smooth; background: var(--bg); color: var(--text); font-family: var(--sans); }
   body { min-height: 100vh; overflow-x: hidden; }
   ::selection { background: rgba(200,169,110,0.22); }
 
-  /* ── ACCESSIBILITY ── */
   a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
     outline: 2px solid var(--gold); outline-offset: 3px;
   }
@@ -85,8 +79,7 @@
   }
   .skip-link:focus { top: 1rem; }
 
-  /* ── NAV ── */
-  nav {
+  .site-nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 160;
     display: flex; justify-content: space-between; align-items: center;
     padding: 1.25rem 3rem;
@@ -94,15 +87,17 @@
     backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border-faint);
   }
-  .nav-logo { font-family: var(--display); font-weight: 600; font-size: 1rem; letter-spacing: 0.02em; color: var(--text); text-decoration: none; }
+  .nav-logo { font-family: var(--sans); font-weight: 600; font-size: 0.95rem; letter-spacing: 0.01em; color: var(--text); text-decoration: none; }
   .nav-logo span { color: var(--gold); }
-  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links { display: flex; gap: 2.25rem; list-style: none; }
   .nav-links a { font-size: 0.8rem; color: var(--text-mid); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 500; transition: color 0.2s; }
   .nav-links a:hover { color: var(--gold); }
+  .nav-right { display: flex; align-items: center; gap: 0.875rem; }
   .nav-cta { font-family: var(--mono); font-size: 0.75rem; color: var(--gold); border: 1px solid var(--gold-dim); padding: 0.5rem 1.25rem; text-decoration: none; letter-spacing: 0.06em; transition: all 0.2s; text-transform: uppercase; }
   .nav-cta:hover { background: var(--gold-faint); border-color: var(--gold); }
+  .nav-cta.solid { background: var(--gold); color: var(--bg); }
+  .nav-cta.solid:hover { background: #d4b47e; }
 
-  /* Hamburger */
   .nav-hamburger {
     display: none; flex-direction: column; justify-content: space-between;
     width: 22px; height: 16px; cursor: pointer; background: none; border: none; padding: 0; z-index: 200;
@@ -112,19 +107,18 @@
   .nav-hamburger.open span:nth-child(2) { opacity: 0; }
   .nav-hamburger.open span:nth-child(3) { transform: translateY(-7.25px) rotate(-45deg); background: var(--gold); }
 
-  /* Mobile menu */
   .mobile-menu {
     display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(8,8,16,0.97); z-index: 150; flex-direction: column;
-    justify-content: center; align-items: center; gap: 2.5rem;
+    background: #06060c; z-index: 150; flex-direction: column;
+    justify-content: center; align-items: center; gap: 2.25rem;
     opacity: 0; transition: opacity 0.25s;
   }
   .mobile-menu.open { opacity: 1; }
-  .mobile-menu a { font-family: var(--display); font-size: 1.75rem; font-weight: 600; color: var(--text-mid); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; }
+  .mobile-menu a { font-family: var(--display); font-size: 1.7rem; font-weight: 500; color: var(--text-mid); text-decoration: none; letter-spacing: 0; transition: color 0.2s; }
   .mobile-menu a:hover { color: var(--gold); }
   .mobile-menu .mobile-cta {
     font-family: var(--mono); font-size: 0.85rem; color: var(--gold);
-    border: 1px solid var(--gold-dim); padding: 0.75rem 2rem; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 1rem;
+    border: 1px solid var(--gold-dim); padding: 0.75rem 2rem; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 0.5rem;
   }
 
   /* ── HERO ── */
@@ -141,67 +135,78 @@
   .hero-inner { max-width: 860px; position: relative; }
   .hero-eyebrow {
     font-family: var(--mono); font-size: 0.725rem; color: var(--green);
-    letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 2rem;
+    letter-spacing: 0.06em; margin-bottom: 1.75rem;
     display: flex; align-items: center; gap: 0.75rem;
   }
   .hero-eyebrow::before { content: ''; display: block; width: 8px; height: 8px; background: var(--green); border-radius: 50%; animation: pulse 2.2s ease-in-out infinite; }
   @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(0.8)} }
 
-  .hero-headline { font-family: var(--display); font-size: clamp(2.4rem, 5.5vw, 4.25rem); font-weight: 700; line-height: 1.08; letter-spacing: -0.025em; color: var(--text); margin-bottom: 1.75rem; }
-  .hero-headline .gold { color: var(--gold); }
-  .hero-headline em { font-style: normal; color: var(--text-mid); font-weight: 400; }
+  .hero-role { font-family: var(--display); font-size: clamp(1.9rem, 4.4vw, 3rem); font-weight: 600; letter-spacing: -0.005em; color: var(--text); margin-bottom: 0.75rem; }
+  .hero-capabilities { font-family: var(--mono); font-size: clamp(0.78rem, 1.6vw, 0.95rem); color: var(--gold); letter-spacing: 0.02em; margin-bottom: 1.5rem; }
+  .hero-headline { font-family: var(--display); font-size: clamp(1.4rem, 2.6vw, 1.85rem); font-weight: 400; line-height: 1.45; letter-spacing: 0; color: var(--text-mid); margin-bottom: 1.75rem; max-width: 700px; }
+  .hero-headline strong { color: var(--text); font-weight: 600; }
+  .hero-headline .gold { color: var(--gold); font-weight: 600; }
 
-  .terminal-line { font-family: var(--mono); font-size: clamp(0.85rem, 2vw, 1.1rem); color: var(--text-mid); margin-bottom: 2.25rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; overflow: hidden; }
-  .terminal-prompt { color: var(--gold-dim); white-space: nowrap; }
-  .terminal-text { color: var(--gold); min-width: 0; max-width: 100%; }
-  .cursor { display: inline-block; width: 2px; height: 1.1em; background: var(--gold); margin-left: 2px; vertical-align: middle; animation: blink 1s step-end infinite; }
-  @keyframes blink { 50% { opacity: 0; } }
-
-  .hero-tech-line { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.03em; margin-bottom: 2rem; }
-  .hero-desc { font-size: 1.0625rem; line-height: 1.82; color: var(--text-mid); max-width: 580px; margin-bottom: 1.25rem; }
+  .hero-tech-line { font-family: var(--mono); font-size: 0.78rem; color: var(--text-dim); letter-spacing: 0.02em; margin-bottom: 2rem; }
+  .hero-desc { font-size: 1.0625rem; line-height: 1.82; color: var(--text-mid); max-width: 620px; margin-bottom: 1.25rem; }
   .hero-desc:last-of-type { margin-bottom: 2.75rem; }
   .hero-desc strong { color: var(--text); font-weight: 500; }
-  .hero-footnote { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); margin-top: 1.25rem; letter-spacing: 0.02em; }
 
   .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 4rem; }
-  .btn-primary { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--bg); background: var(--gold); padding: 0.9rem 2.25rem; text-decoration: none; font-weight: 500; transition: background 0.2s; border: 1px solid var(--gold); }
+  .btn-primary { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--bg); background: var(--gold); padding: 0.9rem 2.25rem; text-decoration: none; font-weight: 500; transition: background 0.2s; border: 1px solid var(--gold); }
   .btn-primary:hover { background: #d4b47e; }
-  .btn-secondary { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); background: transparent; padding: 0.9rem 2.25rem; text-decoration: none; font-weight: 500; transition: all 0.2s; border: 1px solid var(--gold-dim); }
+  .btn-secondary { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--gold); background: transparent; padding: 0.9rem 2.25rem; text-decoration: none; font-weight: 500; transition: all 0.2s; border: 1px solid var(--gold-dim); }
   .btn-secondary:hover { background: var(--gold-faint); border-color: var(--gold); }
+  .btn-tertiary { font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em; color: var(--text-mid); background: transparent; padding: 0.9rem 1.5rem; text-decoration: none; font-weight: 500; transition: all 0.2s; border: 1px solid transparent; }
+  .btn-tertiary:hover { color: var(--text); }
 
-  .hero-stats { display: flex; gap: 3rem; padding-top: 2.5rem; border-top: 1px solid var(--border-faint); flex-wrap: wrap; }
-  .stat-number { font-family: var(--display); font-size: 2.25rem; font-weight: 700; color: var(--gold); line-height: 1; }
-  .stat-label { font-size: 0.7rem; color: var(--text-dim); margin-top: 0.45rem; letter-spacing: 0.05em; text-transform: uppercase; }
+  .hero-proof { display: flex; align-items: flex-start; gap: 1rem; padding-top: 2.5rem; border-top: 1px solid var(--border-faint); flex-wrap: wrap; }
+  .hero-proof-label { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.02em; padding-top: 0.3rem; white-space: nowrap; }
+  .hero-proof-values { display: flex; gap: 2.25rem; flex-wrap: wrap; }
+  .hero-proof-num { font-family: var(--mono); font-size: 1.4rem; font-weight: 500; color: var(--gold); line-height: 1; }
+  .hero-proof-item-label { font-size: 0.68rem; color: var(--text-dim); margin-top: 0.4rem; letter-spacing: 0.02em; }
 
-  /* ── CAPABILITY STRIP ── */
-  .cap-strip {
-    border-top: 1px solid var(--border-faint);
-    border-bottom: 1px solid var(--border-faint);
-    background: var(--bg-alt);
-    padding: 2.25rem 3rem;
-    overflow: hidden;
-  }
-  .cap-strip-inner { max-width: 1080px; margin: 0 auto; display: flex; gap: 0; }
-  .cap-item {
-    flex: 1;
-    padding: 0 2.5rem;
-    border-right: 1px solid var(--border-faint);
-    display: flex; align-items: flex-start; gap: 1rem;
-  }
-  .cap-item:first-child { padding-left: 0; }
-  .cap-item:last-child { border-right: none; padding-right: 0; }
-  .cap-icon { font-family: var(--mono); font-size: 0.9rem; color: var(--gold); flex-shrink: 0; margin-top: 0.1rem; }
-  .cap-text strong { font-family: var(--display); font-size: 0.875rem; font-weight: 600; color: var(--text); display: block; margin-bottom: 0.2rem; }
-  .cap-text span { font-size: 0.78rem; color: var(--text-dim); line-height: 1.5; }
+  /* ── CROSS-DOMAIN STATEMENT ── */
+  .discipline-section { background: var(--bg-alt); border-top: 1px solid var(--border-faint); border-bottom: 1px solid var(--border-faint); padding: 4rem 3rem; }
+  .discipline-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+  .discipline-label { font-family: var(--mono); font-size: 0.72rem; color: var(--gold-dim); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1.25rem; }
+  .discipline-title { font-family: var(--display); font-size: clamp(1.3rem, 2.6vw, 1.75rem); font-weight: 500; color: var(--text); margin-bottom: 1.25rem; letter-spacing: 0; }
+  .discipline-text { font-size: 1rem; line-height: 1.85; color: var(--text-mid); max-width: 760px; margin: 0 auto; }
+  .discipline-domains { display: flex; justify-content: center; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+  .domain-pill { font-family: var(--mono); font-size: 0.72rem; color: var(--text-mid); border: 1px solid var(--border-faint); padding: 0.4rem 0.9rem; letter-spacing: 0.02em; }
 
   /* ── SECTIONS ── */
   section { padding: 6rem 3rem; }
   .section-inner { max-width: 1080px; margin: 0 auto; }
-  .section-label { font-family: var(--mono); font-size: 0.68rem; color: var(--gold); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
+  .section-label { font-family: var(--mono); font-size: 0.72rem; color: var(--gold); letter-spacing: 0.04em; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
   .section-label::after { content: ''; flex: 1; max-width: 48px; height: 1px; background: var(--gold-dim); }
-  .section-title { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1rem; }
-  .section-sub { font-size: 1rem; color: var(--text-mid); max-width: 560px; line-height: 1.72; margin-bottom: 3.5rem; }
+  .section-title { font-family: var(--display); font-size: clamp(1.5rem, 2.8vw, 2.1rem); font-weight: 600; letter-spacing: 0; color: var(--text); margin-bottom: 1rem; }
+  .section-sub { font-size: 1rem; color: var(--text-mid); max-width: 620px; line-height: 1.72; margin-bottom: 3.5rem; }
   .gold-rule { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+
+  /* ── STATUS BADGES ── */
+  .status-badge { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.03em; padding: 0.18rem 0.55rem; border: 1px solid; text-transform: uppercase; white-space: nowrap; }
+  .status-badge.aws { color: var(--green); border-color: rgba(94,196,106,0.4); background: rgba(94,196,106,0.06); }
+  .status-badge.demo { color: var(--blue); border-color: rgba(104,152,212,0.4); background: rgba(104,152,212,0.06); }
+  .status-badge.prototype { color: var(--amber); border-color: rgba(212,162,76,0.4); background: rgba(212,162,76,0.06); }
+  .status-badge.autonomous { color: var(--gold); border-color: var(--gold-dim); background: var(--gold-faint); }
+  .status-badge.infra { color: var(--text-mid); border-color: var(--border); background: transparent; }
+
+  /* ── WHAT I CAN OWN ── */
+  .own-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5px; background: var(--border-faint); }
+  .own-card { padding: 2.25rem; background: var(--bg); transition: background 0.25s; }
+  .own-card:hover { background: var(--bg-card); }
+  .own-card-icon { font-family: var(--mono); font-size: 0.7rem; color: var(--gold); border: 1px solid var(--gold-dim); width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.25rem; }
+  .own-card-title { font-family: var(--display); font-size: 1.08rem; font-weight: 500; color: var(--text); margin-bottom: 0.75rem; line-height: 1.35; }
+  .own-card-desc { font-size: 0.885rem; color: var(--text-mid); line-height: 1.72; }
+
+  /* ── TECHNICAL DEPTH ── */
+  .depth-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5px; background: var(--border-faint); margin-bottom: 2rem; }
+  .depth-card { padding: 1.75rem 1.5rem; background: var(--bg); }
+  .depth-card-title { font-family: var(--mono); font-size: 0.7rem; color: var(--gold); letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 1rem; }
+  .depth-card-items { font-size: 0.8rem; color: var(--text-mid); line-height: 1.9; }
+  .depth-footer { font-family: var(--mono); font-size: 0.82rem; color: var(--text-mid); text-align: center; padding-top: 2rem; border-top: 1px solid var(--border-faint); }
+  .depth-footer strong { color: var(--gold); font-weight: 500; }
 
   /* ── ABOUT ── */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4.5rem; align-items: start; }
@@ -209,11 +214,11 @@
   .about-text p:last-of-type { margin-bottom: 0; }
   .about-text p strong { color: var(--text); font-weight: 500; }
   .about-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2.25rem; }
-  .skill-tag { font-family: var(--mono); font-size: 0.63rem; color: var(--text-dim); border: 1px solid var(--border-faint); padding: 0.26rem 0.6rem; letter-spacing: 0.03em; text-transform: uppercase; background: transparent; }
+  .skill-tag { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); border: 1px solid var(--border-faint); padding: 0.26rem 0.6rem; letter-spacing: 0.01em; background: transparent; }
   .about-aside { border-left: 1px solid var(--border); padding-left: 3.25rem; }
   .aside-item { margin-bottom: 2.25rem; }
   .aside-item:last-child { margin-bottom: 0; }
-  .aside-item-label { font-family: var(--mono); font-size: 0.67rem; color: var(--gold-dim); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.45rem; }
+  .aside-item-label { font-family: var(--mono); font-size: 0.7rem; color: var(--gold-dim); letter-spacing: 0.03em; margin-bottom: 0.45rem; }
   .aside-item-value { font-size: 0.9375rem; color: var(--text); line-height: 1.55; }
   .aside-item-value span { color: var(--text-mid); font-size: 0.875rem; }
   .aside-item-value a { color: var(--gold); text-decoration: none; transition: opacity 0.2s; }
@@ -224,107 +229,137 @@
   .cert-item::before { content: '—'; color: var(--gold-dim); font-size: 0.75rem; flex-shrink: 0; }
   .cert-item span { font-size: 0.875rem; color: var(--text-mid); }
 
+  /* ── APPROACH (How I Approach a New AI Problem) ── */
+  .approach-list { display: flex; flex-direction: column; gap: 0; border-top: 1px solid var(--border-faint); }
+  .approach-item { display: grid; grid-template-columns: 90px 1fr; gap: 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--border-faint); align-items: baseline; }
+  .approach-num { font-family: var(--mono); font-size: 0.85rem; color: var(--gold-dim); }
+  .approach-title { font-family: var(--display); font-size: 1.05rem; font-weight: 500; color: var(--text); margin-bottom: 0.4rem; }
+  .approach-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.65; }
+
+  /* ── PRINCIPLES (formerly "what I bring") ── */
+  .bring-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: var(--border-faint); }
+  .bring-card { padding: 2.25rem; background: var(--bg); transition: background 0.25s; }
+  .bring-card:hover { background: var(--bg-card); }
+  .bring-card.emphasis { background: var(--bg-alt); border-left: 2px solid var(--gold); }
+  .bring-card-label { font-family: var(--mono); font-size: 0.7rem; color: var(--gold-dim); letter-spacing: 0.02em; margin-bottom: 0.875rem; }
+  .bring-card.emphasis .bring-card-label { color: var(--gold); }
+  .bring-card-title { font-family: var(--display); font-size: 1.08rem; font-weight: 500; color: var(--text); margin-bottom: 0.75rem; line-height: 1.35; }
+  .bring-card-desc { font-size: 0.885rem; color: var(--text-mid); line-height: 1.72; }
+  .bring-card-desc strong { color: var(--text); font-weight: 500; }
+  .bring-card-desc code { font-family: var(--mono); font-size: 0.82em; color: var(--gold); background: var(--gold-faint); padding: 0.1rem 0.35rem; }
+  .bring-evidence { display: block; margin-top: 0.875rem; font-family: var(--mono); font-size: 0.72rem; color: var(--gold-dim); padding-top: 0.75rem; border-top: 1px solid var(--border-faint); }
+
   /* ── PROJECTS ── */
+  .featured-tag { font-family: var(--mono); font-size: 0.68rem; color: var(--bg); background: var(--gold); padding: 0.2rem 0.6rem; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 600; }
+  .other-systems-label { font-family: var(--mono); font-size: 0.75rem; color: var(--text-dim); letter-spacing: 0.04em; text-transform: uppercase; margin: 3.5rem 0 1.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border-faint); }
   .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: var(--border-faint); }
   .project-card { background: var(--bg); padding: 2.75rem; transition: background 0.25s; position: relative; overflow: hidden; display: flex; flex-direction: column; }
   .project-card:hover { background: var(--bg-card); }
   .project-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: transparent; transition: background 0.3s; }
   .project-card:hover::before { background: var(--gold); }
-  .project-badge { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.75rem; }
-  .project-num { font-family: var(--mono); font-size: 0.67rem; color: var(--text-dim); letter-spacing: 0.1em; }
-  .project-flagship { font-family: var(--mono); font-size: 0.62rem; color: var(--gold); border: 1px solid var(--gold-dim); padding: 0.15rem 0.5rem; letter-spacing: 0.06em; text-transform: uppercase; background: var(--gold-faint); }
-  .project-name { font-family: var(--display); font-size: 1.3rem; font-weight: 600; color: var(--text); margin-bottom: 0.45rem; line-height: 1.25; }
-  .project-tagline { font-size: 0.8rem; color: var(--gold); font-family: var(--mono); margin-bottom: 1.125rem; letter-spacing: 0.02em; }
-  .project-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.72; margin-bottom: 0; flex: 1; }
+  .project-badge { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.75rem; min-height: 1.2rem; flex-wrap: wrap; }
+  .project-tag { font-family: var(--mono); font-size: 0.65rem; color: var(--gold); border: 1px solid var(--gold-dim); padding: 0.15rem 0.5rem; letter-spacing: 0.02em; background: var(--gold-faint); }
+  .project-name { font-family: var(--display); font-size: 1.35rem; font-weight: 500; color: var(--text); margin-bottom: 0.45rem; line-height: 1.25; }
+  .project-tagline { font-size: 0.8rem; color: var(--gold); font-family: var(--mono); margin-bottom: 1.125rem; letter-spacing: 0.01em; }
   .case-block { margin-bottom: 1.125rem; }
   .case-block:last-of-type { margin-bottom: 0; }
-  .case-label { font-family: var(--mono); font-size: 0.63rem; color: var(--gold-dim); letter-spacing: 0.08em; text-transform: uppercase; display: block; margin-bottom: 0.3rem; }
+  .case-label { font-family: var(--mono); font-size: 0.66rem; color: var(--gold-dim); letter-spacing: 0.02em; display: block; margin-bottom: 0.3rem; }
   .case-text { font-size: 0.875rem; color: var(--text-mid); line-height: 1.65; }
-  .case-disclaimer { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); margin-top: 0.5rem; letter-spacing: 0.02em; font-style: italic; }
+  .case-disclaimer { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); margin-top: 0.5rem; letter-spacing: 0.01em; font-style: italic; }
   .project-meta { margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--border-faint); }
   .project-stack { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
-  .stack-tag { font-family: var(--mono); font-size: 0.63rem; color: var(--text-dim); background: rgba(240,235,225,0.03); border: 1px solid var(--border-faint); padding: 0.22rem 0.55rem; letter-spacing: 0.04em; text-transform: uppercase; }
+  .stack-tag { font-family: var(--mono); font-size: 0.65rem; color: var(--text-dim); background: rgba(240,235,225,0.03); border: 1px solid var(--border-faint); padding: 0.22rem 0.55rem; letter-spacing: 0.01em; }
   .project-links { display: flex; gap: 1.375rem; flex-wrap: wrap; align-items: center; }
-  .project-link { font-family: var(--mono); font-size: 0.7rem; color: var(--text-mid); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; display: flex; align-items: center; gap: 0.35rem; transition: color 0.2s; }
+  .project-link { font-family: var(--mono); font-size: 0.72rem; color: var(--text-mid); text-decoration: none; letter-spacing: 0.02em; display: flex; align-items: center; gap: 0.35rem; transition: color 0.2s; }
   .project-link:hover { color: var(--gold); }
   .project-link::after { content: '↗'; font-size: 0.65rem; }
   .project-link.no-arrow::after { display: none; }
   .project-link.case-study { color: var(--gold-dim); }
   .project-link.case-study:hover { color: var(--gold); }
-  .project-eval { font-family: var(--mono); font-size: 0.67rem; color: var(--green); letter-spacing: 0.04em; margin-left: auto; }
 
-  /* ── HERO STAT (single, attributed) ── */
-  .hero-proof { display: flex; align-items: flex-start; gap: 1rem; padding-top: 2.5rem; border-top: 1px solid var(--border-faint); flex-wrap: wrap; }
-  .hero-proof-label { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.03em; padding-top: 0.3rem; white-space: nowrap; }
-  .hero-proof-values { display: flex; gap: 2.25rem; flex-wrap: wrap; }
-  .hero-proof-num { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--gold); line-height: 1; }
-  .hero-proof-item-label { font-size: 0.68rem; color: var(--text-dim); margin-top: 0.4rem; letter-spacing: 0.03em; text-transform: uppercase; }
-
-  /* ── PROBLEMS I SOLVE (who buys) ── */
-  .problem-item { display: flex; gap: 0.4rem; margin-top: 0.65rem; }
-  .problem-item-marker { color: var(--gold-dim); flex-shrink: 0; }
-  .problem-item-text { font-size: 0.8rem; color: var(--text-dim); line-height: 1.55; }
-
-  /* ── ASSESSMENT BOX ── */
-  .assessment-box { border: 1px solid var(--border); background: var(--bg-alt); padding: 2.5rem; margin-top: 3rem; }
-  .assessment-label { font-family: var(--mono); font-size: 0.67rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
-  .assessment-title { font-family: var(--display); font-size: 1.15rem; font-weight: 600; color: var(--text); margin-bottom: 1rem; }
-  .assessment-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.72; margin-bottom: 1.5rem; max-width: 640px; }
-  .assessment-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.6rem 2rem; }
-  .assessment-list-item { font-size: 0.83rem; color: var(--text-mid); display: flex; gap: 0.55rem; line-height: 1.5; }
-  .assessment-list-item::before { content: '—'; color: var(--gold-dim); flex-shrink: 0; }
-
-  /* ── ARCHITECTURE DIAGRAM ── */
+  /* ── CASE STUDIES (Copilot + LexAI) ── */
   .arch-section { background: var(--bg-alt); border-top: 1px solid var(--border-faint); border-bottom: 1px solid var(--border-faint); }
+  .arch-section + .arch-section { border-top: none; }
   .arch-wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 3.5rem; align-items: center; }
+  .arch-wrap.reverse { grid-template-columns: 0.9fr 1.1fr; }
+  .arch-wrap.reverse .arch-diagram-col { order: 2; }
   .arch-diagram { font-family: var(--mono); font-size: 0.78rem; line-height: 1.9; color: var(--text-mid); background: var(--bg); border: 1px solid var(--border-faint); padding: 2rem; white-space: pre; overflow-x: auto; }
   .arch-diagram .n { color: var(--gold); }
   .arch-diagram .l { color: var(--text-dim); }
+  .arch-diagram .stage { color: var(--blue); }
   .arch-stats { display: flex; flex-wrap: wrap; gap: 1.75rem; margin-top: 1.75rem; padding-top: 1.75rem; border-top: 1px solid var(--border-faint); }
-  .arch-stat-num { font-family: var(--display); font-size: 1.5rem; font-weight: 700; color: var(--gold); line-height: 1; }
-  .arch-stat-label { font-size: 0.68rem; color: var(--text-dim); margin-top: 0.4rem; letter-spacing: 0.03em; text-transform: uppercase; }
+  .arch-stat-num { font-family: var(--mono); font-size: 1.4rem; font-weight: 500; color: var(--gold); line-height: 1; }
+  .arch-stat-label { font-size: 0.68rem; color: var(--text-dim); margin-top: 0.4rem; letter-spacing: 0.02em; }
+  .case-study-eyebrow { font-family: var(--mono); font-size: 0.72rem; color: var(--gold-dim); letter-spacing: 0.02em; margin-bottom: 0.75rem; }
 
-  /* ── FUNNEL / SECONDARY CTA ── */
-  .funnel-cta { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; margin-top: 3.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border-faint); }
-  .funnel-cta-text { font-size: 0.9375rem; color: var(--text-mid); }
-  .funnel-cta-text strong { color: var(--text); font-weight: 500; }
+  /* ── COPILOT DEEP CASE STUDY ── */
+  .deep-case { background: var(--bg-alt); border-top: 1px solid var(--border-faint); border-bottom: 1px solid var(--border-faint); }
+  .deep-nav { display: flex; flex-wrap: wrap; column-gap: 1.5rem; row-gap: 0.6rem; margin-bottom: 3.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border-faint); }
+  .deep-nav a { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; }
+  .deep-nav a:hover { color: var(--gold); }
+  .deep-block { margin-bottom: 3.5rem; padding-bottom: 3.5rem; border-bottom: 1px solid var(--border-faint); }
+  .deep-block:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .deep-block-num { font-family: var(--mono); font-size: 0.72rem; color: var(--gold-dim); letter-spacing: 0.04em; margin-bottom: 0.75rem; text-transform: uppercase; }
+  .deep-block-title { font-family: var(--display); font-size: 1.3rem; font-weight: 500; color: var(--text); margin-bottom: 1rem; letter-spacing: 0; }
+  .deep-block-text { font-size: 0.95rem; color: var(--text-mid); line-height: 1.78; max-width: 760px; }
+  .deep-block-text + .deep-block-text { margin-top: 1rem; }
+  .deep-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 1.75rem; }
 
-  /* ── SOLUTIONS ── */
-  .solutions-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px; background: var(--border-faint); }
-  .solution-card { background: var(--bg); padding: 2.25rem 2rem; transition: background 0.25s; }
-  .solution-card:hover { background: var(--bg-card); }
-  .solution-card .cap-icon { display: block; margin-bottom: 1.25rem; font-size: 1rem; }
-  .solution-title { font-family: var(--display); font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.75rem; line-height: 1.3; }
-  .solution-desc { font-size: 0.85rem; color: var(--text-mid); line-height: 1.68; }
+  /* Decision log table */
+  .decision-table { width: 100%; border-collapse: collapse; margin-top: 1.75rem; font-size: 0.85rem; }
+  .decision-table th { font-family: var(--mono); font-size: 0.68rem; color: var(--gold-dim); text-transform: uppercase; letter-spacing: 0.03em; text-align: left; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); }
+  .decision-table td { padding: 0.85rem 1rem; border-bottom: 1px solid var(--border-faint); color: var(--text-mid); vertical-align: top; }
+  .decision-table td:first-child { color: var(--text); font-weight: 500; }
+  .decision-table td.chosen { color: var(--gold); font-family: var(--mono); font-size: 0.8rem; }
+  .decision-table tr:last-child td { border-bottom: none; }
 
-  /* ── WHAT I BRING ── */
-  .bring-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .bring-grid-4 { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-  .bring-card { padding: 2rem; border: 1px solid var(--border-faint); background: var(--bg-alt); }
-  .bring-card-label { font-family: var(--mono); font-size: 0.67rem; color: var(--gold-dim); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.875rem; }
-  .bring-card-title { font-family: var(--display); font-size: 1rem; font-weight: 600; color: var(--text); margin-bottom: 0.75rem; line-height: 1.35; }
-  .bring-card-desc { font-size: 0.875rem; color: var(--text-mid); line-height: 1.72; }
-  .bring-card-desc strong { color: var(--text); font-weight: 500; }
+  /* Failure cards */
+  .failure-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.75rem; }
+  .failure-card { background: var(--bg); border: 1px solid var(--border-faint); padding: 1.75rem; }
+  .failure-card-title { font-family: var(--display); font-size: 1rem; font-weight: 500; color: var(--text); margin-bottom: 1rem; }
+  .failure-row { margin-bottom: 0.85rem; }
+  .failure-row:last-child { margin-bottom: 0; }
+  .failure-row-label { font-family: var(--mono); font-size: 0.65rem; color: var(--gold-dim); text-transform: uppercase; letter-spacing: 0.03em; display: block; margin-bottom: 0.25rem; }
+  .failure-row-text { font-size: 0.82rem; color: var(--text-mid); line-height: 1.6; }
 
-  /* ── WHO I HELP ── */
-  .who-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .who-card { padding: 2rem 0; border-top: 1px solid var(--border); }
-  .who-title { font-family: var(--display); font-size: 1.0625rem; font-weight: 600; color: var(--text); margin-bottom: 0.875rem; }
-  .who-desc { font-size: 0.9rem; color: var(--text-mid); line-height: 1.72; }
+  /* ── SOLUTIONS / RANGE ── */
+  .range-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5px; background: var(--border-faint); }
+  .range-card { background: var(--bg); padding: 2.25rem 2rem; transition: background 0.25s; }
+  .range-card:hover { background: var(--bg-card); }
+  .range-card .cap-icon { display: block; margin-bottom: 1.25rem; font-size: 1rem; color: var(--gold); }
+  .range-title { font-family: var(--display); font-size: 1.05rem; font-weight: 500; color: var(--text); margin-bottom: 0.75rem; line-height: 1.3; }
+  .range-desc { font-size: 0.85rem; color: var(--text-mid); line-height: 1.68; margin-bottom: 0.75rem; }
+  .range-proof { font-family: var(--mono); font-size: 0.72rem; color: var(--gold-dim); }
+
+  /* ── WRITING ── */
+  .writing-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5px; background: var(--border-faint); }
+  .writing-card { background: var(--bg); padding: 2rem; transition: background 0.25s; text-decoration: none; display: block; }
+  .writing-card:hover { background: var(--bg-card); }
+  .writing-card-title { font-family: var(--display); font-size: 1.08rem; font-weight: 500; color: var(--text); margin-bottom: 0.6rem; line-height: 1.4; }
+  .writing-card-desc { font-size: 0.82rem; color: var(--text-mid); line-height: 1.6; margin-bottom: 1rem; }
+  .writing-card-link { font-family: var(--mono); font-size: 0.7rem; color: var(--gold-dim); }
+  .writing-card:hover .writing-card-link { color: var(--gold); }
+
+  /* ── FOOTER ── */
+  footer { padding: 2.5rem 3rem; border-top: 1px solid var(--border-faint); display: flex; justify-content: space-between; align-items: center; }
+  .footer-copy { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.02em; }
+  .footer-links { display: flex; gap: 2rem; }
+  .footer-links a { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); text-decoration: none; letter-spacing: 0.02em; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
 
   /* ── CONTACT ── */
   .contact-section { background: var(--bg-alt); border-top: 1px solid var(--border-faint); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; }
-  .contact-headline { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.1rem); font-weight: 700; letter-spacing: -0.02em; color: var(--text); margin-bottom: 1.125rem; line-height: 1.2; }
-  .contact-desc { font-size: 0.9875rem; color: var(--text-mid); line-height: 1.78; margin-bottom: 2.5rem; max-width: 420px; }
+  .contact-headline { font-family: var(--display); font-size: clamp(1.5rem, 2.8vw, 2rem); font-weight: 500; letter-spacing: 0; color: var(--text); margin-bottom: 1.125rem; line-height: 1.3; }
+  .contact-desc { font-size: 0.9875rem; color: var(--text-mid); line-height: 1.78; margin-bottom: 2.5rem; max-width: 440px; }
   .contact-info-item { display: flex; align-items: flex-start; gap: 1.25rem; margin-bottom: 1.375rem; }
-  .contact-info-label { font-family: var(--mono); font-size: 0.67rem; color: var(--gold-dim); letter-spacing: 0.08em; text-transform: uppercase; min-width: 80px; padding-top: 2px; flex-shrink: 0; }
+  .contact-info-label { font-family: var(--mono); font-size: 0.7rem; color: var(--gold-dim); letter-spacing: 0.02em; min-width: 80px; padding-top: 2px; flex-shrink: 0; }
   .contact-info-value { font-size: 0.9375rem; color: var(--text); }
   .contact-info-value a { color: var(--text); text-decoration: none; transition: color 0.2s; }
   .contact-info-value a:hover { color: var(--gold); }
   .contact-form { display: flex; flex-direction: column; gap: 1.25rem; }
   .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
-  .form-label { font-family: var(--mono); font-size: 0.67rem; color: var(--text-dim); letter-spacing: 0.08em; text-transform: uppercase; }
+  .form-label { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); letter-spacing: 0.02em; }
   .form-input, .form-textarea {
     background: rgba(240,235,225,0.03); border: 1px solid var(--border-faint); color: var(--text);
     font-family: var(--sans); font-size: 0.9375rem; padding: 0.875rem 1rem;
@@ -336,82 +371,70 @@
   .form-textarea { resize: vertical; min-height: 130px; }
   .form-input::placeholder, .form-textarea::placeholder { color: var(--text-dim); }
   .form-submit {
-    font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase;
+    font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.04em;
     color: var(--bg); background: var(--gold); padding: 0.9375rem 2rem; border: none; cursor: pointer;
     font-weight: 500; transition: background 0.2s; align-self: flex-start;
   }
   .form-submit:hover { background: #d4b47e; }
   .form-submit:disabled { opacity: 0.6; cursor: not-allowed; }
-  .form-msg { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.04em; margin-top: 0.5rem; display: none; }
+  .form-msg { font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.02em; margin-top: 0.5rem; display: none; }
   .form-msg.success { color: var(--green); display: block; }
   .form-msg.error { color: #e07070; display: block; }
-
-  /* ── FOOTER ── */
-  footer { padding: 2.5rem 3rem; border-top: 1px solid var(--border-faint); display: flex; justify-content: space-between; align-items: center; }
-  .footer-copy { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); letter-spacing: 0.04em; }
-  .footer-links { display: flex; gap: 2rem; }
-  .footer-links a { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--gold); }
 
   /* ── SCROLL REVEAL ── */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
   /* ── RESPONSIVE ── */
+  @media (max-width: 1080px) {
+    .own-grid { grid-template-columns: 1fr 1fr; }
+    .depth-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
   @media (max-width: 960px) {
-    .cap-strip-inner { flex-direction: column; gap: 1.5rem; }
-    .cap-item { border-right: none; padding: 0; border-bottom: 1px solid var(--border-faint); padding-bottom: 1.5rem; }
-    .cap-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .bring-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .bring-grid-4 { grid-template-columns: 1fr 1fr; }
-    .solutions-grid { grid-template-columns: 1fr 1fr; }
-    .who-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .bring-grid { grid-template-columns: 1fr; }
+    .range-grid { grid-template-columns: 1fr 1fr; }
+    .depth-grid { grid-template-columns: 1fr 1fr; }
+    .deep-two-col { grid-template-columns: 1fr; }
+    .failure-grid { grid-template-columns: 1fr; }
   }
 
   @media (max-width: 860px) {
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
     .about-aside { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 2rem; }
-    .arch-wrap { grid-template-columns: 1fr; gap: 2rem; }
-    .assessment-list { grid-template-columns: 1fr; }
+    .arch-wrap, .arch-wrap.reverse { grid-template-columns: 1fr; gap: 2rem; }
+    .arch-wrap.reverse .arch-diagram-col { order: 0; }
+    .own-grid { grid-template-columns: 1fr; }
+    .writing-grid { grid-template-columns: 1fr; }
+    .decision-table { font-size: 0.78rem; }
+    .decision-table th, .decision-table td { padding: 0.6rem 0.5rem; }
   }
 
   @media (max-width: 768px) {
     nav { padding: 1rem 1.25rem; }
     .nav-links { display: none; }
-    .nav-cta { display: none; }
+    .nav-right .nav-cta { display: none; }
     .nav-hamburger { display: flex; }
     .hero { padding: 6rem 1.25rem 4rem; min-height: 100svh; }
-    .hero-stats { gap: 1.75rem; }
-    .stat-number { font-size: 1.75rem; }
     section { padding: 4rem 1.25rem; }
-    .cap-strip { padding: 2rem 1.25rem; }
+    .discipline-section { padding: 3rem 1.25rem; }
     .projects-grid { grid-template-columns: 1fr; }
+    .bring-grid { grid-template-columns: 1fr; }
+    .range-grid { grid-template-columns: 1fr; }
+    .depth-grid { grid-template-columns: 1fr 1fr; }
     .contact-grid { gap: 2.5rem; }
     footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.25rem; }
     .footer-links { gap: 1.5rem; flex-wrap: wrap; justify-content: center; }
     .project-card { padding: 2rem 1.25rem; }
     .bring-card { padding: 1.5rem 1.25rem; }
-    .bring-grid { grid-template-columns: 1fr; }
-    .bring-grid-4 { grid-template-columns: 1fr; }
-    .solutions-grid { grid-template-columns: 1fr; }
-    .solution-card { padding: 2rem 1.25rem; }
+    .range-card { padding: 1.5rem 1.25rem; }
+    .own-card { padding: 1.5rem 1.25rem; }
     .form-submit { width: 100%; align-self: stretch; }
     .hero-actions { flex-direction: column; align-items: stretch; }
-    .hero-actions .btn-primary, .hero-actions .btn-secondary { text-align: center; }
-    .project-eval { margin-left: 0; margin-top: 0.5rem; }
+    .hero-actions .btn-primary, .hero-actions .btn-secondary, .hero-actions .btn-tertiary { text-align: center; }
     .arch-diagram { font-size: 0.7rem; padding: 1.25rem; }
-    .assessment-box { padding: 1.75rem 1.25rem; }
-    .funnel-cta { flex-direction: column; align-items: flex-start; }
-  }
-
-  @media (max-width: 480px) {
-    .hero-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 1.25rem; }
-    .stat-number { font-size: 1.9rem; }
-  }
-
-  @media (max-width: 400px) {
-    .hero-headline { font-size: 2.1rem; }
+    .decision-table { display: block; overflow-x: auto; white-space: nowrap; }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -425,26 +448,27 @@
 
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
-  <a href="#problems" onclick="closeMobileMenu()">Problems I Solve</a>
-  <a href="#projects" onclick="closeMobileMenu()">Systems</a>
-  <a href="#case-study" onclick="closeMobileMenu()">Case Study</a>
-  <a href="#approach" onclick="closeMobileMenu()">How I Work</a>
+  <a href="#work" onclick="closeMobileMenu()">Work</a>
+  <a href="#engineering" onclick="closeMobileMenu()">Engineering</a>
   <a href="#about" onclick="closeMobileMenu()">About</a>
-  <a href="#contact" class="mobile-cta" onclick="closeMobileMenu()">Discuss a Project</a>
+  <a href="https://victorisuo.hashnode.dev/" target="_blank" rel="noopener">Writing</a>
+  <a href="resume-victor-isuo.pdf" target="_blank" rel="noopener">Resume</a>
+  <a href="#contact" class="mobile-cta" onclick="closeMobileMenu()">Contact</a>
 </div>
 
-<nav>
+<nav class="site-nav">
   <a href="#top" class="nav-logo">Victor<span>.</span>Isuo</a>
   <ul class="nav-links" aria-label="Navigation">
-    <li><a href="#problems">Problems I Solve</a></li>
-    <li><a href="#projects">Systems</a></li>
-    <li><a href="#case-study">Case Study</a></li>
-    <li><a href="#approach">How I Work</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#engineering">Engineering</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="https://victorisuo.hashnode.dev/" target="_blank" rel="noopener">Writing</a></li>
   </ul>
-  <a href="#contact" class="nav-cta">Discuss a Project →</a>
+  <div class="nav-right">
+    <a href="resume-victor-isuo.pdf" class="nav-cta" target="_blank" rel="noopener">Resume</a>
+    <a href="#contact" class="nav-cta solid">Contact →</a>
+  </div>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
     <span></span><span></span><span></span>
   </button>
@@ -455,20 +479,21 @@
 <!-- ── HERO ── -->
 <section class="hero" id="top">
   <div class="hero-inner">
-    <p class="hero-eyebrow">Available for selected AI engineering projects &mdash; UTC+1</p>
-    <h1 class="hero-headline">
-      AI systems that<br>do <span class="gold">real work.</span>
+    <p class="hero-eyebrow">Open to remote and on-site AI engineering roles — UTC+1</p>
+    <h1 class="hero-role">AI systems that<br>do <span class="gold">real work.</span>
     </h1>
-    <p class="hero-tech-line">RAG · AI Agents · Workflow Automation · Evaluation</p>
+    <p class="hero-capabilities">RAG · Agentic AI · AI Applications · Evaluation · Cloud Deployment</p>
+    <p class="hero-headline">
+      Victor Isuo — AI Systems Engineer</p>
     <p class="hero-desc">
-      I help teams automate <strong>knowledge-heavy and operational workflows</strong> — research, documentation, diagnostics, reporting — with AI systems built for real-world operation.
-    </p>
+     I build <strong>production-oriented AI systems for knowledge-heavy and operational workflows</strong>—from retrieval and agent orchestration to evaluation, APIs, and cloud deployment.</p>
     <p class="hero-desc">
-      Evaluation, observability, failure handling, and deployment are considered from the beginning — not added after the demo.
-    </p>
+      My systems are built around a simple principle: <strong>define what correct means, measure it, engineer for failure, and deploy only what you can evaluate.</strong></p>
+    <p class="hero-desc"><strong>4 end-to-end systems · AWS deployment · CI/CD · Evaluation suites</strong>
     <div class="hero-actions">
-      <a href="#contact" class="btn-primary">Discuss a Project →</a>
-      <a href="#approach" class="btn-secondary">See How I Build</a>
+      <a href="#work" class="btn-primary">View Work →</a>
+      <a href="resume-victor-isuo.pdf" class="btn-secondary" target="_blank" rel="noopener">Download Resume</a>
+      <a href="https://github.com/victor-isuo" class="btn-tertiary" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
     <div class="hero-proof">
       <span class="hero-proof-label">Industrial AI Copilot,<br>30-case eval suite</span>
@@ -478,62 +503,75 @@
           <div class="hero-proof-item-label">Answer accuracy</div>
         </div>
         <div>
-          <div class="hero-proof-num">100%</div>
-          <div class="hero-proof-item-label">Retrieval precision</div>
+          <div class="hero-proof-num">10/10</div>
+          <div class="hero-proof-item-label">Retrieval cases passed</div>
         </div>
         <div>
           <div class="hero-proof-num">3.09s</div>
           <div class="hero-proof-item-label">Avg. latency</div>
         </div>
+        <div>
+          <div class="hero-proof-num">~30s</div>
+          <div class="hero-proof-item-label">Full plant audit workflow</div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ── PROBLEMS I SOLVE ── -->
-<section id="problems">
-  <div class="section-inner">
-    <p class="section-label reveal">Problems I solve</p>
-    <h2 class="section-title reveal">What can AI take off your team's plate?</h2>
-    <p class="section-sub reveal">I build systems around workflows where teams spend too much time searching, researching, analyzing, classifying, reporting, or moving information between tools.</p>
-    <div class="solutions-grid">
-      <div class="solution-card reveal">
-        <span class="cap-icon">⬡</span>
-        <h3 class="solution-title">Knowledge &amp; RAG Systems</h3>
-        <p class="solution-desc">Turn internal documents, technical knowledge, SOPs, and research material into AI systems your team can actually use.</p>
-        <div class="problem-item"><span class="problem-item-marker">—</span><span class="problem-item-text">Internal documentation, SOPs, technical manuals, policies, research libraries.</span></div>
-      </div>
-      <div class="solution-card reveal">
-        <span class="cap-icon">⬡</span>
-        <h3 class="solution-title">Intelligent Workflow Automation</h3>
-        <p class="solution-desc">Automate repetitive research, classification, monitoring, reporting, and decision-support workflows.</p>
-        <div class="problem-item"><span class="problem-item-marker">—</span><span class="problem-item-text">Research, reporting, classification, monitoring, and information processing.</span></div>
-      </div>
-      <div class="solution-card reveal">
-        <span class="cap-icon">⬡</span>
-        <h3 class="solution-title">AI Agents &amp; Decision Workflows</h3>
-        <p class="solution-desc">Connect AI models to tools, data, and business processes to execute structured multi-step work.</p>
-        <div class="problem-item"><span class="problem-item-marker">—</span><span class="problem-item-text">Multi-step workflows that require reasoning, tool use, and structured decisions.</span></div>
-      </div>
-      <div class="solution-card reveal">
-        <span class="cap-icon">⬡</span>
-        <h3 class="solution-title">AI Evaluation &amp; Reliability</h3>
-        <p class="solution-desc">Measure AI quality continuously and catch regressions before they reach users.</p>
-        <div class="problem-item"><span class="problem-item-marker">—</span><span class="problem-item-text">Teams already running AI systems that need measurable quality and regression protection.</span></div>
-      </div>
+<!-- ── CROSS-DOMAIN DISCIPLINE STATEMENT ── -->
+<section class="discipline-section">
+  <div class="discipline-inner">
+    <p class="discipline-label reveal">Cross-domain</p>
+    <h2 class="discipline-title reveal">Same approach, different domain.</h2>
+    <p class="discipline-text reveal">Industrial diagnostics, legal intelligence, autonomous pipelines, AI evaluation — different fields, same process. Understand the workflow. Work within its real constraints. Decide what correctness means before you build anything. Test it before you trust it. Then plan for the moment it's wrong anyway.</p>
+    <div class="discipline-domains reveal">
+      <span class="domain-pill">Industrial operations</span>
+      <span class="domain-pill">Legal</span>
+      <span class="domain-pill">Business intelligence</span>
+      <span class="domain-pill">AI infrastructure</span>
     </div>
+  </div>
+</section>
 
-    <div class="assessment-box reveal">
-      <p class="assessment-label">Before we build anything</p>
-      <h3 class="assessment-title">AI Workflow Assessment</h3>
-      <p class="assessment-desc">I'll help determine whether AI is actually a good fit for your workflow — and what I would build if it is. Not every problem needs an agent; some need a script, and some don't need AI at all.</p>
-      <div class="assessment-list">
-        <div class="assessment-list-item">Is the workflow actually suitable for AI?</div>
-        <div class="assessment-list-item">What data is available to work with?</div>
-        <div class="assessment-list-item">What should stay deterministic, not AI?</div>
-        <div class="assessment-list-item">Where can the system fail, and how loudly?</div>
-        <div class="assessment-list-item">What level of human oversight is needed?</div>
-        <div class="assessment-list-item">What would success be measured against?</div>
+<div class="gold-rule"></div>
+
+<!-- ── WHAT I CAN OWN ── -->
+<section id="engineering">
+  <div class="section-inner">
+    <p class="section-label reveal">What I can own</p>
+    <h2 class="section-title reveal">What I can own.</h2>
+    <p class="section-sub reveal">Responsibilities I can take on a team, not just tools I've used.</p>
+    <div class="own-grid">
+      <div class="own-card reveal">
+        <div class="own-card-icon">◆</div>
+        <h3 class="own-card-title">AI application architecture</h3>
+        <p class="own-card-desc">RAG pipelines, agentic workflows, tool-using systems, and structured multi-step AI pipelines — designed around the workflow, not the model.</p>
+      </div>
+      <div class="own-card reveal">
+        <div class="own-card-icon">◆</div>
+        <h3 class="own-card-title">Retrieval systems</h3>
+        <p class="own-card-desc">Embeddings, hybrid dense + sparse retrieval, reranking, chunking strategy, and grounding every answer in a citation.</p>
+      </div>
+      <div class="own-card reveal">
+        <div class="own-card-icon">◆</div>
+        <h3 class="own-card-title">Backend services</h3>
+        <p class="own-card-desc">Python, FastAPI, REST APIs, request validation, and the service boundaries between an AI pipeline and the rest of a system.</p>
+      </div>
+      <div class="own-card reveal">
+        <div class="own-card-icon">◆</div>
+        <h3 class="own-card-title">Evaluation</h3>
+        <p class="own-card-desc">Benchmark datasets, LLM-as-judge scoring, weighted axes, and regression gates that block a deploy before a bad change reaches users.</p>
+      </div>
+      <div class="own-card reveal">
+        <div class="own-card-icon">◆</div>
+        <h3 class="own-card-title">Deployment</h3>
+        <p class="own-card-desc">Docker, AWS ECS Fargate, ECR, ALB, S3, Secrets Manager, and GitHub Actions CI/CD authenticated via OIDC — not just a hosted demo link.</p>
+      </div>
+      <div class="own-card reveal">
+        <div class="own-card-icon">◆</div>
+        <h3 class="own-card-title">Production debugging</h3>
+        <p class="own-card-desc">Tracing failures across retrieval, orchestration, model API changes, and infrastructure — and turning each one into a documented fix.</p>
       </div>
     </div>
   </div>
@@ -541,66 +579,70 @@
 
 <div class="gold-rule"></div>
 
-<!-- ── ABOUT ── -->
-<section id="about">
+<!-- ── TECHNICAL DEPTH ── -->
+<section>
   <div class="section-inner">
-    <p class="section-label reveal">Why I build this way</p>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <h2 class="section-title">I approach AI systems as engineering systems — not experiments.</h2>
-        <p>My foundation in Mechanical Engineering trained me to think in terms of constraints, failure modes, tradeoffs, and system behavior. I brought that mindset into AI engineering: I design systems with real-world operation in mind — measurable evaluation, failure handling, observability, and reproducible deployment, considered from the start.</p>
-        <p>Each system in my portfolio started with a concrete workflow problem, not a technology I wanted to try. That means I can walk through <strong>why a given architecture was chosen, where it would break, and what changes under a different constraint</strong> — the kind of scrutiny a serious technical buyer or hiring manager should apply.</p>
-        <p>I'm available for AI engineering projects, contract work, and remote roles — with teams and founders who want someone who can own a system end-to-end, from diagnosing the workflow through architecture, deployment, and evaluation.</p>
-        <div class="about-skills">
-          <span class="skill-tag">LangGraph</span>
-          <span class="skill-tag">CrewAI</span>
-          <span class="skill-tag">Hybrid RAG</span>
-          <span class="skill-tag">ChromaDB</span>
-          <span class="skill-tag">BM25</span>
-          <span class="skill-tag">MCP</span>
-          <span class="skill-tag">FastAPI</span>
-          <span class="skill-tag">Docker</span>
-          <span class="skill-tag">AWS ECS Fargate</span>
-          <span class="skill-tag">CI/CD (OIDC)</span>
-          <span class="skill-tag">Gemini Vision</span>
-          <span class="skill-tag">Groq / Llama</span>
-          <span class="skill-tag">Cohere Rerank</span>
-          <span class="skill-tag">LLM-as-Judge</span>
-          <span class="skill-tag">HuggingFace</span>
-          <span class="skill-tag">LangSmith</span>
-          <span class="skill-tag">SQLite / JSONL</span>
-        </div>
+    <p class="section-label reveal">Technical depth</p>
+    <h2 class="section-title reveal">The stack, by function.</h2>
+    <p class="section-sub reveal">The same stack, grouped by what it's actually for.</p>
+    <div class="depth-grid reveal">
+      <div class="depth-card">
+        <div class="depth-card-title">AI / LLM Systems</div>
+        <div class="depth-card-items">Python<br>LangGraph<br>CrewAI<br>Tool calling<br>Structured outputs<br>MCP<br>Agentic workflows</div>
       </div>
-      <div class="about-aside reveal">
-        <div class="aside-item">
-          <div class="aside-item-label">Location</div>
-          <div class="aside-item-value">Nigeria, UTC+1 <span>— available remote or on-site</span></div>
-        </div>
-        <div class="aside-item">
-          <div class="aside-item-label">Education</div>
-          <div class="aside-item-value">B.Eng Mechanical Engineering<br><span>University of Uyo</span></div>
-        </div>
-        <div class="aside-item">
-          <div class="aside-item-label">Certifications</div>
-          <div class="aside-item-value">
-            <div class="cert-item"><span>IBM RAG &amp; Agentic AI Professional Certificate</span></div>
-            <div class="cert-item"><span>Microsoft AI &amp; ML Engineering Professional Certificate</span></div>
-          </div>
-        </div>
-        <div class="aside-item">
-          <div class="aside-item-label">GitHub</div>
-          <div class="aside-item-value"><a href="https://github.com/victor-isuo" target="_blank" rel="noopener">github.com/victor-isuo</a></div>
-        </div>
-        <div class="aside-item">
-          <div class="aside-item-label">LinkedIn</div>
-          <div class="aside-item-value"><a href="https://linkedin.com/in/victor-isuo-a02b65171" target="_blank" rel="noopener">linkedin.com/in/victor-isuo-a02b65171</a></div>
-        </div>
-        <div class="aside-item">
-          <div class="aside-item-label">Availability</div>
-          <div class="aside-item-value">
-            <span class="avail-badge"><span class="avail-dot"></span>Available for projects</span>
-          </div>
-        </div>
+      <div class="depth-card">
+        <div class="depth-card-title">Retrieval</div>
+        <div class="depth-card-items">Dense embeddings<br>BM25<br>Hybrid retrieval<br>Cohere reranking<br>ChromaDB<br>Citation grounding</div>
+      </div>
+      <div class="depth-card">
+        <div class="depth-card-title">Backend</div>
+        <div class="depth-card-items">FastAPI<br>REST APIs<br>Docker<br>Async / scheduled workflows<br>Third-party integrations</div>
+      </div>
+      <div class="depth-card">
+        <div class="depth-card-title">Cloud / Infrastructure</div>
+        <div class="depth-card-items">AWS ECS Fargate<br>ECR<br>ALB<br>S3<br>Secrets Manager<br>GitHub Actions<br>OIDC</div>
+      </div>
+      <div class="depth-card">
+        <div class="depth-card-title">Evaluation</div>
+        <div class="depth-card-items">LLM-as-judge<br>Benchmark datasets<br>Weighted scoring<br>Regression testing<br>CI gates</div>
+      </div>
+    </div>
+    <p class="depth-footer reveal">End-to-end ownership: <strong>architecture → implementation → evaluation → containerization → deployment → debugging</strong></p>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- ── RANGE ── -->
+<section id="range">
+  <div class="section-inner">
+    <p class="section-label reveal">Execution patterns</p>
+    <h2 class="section-title reveal">Four systems, four execution patterns.</h2>
+    <p class="section-sub reveal">Each one exists because a workflow was slow or error-prone to do by hand. The underlying pattern is consistent: grounded retrieval or reasoning, checked by an evaluation layer.</p>
+    <div class="range-grid">
+      <div class="range-card reveal">
+        <span class="cap-icon">⬡</span>
+        <h3 class="range-title">Multi-Agent Orchestration</h3>
+        <p class="range-desc">Supervisor-led delegation to specialist agents with isolated context, used when a query genuinely spans multiple domains at once.</p>
+        <p class="range-proof">Industrial AI Copilot — supervisor + 4 specialists</p>
+      </div>
+      <div class="range-card reveal">
+        <span class="cap-icon">⬡</span>
+        <h3 class="range-title">Sequential Reasoning Pipelines</h3>
+        <p class="range-desc">Role-based handoff where each agent's output gates the next, for domains where the reasoning order matters as much as the answer.</p>
+        <p class="range-proof">LexAI — 4-agent legal risk pipeline</p>
+      </div>
+      <div class="range-card reveal">
+        <span class="cap-icon">⬡</span>
+        <h3 class="range-title">Autonomous, Schedule-Driven Systems</h3>
+        <p class="range-desc">No human trigger required — ingestion, synthesis, and delivery run on a schedule, with a priority path for time-sensitive signals.</p>
+        <p class="range-proof">Busiv — 6-hour ingestion, daily briefing</p>
+      </div>
+      <div class="range-card reveal">
+        <span class="cap-icon">⬡</span>
+        <h3 class="range-title">Evaluation &amp; Regression Infrastructure</h3>
+        <p class="range-desc">LLM-as-judge scoring with CI/CD gates, so a prompt or model change that degrades quality is caught before it reaches users.</p>
+        <p class="range-proof">AgentEval — regression detection at 5% drop</p>
       </div>
     </div>
   </div>
@@ -608,39 +650,37 @@
 
 <div class="gold-rule"></div>
 
-<!-- ── PROJECTS ── -->
-<section id="projects">
+<!-- ── WORK: FEATURED + OTHER SYSTEMS ── -->
+<section id="work">
   <div class="section-inner">
-    <p class="section-label reveal">Systems I've built</p>
-    <h2 class="section-title reveal">Proof through working systems.</h2>
-    <p class="section-sub reveal">Each system started with a concrete problem, an architectural constraint, and a measurable definition of success.</p>
+    <p class="section-label reveal">Deployed systems</p>
+    <h2 class="section-title reveal">Deployed systems.</h2>
+    <p class="section-sub reveal">Industrial AI Copilot is the deepest case study, broken down in full below. The other three apply the same discipline to different domains.</p>
+
     <div class="projects-grid">
 
       <div class="project-card reveal">
         <div class="project-badge">
-          <span class="project-flagship">Flagship</span>
+          <span class="featured-tag">Featured — deepest proof</span>
+          <span class="status-badge aws">AWS-deployed</span>
         </div>
         <h3 class="project-name">Industrial AI Copilot</h3>
-        <p class="project-tagline">AI-assisted industrial knowledge and fault diagnosis</p>
+        <p class="project-tagline">Multi-agent fault diagnosis, deployed on AWS</p>
+        <div class="case-block">
+          <span class="case-label">Domain</span>
+          <p class="case-text">Industrial operations — but the capability demonstrated is multi-agent AI system engineering, not an industrial specialization.</p>
+        </div>
         <div class="case-block">
           <span class="case-label">Problem</span>
-          <p class="case-text">Industrial troubleshooting can require searching technical documentation, interpreting equipment information, and combining multiple sources of evidence.</p>
+          <p class="case-text">Industrial troubleshooting means searching manuals, reading live telemetry, and interpreting visual evidence — usually across three separate tools.</p>
         </div>
         <div class="case-block">
           <span class="case-label">System</span>
-          <p class="case-text">Built a multi-agent diagnostic system combining hybrid retrieval, specialist agents, live telemetry, image analysis, and tool integration.</p>
-        </div>
-        <div class="case-block">
-          <span class="case-label">Engineering challenge</span>
-          <p class="case-text">Domain-specific terminology made pure semantic retrieval insufficient, leading to a hybrid dense + BM25 retrieval strategy with reranking.</p>
-        </div>
-        <div class="case-block">
-          <span class="case-label">Deployment</span>
-          <p class="case-text">Migrated from Hugging Face Spaces to AWS: containerized on ECS Fargate behind an Application Load Balancer, with S3-backed vector store persistence and a GitHub Actions CI/CD pipeline authenticated via OIDC — no long-lived AWS credentials stored in CI.</p>
+          <p class="case-text">A supervisor agent delegates to four specialists (retrieval, telemetry, analysis, safety) over hybrid dense + BM25 retrieval, live MQTT telemetry, and Gemini vision analysis.</p>
         </div>
         <div class="case-block">
           <span class="case-label">Measured evidence</span>
-          <p class="case-text">30-case eval suite · 90% answer accuracy · 100% retrieval precision · 3.09s average latency</p>
+          <p class="case-text">30-case eval suite · 90% answer accuracy · all 10 retrieval cases passed · 3.09s average latency</p>
         </div>
         <div class="project-meta">
           <div class="project-stack">
@@ -651,101 +691,30 @@
             <span class="stack-tag">Cohere Rerank</span>
             <span class="stack-tag">MCP</span>
             <span class="stack-tag">MQTT</span>
-            <span class="stack-tag">FastAPI</span>
-            <span class="stack-tag">Docker</span>
             <span class="stack-tag">AWS ECS Fargate</span>
-            <span class="stack-tag">ECR</span>
-            <span class="stack-tag">S3</span>
             <span class="stack-tag">GitHub Actions / OIDC</span>
           </div>
           <div class="project-links">
             <a href="http://industrial-copilot-alb-998145074.us-east-1.elb.amazonaws.com/multiagent-ui" class="project-link" target="_blank" rel="noopener">Live demo (AWS)</a>
             <a href="https://github.com/victor-isuo/industrial-ai-copilot" class="project-link" target="_blank" rel="noopener">Source code</a>
-            <a href="https://victorisuo.hashnode.dev/industrial-ai-copilot-from-rag-to-production-oriented-agentic-system?utm_source=hashnode&utm_medium=feed" class="project-link case-study" target="_blank" rel="noopener">Case study</a>
+            <a href="#deep-case-study" class="project-link case-study no-arrow">Full case study below ↓</a>
           </div>
         </div>
       </div>
 
       <div class="project-card reveal">
         <div class="project-badge">
-          <span class="project-flagship">Commercial fit</span>
+          <span class="status-badge prototype">Research prototype</span>
         </div>
-        <h3 class="project-name">Busiv</h3>
-        <p class="project-tagline">Autonomous business intelligence workflow</p>
-        <div class="case-block">
-          <span class="case-label">Problem</span>
-          <p class="case-text">Monitoring industry news and producing structured intelligence can consume hours of manual research every week.</p>
-        </div>
-        <div class="case-block">
-          <span class="case-label">System</span>
-          <p class="case-text">Collect → filter → classify → deduplicate → synthesize → deliver. An autonomous pipeline that produces scheduled intelligence briefings — no human trigger required after deployment.</p>
-        </div>
-        <div class="case-block">
-          <span class="case-label">Engineering challenge</span>
-          <p class="case-text">Raw news volume is mostly noise. A relevance-scoring and four-category signal layer (Regulatory, Product, Market, Hiring) filters what reaches synthesis, with a priority path for time-sensitive regulatory signals.</p>
-        </div>
-        <div class="project-meta">
-          <div class="project-stack">
-            <span class="stack-tag">LangGraph</span>
-            <span class="stack-tag">APScheduler</span>
-            <span class="stack-tag">ChromaDB</span>
-            <span class="stack-tag">feedparser</span>
-            <span class="stack-tag">SendGrid</span>
-            <span class="stack-tag">FastAPI</span>
-            <span class="stack-tag">Docker</span>
-          </div>
-          <div class="project-links">
-            <a href="https://victorisuo-busiv.hf.space" class="project-link" target="_blank" rel="noopener">Live demo</a>
-            <a href="https://github.com/victor-isuo/busiv" class="project-link" target="_blank" rel="noopener">Source code</a>
-            <a href="https://victorisuo.hashnode.dev/i-built-an-ai-system-that-runs-while-i-sleep-here-s-the-architecture-that-makes-that-possible" class="project-link case-study" target="_blank" rel="noopener">Case study</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-badge"></div>
-        <h3 class="project-name">AgentEval</h3>
-        <p class="project-tagline">AI quality and regression infrastructure</p>
-        <div class="case-block">
-          <span class="case-label">Problem</span>
-          <p class="case-text">AI systems can silently degrade as prompts, models, retrieval strategies, or orchestration logic change.</p>
-        </div>
-        <div class="case-block">
-          <span class="case-label">System</span>
-          <p class="case-text">Built an evaluation framework for RAG, single-agent, and multi-agent workflows with LLM-as-judge scoring and CI/CD regression gates.</p>
-        </div>
-        <div class="case-block">
-          <span class="case-label">Business relevance</span>
-          <p class="case-text">Provides a repeatable quality signal before changes are deployed.</p>
-        </div>
-        <div class="project-meta">
-          <div class="project-stack">
-            <span class="stack-tag">Groq Llama 4 Scout</span>
-            <span class="stack-tag">LLM-as-Judge</span>
-            <span class="stack-tag">SQLite</span>
-            <span class="stack-tag">GitHub Actions</span>
-            <span class="stack-tag">FastAPI</span>
-            <span class="stack-tag">Docker</span>
-          </div>
-          <div class="project-links">
-            <a href="https://victorisuo-agenteval.hf.space" class="project-link" target="_blank" rel="noopener">Live demo</a>
-            <a href="https://github.com/victor-isuo/agenteval" class="project-link" target="_blank" rel="noopener">Source code</a>
-            <a href="https://victorisuo.hashnode.dev/why-i-built-a-separate-evaluation-system-before-trusting-my-own-ai" class="project-link case-study" target="_blank" rel="noopener">Case study</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="project-card reveal">
-        <div class="project-badge"></div>
         <h3 class="project-name">LexAI</h3>
-        <p class="project-tagline">AI-assisted contract intelligence prototype</p>
+        <p class="project-tagline">Sequential AI workflow for contract intelligence</p>
         <div class="case-block">
-          <span class="case-label">Problem</span>
-          <p class="case-text">Contract review involves extracting clauses, identifying risk patterns, and presenting complex language in a structured form.</p>
+          <span class="case-label">Domain</span>
+          <p class="case-text">Legal — the transferable capability is sequential multi-agent architecture where each stage's output gates the next.</p>
         </div>
         <div class="case-block">
           <span class="case-label">System</span>
-          <p class="case-text">Built a multi-agent document analysis pipeline (Senior Analyst → Legal Researcher → Risk Assessor → Plain Language Specialist) with structured risk extraction and domain-grounded retrieval against Common Law and UNIDROIT reference material.</p>
+          <p class="case-text">Four CrewAI agents in strict sequence — Analyst → Legal Researcher → Risk Assessor → Plain Language Specialist — over a curated Common Law and UNIDROIT knowledge base, with 14 regex-based risk signals detected before any LLM call.</p>
         </div>
         <p class="case-disclaimer">Research prototype — not legal advice.</p>
         <div class="project-meta">
@@ -768,73 +737,300 @@
 
     </div>
 
-    <div class="funnel-cta reveal">
-      <p class="funnel-cta-text">Not ready to talk yet? <strong>Read the flagship case study</strong> and see the architecture behind the numbers.</p>
-      <a href="#case-study" class="btn-secondary">See the Case Study →</a>
+    <p class="other-systems-label reveal">Other systems — evidence of range</p>
+    <div class="projects-grid">
+
+      <div class="project-card reveal">
+        <div class="project-badge">
+          <span class="status-badge autonomous">Autonomous · scheduled</span>
+        </div>
+        <h3 class="project-name">Busiv</h3>
+        <p class="project-tagline">Autonomous, schedule-driven intelligence pipeline</p>
+        <div class="case-block">
+          <span class="case-label">Problem</span>
+          <p class="case-text">Monitoring an industry for regulatory, product, and market signals consumes hours of manual research every week — and most of what's monitored is noise.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-label">System</span>
+          <p class="case-text">Collect → filter → classify → deduplicate → synthesize → deliver, with no human trigger after deployment. Relevance scoring and a four-category signal layer decide what reaches synthesis; a priority path exists for time-sensitive regulatory signals.</p>
+        </div>
+        <div class="project-meta">
+          <div class="project-stack">
+            <span class="stack-tag">LangGraph</span>
+            <span class="stack-tag">APScheduler</span>
+            <span class="stack-tag">ChromaDB</span>
+            <span class="stack-tag">feedparser</span>
+            <span class="stack-tag">SendGrid</span>
+            <span class="stack-tag">FastAPI</span>
+            <span class="stack-tag">Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://victorisuo-busiv.hf.space" class="project-link" target="_blank" rel="noopener">Live demo</a>
+            <a href="https://github.com/victor-isuo/busiv" class="project-link" target="_blank" rel="noopener">Source code</a>
+            <a href="https://victorisuo.hashnode.dev/i-built-an-ai-system-that-runs-while-i-sleep-here-s-the-architecture-that-makes-that-possible" class="project-link case-study" target="_blank" rel="noopener">Case study</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-badge">
+          <span class="status-badge infra">Evaluation infrastructure</span>
+        </div>
+        <h3 class="project-name">AgentEval</h3>
+        <p class="project-tagline">The evaluation discipline behind my AI systems</p>
+        <div class="case-block">
+          <span class="case-label">Problem</span>
+          <p class="case-text">AI systems degrade silently as prompts, models, or retrieval strategies change — a static benchmark run once at launch doesn't catch that.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-label">System</span>
+          <p class="case-text">RAG, single-agent, and multi-agent evaluation with LLM-as-judge scoring on weighted axes. A regression check compares every run to the last and blocks deployment on a &gt;5% score drop.</p>
+        </div>
+        <div class="project-meta">
+          <div class="project-stack">
+            <span class="stack-tag">Groq Llama 4 Scout</span>
+            <span class="stack-tag">LLM-as-Judge</span>
+            <span class="stack-tag">SQLite</span>
+            <span class="stack-tag">GitHub Actions</span>
+            <span class="stack-tag">FastAPI</span>
+            <span class="stack-tag">Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://victorisuo-agenteval.hf.space" class="project-link" target="_blank" rel="noopener">Live demo</a>
+            <a href="https://github.com/victor-isuo/agenteval" class="project-link" target="_blank" rel="noopener">Source code</a>
+            <a href="https://victorisuo.hashnode.dev/why-i-built-a-separate-evaluation-system-before-trusting-my-own-ai" class="project-link case-study" target="_blank" rel="noopener">Case study</a>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<div class="gold-rule"></div>
-
-<!-- ── FLAGSHIP CASE STUDY / ARCHITECTURE ── -->
-<section class="arch-section" id="case-study">
+<!-- ── DEEP CASE STUDY: INDUSTRIAL AI COPILOT ── -->
+<section class="deep-case" id="deep-case-study">
   <div class="section-inner">
     <p class="section-label reveal">Flagship case study</p>
-    <h2 class="section-title reveal">From fragmented documentation to an AI-assisted diagnostic workflow.</h2>
-    <p class="section-sub reveal">Industrial troubleshooting means searching manuals, reading equipment telemetry, and interpreting visual evidence — usually across three separate tools. The Industrial AI Copilot does this in one conversation.</p>
-    <div class="arch-wrap">
-      <div class="arch-diagram reveal" role="img" aria-label="Architecture diagram: user query goes to an orchestrator, which fans out to retrieval, telemetry, and vision. Retrieval combines dense and BM25 search through a reranker. All three feed specialist agents, which produce a diagnostic synthesis and an evidence-backed response.">
-<span class="l">           </span><span class="n">USER QUERY</span>
-<span class="l">                │</span>
-<span class="l">                ▼</span>
-<span class="l">         </span><span class="n">Orchestrator</span>
-<span class="l">                │</span>
-<span class="l">    ┌───────────┼───────────┐</span>
-<span class="l">    ▼           ▼           ▼</span>
-<span class="n">Retrieval</span>   <span class="n">Telemetry</span>    <span class="n">Vision</span>
-<span class="l">    │           │           │</span>
-<span class="l">Dense+BM25    MQTT      Gemini</span>
-<span class="l">    │</span>
-<span class="l">Reranker</span>
-<span class="l">    │</span>
-<span class="l">    └───────────┼───────────┘</span>
-<span class="l">                ▼</span>
-<span class="l">        </span><span class="n">Specialist Agents</span>
-<span class="l">                │</span>
-<span class="l">                ▼</span>
-<span class="l">      </span><span class="n">Diagnostic Synthesis</span>
-<span class="l">                │</span>
-<span class="l">                ▼</span>
-<span class="l">     </span><span class="n">Evidence-backed Response</span></div>
+    <h2 class="section-title reveal">Building it under real constraints.</h2>
+    <p class="section-sub reveal">The industrial setting is incidental. What matters here is how the system was architected, tested, broken, fixed, and shipped.</p>
+
+    <nav class="deep-nav reveal" aria-label="Case study sections">
+      <a href="#cs-problem">Problem</a>
+      <a href="#cs-architecture">Architecture</a>
+      <a href="#cs-decisions">Decisions</a>
+      <a href="#cs-evaluation">Evaluation</a>
+      <a href="#cs-failure">Failure analysis</a>
+      <a href="#cs-deployment">Deployment</a>
+      <a href="#cs-results">Results</a>
+      <a href="#cs-repo">Repository</a>
+    </nav>
+
+    <!-- 01 PROBLEM -->
+    <div class="deep-block reveal" id="cs-problem">
+      <p class="deep-block-num">Problem</p>
+      <h3 class="deep-block-title">Three tools, no shared context.</h3>
+      <p class="deep-block-text">An engineer troubleshooting a fault has to search technical manuals for the right procedure, pull live telemetry to check whether a reading is actually out of spec, and interpret a photo of a gauge or nameplate — usually switching between three separate systems to do it. None of those tools reason about the other two. The workflow needed one system that could hold all three sources of evidence at once and reason across them.</p>
+    </div>
+
+    <!-- 02 ARCHITECTURE -->
+    <div class="deep-block reveal" id="cs-architecture">
+      <p class="deep-block-num">System architecture</p>
+      <h3 class="deep-block-title">Supervisor-led orchestration.</h3>
+      <p class="deep-block-text">A query reaches a supervisor agent, which fans out to whichever specialists it actually needs — retrieval, telemetry, vision, or all three — then a report agent synthesizes their findings into one cited response.</p>
+      <div class="arch-diagram" role="img" aria-label="Architecture diagram: API receives the query, passes it to an orchestrator, which fans out to retrieval, telemetry, vision, and tool specialists, then to specialist agents, then a safety and synthesis stage, producing the response.">
+<span class="l">                    </span><span class="n">API</span>
+<span class="l">                     │</span>
+<span class="l">                     ▼</span>
+<span class="l">              </span><span class="n">Orchestrator</span><span class="l"> (Supervisor)</span>
+<span class="l">                     │</span>
+<span class="l">   ┌──────────┬──────┴──────┬──────────┐</span>
+<span class="l">   ▼          ▼             ▼          ▼</span>
+<span class="stage">Retrieval</span>  <span class="stage">Telemetry</span>     <span class="stage">Vision</span>     <span class="stage">Tools</span>
+<span class="l">Dense+BM25   MQTT stream   Gemini    Calculator</span>
+<span class="l">+ Rerank                   2.5 Flash  Unit conv.</span>
+<span class="l">   │          │             │          │</span>
+<span class="l">   └──────────┴──────┬──────┴──────────┘</span>
+<span class="l">                      ▼</span>
+<span class="l">             </span><span class="n">Specialist Agents</span>
+<span class="l">      (isolated context per specialist)</span>
+<span class="l">                      │</span>
+<span class="l">                      ▼</span>
+<span class="l">           </span><span class="n">Safety / Synthesis</span><span class="l"> (Report Agent)</span>
+<span class="l">                      │</span>
+<span class="l">                      ▼</span>
+<span class="l">          </span><span class="n">Cited, Actionable Response</span></div>
+
+      <p class="deep-block-text" style="margin-top:1.75rem;">Separately, deployment runs through a standard CI/CD path to AWS:</p>
+      <div class="arch-diagram" role="img" aria-label="Deployment diagram: GitHub push triggers CI/CD via OIDC, builds and pushes to ECR, deploys to ECS Fargate behind an ALB, with S3, Secrets Manager, and external model APIs as supporting services.">
+<span class="n">GitHub</span><span class="l"> push</span>
+<span class="l">   │</span>
+<span class="l">   ▼</span>
+<span class="n">GitHub Actions</span><span class="l"> (OIDC auth — no stored keys)</span>
+<span class="l">   │</span>
+<span class="l">   ▼</span>
+<span class="n">ECR</span><span class="l"> (image build + push)</span>
+<span class="l">   │</span>
+<span class="l">   ▼</span>
+<span class="n">ECS Fargate</span><span class="l"> ── behind ── </span><span class="n">ALB</span>
+<span class="l">   │</span>
+<span class="l">   ├── </span><span class="n">S3</span><span class="l"> (ChromaDB persistence)</span>
+<span class="l">   ├── </span><span class="n">Secrets Manager</span><span class="l"> (API keys)</span>
+<span class="l">   └── </span><span class="n">Groq / Gemini</span><span class="l"> (external model APIs)</span></div>
+    </div>
+
+    <!-- 03 DECISIONS -->
+    <div class="deep-block reveal" id="cs-decisions">
+      <p class="deep-block-num">Engineering decision log</p>
+      <h3 class="deep-block-title">Why each piece is what it is.</h3>
+      <p class="deep-block-text">Every non-obvious choice in this system traces back to a constraint. This is more convincing than a list of frameworks, so I keep it explicit.</p>
+      <table class="decision-table">
+        <thead>
+          <tr><th>Decision</th><th>Chosen</th><th>Alternative</th><th>Reason</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Retrieval</td><td class="chosen">Hybrid dense + BM25</td><td>Dense-only</td><td>Domain terminology (part numbers, standard codes) needs exact-match, not just semantic similarity.</td></tr>
+          <tr><td>Reranking</td><td class="chosen">Cohere rerank-english-v3.0</td><td>No reranker</td><td>Improves top-k relevance without upgrading the base embedding model.</td></tr>
+          <tr><td>Orchestration</td><td class="chosen">Supervisor + specialists</td><td>One flat agent with all tools</td><td>Isolated context per specialist avoids token overflow on multi-domain queries; routing stays explicit.</td></tr>
+          <tr><td>Single vs. multi-agent</td><td class="chosen">Both, routed by complexity</td><td>Multi-agent for everything</td><td>Most queries resolve in 1–4s with a single agent. Multi-agent adds latency that's only worth it for genuinely cross-domain queries.</td></tr>
+          <tr><td>Deployment</td><td class="chosen">AWS ECS Fargate</td><td>Hugging Face Spaces</td><td>Infrastructure control, no cold-start sleep on inactivity, real production topology.</td></tr>
+          <tr><td>Persistence</td><td class="chosen">S3-backed hydration</td><td>Container filesystem</td><td>Durable vector store artifacts that survive redeploys.</td></tr>
+          <tr><td>CI authentication</td><td class="chosen">OIDC</td><td>Long-lived IAM keys</td><td>No stored credentials in GitHub — short-lived, scoped tokens per run.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 04 EVALUATION -->
+    <div class="deep-block reveal" id="cs-evaluation">
+      <p class="deep-block-num">Evaluation</p>
+      <h3 class="deep-block-title">A baseline, before any optimization.</h3>
+      <p class="deep-block-text">30 hand-crafted test cases across spec checks, unit conversion, retrieval, and edge cases — scored on tool-selection accuracy (40%), keyword match (40%), and severity classification (20%), with a 0.70 pass threshold. This is not RAGAS: RAGAS evaluates retrieval quality alone, and this framework also scores tool selection and severity reasoning across the full agentic behavior.</p>
+      <div class="arch-stats">
+        <div><div class="arch-stat-num">90%</div><div class="arch-stat-label">Overall pass rate (29/30)</div></div>
+        <div><div class="arch-stat-num">10/10</div><div class="arch-stat-label">Retrieval cases passed</div></div>
+        <div><div class="arch-stat-num">0.898</div><div class="arch-stat-label">Average score</div></div>
+        <div><div class="arch-stat-num">3.09s</div><div class="arch-stat-label">Avg. latency</div></div>
+      </div>
+      <p class="deep-block-text" style="margin-top:1.75rem;">Continuous evaluation beyond this one-time benchmark is what <a href="https://victorisuo-agenteval.hf.space" target="_blank" rel="noopener" style="color:var(--gold);">AgentEval</a> exists to provide — it's the evaluation discipline behind this system, not a separate portfolio piece.</p>
+    </div>
+
+    <!-- 05 FAILURE ANALYSIS -->
+    <div class="deep-block reveal" id="cs-failure">
+      <p class="deep-block-num">Failure analysis</p>
+      <h3 class="deep-block-title">What broke, and why.</h3>
+      <p class="deep-block-text">Four of the 30 eval cases failed. Understanding why matters more than the score — each one is a specific, implementable fix, not a vague weakness.</p>
+      <div class="failure-grid">
+        <div class="failure-card">
+          <h4 class="failure-card-title">Ambiguous unit in spec check</h4>
+          <div class="failure-row"><span class="failure-row-label">Symptom</span><p class="failure-row-text">Agent received a pressure value with no explicit unit and defaulted to psi when bar was implied by context.</p></div>
+          <div class="failure-row"><span class="failure-row-label">Fix</span><p class="failure-row-text">A unit-disambiguation step that prompts for confirmation before comparison.</p></div>
+        </div>
+        <div class="failure-card">
+          <h4 class="failure-card-title">Out-of-scope query, partial match</h4>
+          <div class="failure-row"><span class="failure-row-label">Symptom</span><p class="failure-row-text">A query about electrical grounding returned a partially fabricated citation from adjacent-but-irrelevant KB content.</p></div>
+          <div class="failure-row"><span class="failure-row-label">Fix (implemented)</span><p class="failure-row-text">Explicit citation validation requiring the agent to say "not found in the knowledge base" rather than extrapolate.</p></div>
+        </div>
+        <div class="failure-card">
+          <h4 class="failure-card-title">Multi-parameter spec check</h4>
+          <div class="failure-row"><span class="failure-row-label">Symptom</span><p class="failure-row-text">A query with two simultaneous out-of-spec readings — the agent caught one and missed the second.</p></div>
+          <div class="failure-row"><span class="failure-row-label">Fix</span><p class="failure-row-text">A loop in the spec-checker that runs once per detected parameter instead of terminating after the first match.</p></div>
+        </div>
+        <div class="failure-card">
+          <h4 class="failure-card-title">Contradictory inputs</h4>
+          <div class="failure-row"><span class="failure-row-label">Symptom</span><p class="failure-row-text">A query stated a reading was both within spec and dangerous — a known LLM failure mode under logical contradiction.</p></div>
+          <div class="failure-row"><span class="failure-row-label">Fix</span><p class="failure-row-text">A consistency-validation step that flags and rejects contradictory inputs before tool execution.</p></div>
+        </div>
+      </div>
+      <p class="deep-block-text" style="margin-top:1.75rem;"><strong style="color:var(--text);">Production readiness race condition (during AWS migration).</strong></p>
+      <div class="failure-card" style="margin-top:0.75rem;">
+        <div class="failure-row"><span class="failure-row-label">Symptom</span><p class="failure-row-text">The ALB marked the service healthy before application initialization — retrieval and agents — had actually finished loading.</p></div>
+        <div class="failure-row"><span class="failure-row-label">Root cause</span><p class="failure-row-text">Process liveness and application readiness were being treated as equivalent.</p></div>
+        <div class="failure-row"><span class="failure-row-label">Fix</span><p class="failure-row-text">An explicit <code style="color:var(--gold);font-family:var(--mono);font-size:0.85em;">is_ready</code> flag returning 503 until the pipeline finishes initializing, plus grace-period tuning on the health check.</p></div>
+        <div class="failure-row"><span class="failure-row-label">Lesson</span><p class="failure-row-text">Infrastructure health is not the same thing as application readiness.</p></div>
+      </div>
+    </div>
+
+    <!-- 06 DEPLOYMENT -->
+    <div class="deep-block reveal" id="cs-deployment">
+      <p class="deep-block-num">Deployment</p>
+      <h3 class="deep-block-title">Off Spaces, onto AWS.</h3>
+      <p class="deep-block-text">Originally deployed on Hugging Face Spaces, which sleeps on inactivity — not viable for anything meant to look production-oriented. Migrated to ECS Fargate behind an ALB, with ECR for images, S3 for ChromaDB persistence, Secrets Manager for API keys, and a GitHub Actions pipeline authenticated via OIDC. The migration surfaced real problems beyond the readiness race above: an empty knowledge base caused by <code style="color:var(--gold);font-family:var(--mono);font-size:0.85em;">.gitignore</code> excluding data files (fixed via S3 hydration at startup), and a missing <code style="color:var(--gold);font-family:var(--mono);font-size:0.85em;">iam:PassRole</code> permission that blocked the first deploy. HTTPS is deliberately deferred pending a purchased domain.</p>
+    </div>
+
+    <!-- 07 RESULTS -->
+    <div class="deep-block reveal" id="cs-results">
+      <p class="deep-block-num">Results</p>
+      <h3 class="deep-block-title">What the numbers mean.</h3>
+      <p class="deep-block-text">A full plant-wide audit — pulling readings, cross-referencing manuals, checking standards, writing a report — normally takes a qualified engineer an estimated 30 to 90 minutes. The multi-agent path completes the same audit in about 30 seconds for that specific workflow: roughly a 180× reduction against that estimate, not a claim about general system-wide speedup. For a single-equipment query, the single agent returns in 1–4 seconds; multi-agent orchestration is reserved for queries that genuinely span retrieval, telemetry, and safety at once.</p>
+      <p class="deep-block-text">On evaluation: 90% overall pass rate (29 of 30 cases), all 10 retrieval test cases passed, and 3.09s average latency across the suite. Full methodology and the raw eval log are in the repository.</p>
+    </div>
+
+    <!-- 08 REPO -->
+    <div class="deep-block reveal" id="cs-repo">
+      <p class="deep-block-num">Repository / live system</p>
+      <h3 class="deep-block-title">Inspect it yourself.</h3>
+      <p class="deep-block-text">The live AWS deployment and the full source — including the evaluation runner, the failure cases above, and the CI/CD pipeline definitions — are both public.</p>
+      <div class="project-links" style="margin-top:1.5rem;">
+        <a href="http://industrial-copilot-alb-998145074.us-east-1.elb.amazonaws.com/multiagent-ui" class="project-link" target="_blank" rel="noopener">Live demo (AWS)</a>
+        <a href="https://github.com/victor-isuo/industrial-ai-copilot" class="project-link" target="_blank" rel="noopener">Source code</a>
+        <a href="https://victorisuo.hashnode.dev/industrial-ai-copilot-from-rag-to-production-oriented-agentic-system?utm_source=hashnode&utm_medium=feed" class="project-link case-study" target="_blank" rel="noopener">Full written case study</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── CASE STUDY 2: LEXAI ── -->
+<section class="arch-section">
+  <div class="section-inner">
+    <p class="section-label reveal">Second case study — architecture transfer</p>
+    <h2 class="section-title reveal">Sequential handoff, where order matters.</h2>
+    <p class="section-sub reveal">You can't score a clause's risk before grounding it in a legal standard, and you can't recommend action before the risk is scored. LexAI enforces that order agent by agent. Legal is just where I happened to build it.</p>
+    <div class="arch-wrap reverse">
       <div class="reveal">
         <div class="case-block">
-          <span class="case-label">Why not a basic chatbot</span>
-          <p class="case-text">Domain-specific terminology made pure semantic retrieval insufficient. Combining dense vector search with BM25 keyword matching, then reranking, closed the gap between what the model retrieved and what a technician actually needed.</p>
+          <span class="case-label">Why sequential</span>
+          <p class="case-text">Each agent's output is the next agent's required input — the Risk Assessor cannot score without the Researcher's citations, and the Plain Language Specialist cannot recommend before risk is justified. Parallelizing this would mean merging incomplete, ungrounded outputs. Sequential isn't a limitation here; it's the correct model for how a law firm actually reviews a contract.</p>
         </div>
         <div class="case-block">
-          <span class="case-label">Limitations</span>
-          <p class="case-text">Vision analysis depends on image quality from the field; telemetry integration currently assumes MQTT-compatible sensors. Both are documented, not hidden, in the source repository.</p>
+          <span class="case-label">Risk detection</span>
+          <p class="case-text">Fourteen risk patterns — unlimited liability, broad indemnity, one-sided termination, automatic renewal — are flagged by regex on every clause before any LLM call. These signals are handed to the agents as structured input, not discovered mid-reasoning, which is what lets the highest-risk clauses get prioritized when the input budget is constrained.</p>
         </div>
         <div class="case-block">
-          <span class="case-label">Where this generalizes</span>
-          <p class="case-text">The same pattern — hybrid retrieval + live data + specialist agents + evaluation — applies to any operational workflow combining documentation, sensor data, and visual evidence.</p>
+          <span class="case-label">Current limits</span>
+          <p class="case-text">The live demo runs on free-tier inference with a capped token budget, which limits full-contract coverage on longer documents — documented in the repo rather than hidden. Two config changes (removing the clause cap, upgrading the model tier) move this to full production coverage with no architectural change. That gap between demo-tier and production-tier is itself the kind of constraint I design for explicitly, not the kind I paper over.</p>
         </div>
-        <div class="case-block">
-          <span class="case-label">From demo to production</span>
-          <p class="case-text">Originally deployed on Hugging Face Spaces, later migrated to AWS — ECS Fargate, ECR, an Application Load Balancer, S3-backed persistence, and a GitHub Actions pipeline authenticated via OIDC rather than stored credentials. The migration surfaced a real production lesson: an ALB health check race condition, fixed by separating liveness from readiness so the service only reports healthy once retrieval and agents are actually loaded.</p>
-        </div>
-        <div class="arch-stats">
-          <div><div class="arch-stat-num">90%</div><div class="arch-stat-label">Answer accuracy</div></div>
-          <div><div class="arch-stat-num">100%</div><div class="arch-stat-label">Retrieval precision</div></div>
-          <div><div class="arch-stat-num">3.09s</div><div class="arch-stat-label">Avg. latency</div></div>
-          <div><div class="arch-stat-num">30</div><div class="arch-stat-label">Evaluation cases</div></div>
-        </div>
+        <p class="case-disclaimer">Research prototype — not legal advice.</p>
         <div class="project-links" style="margin-top:1.75rem;">
-          <a href="http://industrial-copilot-alb-998145074.us-east-1.elb.amazonaws.com/multiagent-ui" class="project-link" target="_blank" rel="noopener">Live demo (AWS)</a>
-          <a href="https://github.com/victor-isuo/industrial-ai-copilot" class="project-link" target="_blank" rel="noopener">Source code</a>
-          <a href="https://victorisuo.hashnode.dev/industrial-ai-copilot-from-rag-to-production-oriented-agentic-system?utm_source=hashnode&utm_medium=feed" class="project-link case-study" target="_blank" rel="noopener">Full case study</a>
+          <a href="https://victorisuo-lexai.hf.space/ui" class="project-link" target="_blank" rel="noopener">Live demo</a>
+          <a href="https://github.com/victor-isuo/lexai" class="project-link" target="_blank" rel="noopener">Source code</a>
+          <a href="https://victorisuo.hashnode.dev/what-mechanical-engineering-taught-me-about-building-ai-systems" class="project-link case-study" target="_blank" rel="noopener">Full case study</a>
         </div>
+      </div>
+      <div class="arch-diagram-col">
+        <div class="arch-diagram reveal" role="img" aria-label="Architecture diagram: contract upload goes through clause-aware parsing and risk-signal detection, then a four-agent sequential pipeline — Senior Analyst, Legal Researcher, Risk Assessor, Plain Language Specialist — grounded in a legal knowledge base, producing a structured report that is independently scored by an LLM judge.">
+<span class="l">        </span><span class="n">CONTRACT PDF</span>
+<span class="l">               │</span>
+<span class="l">               ▼</span>
+<span class="l">  </span><span class="n">Clause-aware Parser</span>
+<span class="l">  14 risk signals · type classification</span>
+<span class="l">               │</span>
+<span class="l">               ▼</span>
+<span class="n">Senior Analyst</span>
+<span class="l">               │</span>
+<span class="l">               ▼</span>
+<span class="n">Legal Researcher</span><span class="l">  ── KB lookup</span>
+<span class="l">               │</span>
+<span class="l">               ▼</span>
+<span class="n">Risk Assessor</span>
+<span class="l">               │</span>
+<span class="l">               ▼</span>
+<span class="n">Plain Language Specialist</span>
+<span class="l">               │</span>
+<span class="l">               ▼</span>
+<span class="l">   </span><span class="n">Structured Risk Report</span>
+<span class="l">               │</span>
+<span class="l">               ▼</span>
+<span class="l">    </span><span class="n">LLM-as-Judge Score</span></div>
       </div>
     </div>
   </div>
@@ -842,32 +1038,77 @@
 
 <div class="gold-rule"></div>
 
-<!-- ── WHAT I BRING ── -->
-<section id="approach">
+<!-- ── HOW I APPROACH A NEW AI PROBLEM ── -->
+<section>
   <div class="section-inner">
-    <p class="section-label reveal">Engineering</p>
-    <h2 class="section-title reveal">How I build AI systems.</h2>
-    <p class="section-sub reveal">A mechanical engineering foundation means I think about systems the way systems actually behave — with edge cases, failure modes, and constraints that matter in the real world.</p>
-    <div class="bring-grid bring-grid-4">
-      <div class="bring-card reveal">
-        <div class="bring-card-label">Start with the constraint</div>
-        <h3 class="bring-card-title">Architecture follows the constraint, not the other way around.</h3>
-        <p class="bring-card-desc"><strong>Cost, latency, data quality, reliability, and workflow complexity</strong> determine architecture. I start there and work backward, which usually saves weeks of rebuilding.</p>
+    <p class="section-label reveal">Process</p>
+    <h2 class="section-title reveal">How I approach a new problem.</h2>
+    <p class="section-sub reveal">The same seven steps, whether the workflow is industrial, legal, or informational.</p>
+    <div class="approach-list reveal">
+      <div class="approach-item">
+        <span class="approach-num">1</span>
+        <div><h3 class="approach-title">Understand the workflow</h3><p class="approach-desc">What task or decision are we actually improving?</p></div>
       </div>
+      <div class="approach-item">
+        <span class="approach-num">2</span>
+        <div><h3 class="approach-title">Identify constraints</h3><p class="approach-desc">Data, latency, cost, security, reliability, human oversight.</p></div>
+      </div>
+      <div class="approach-item">
+        <span class="approach-num">3</span>
+        <div><h3 class="approach-title">Choose the simplest appropriate architecture</h3><p class="approach-desc">Conventional software, RAG, tools, workflow, agent, or multi-agent system — in that order of preference.</p></div>
+      </div>
+      <div class="approach-item">
+        <span class="approach-num">4</span>
+        <div><h3 class="approach-title">Define correctness</h3><p class="approach-desc">What does success actually mean, in measurable terms?</p></div>
+      </div>
+      <div class="approach-item">
+        <span class="approach-num">5</span>
+        <div><h3 class="approach-title">Evaluate</h3><p class="approach-desc">Build the tests before trusting the system.</p></div>
+      </div>
+      <div class="approach-item">
+        <span class="approach-num">6</span>
+        <div><h3 class="approach-title">Design failure behavior</h3><p class="approach-desc">What happens when evidence is missing, conflicting, or wrong?</p></div>
+      </div>
+      <div class="approach-item">
+        <span class="approach-num">7</span>
+        <div><h3 class="approach-title">Deploy and observe</h3><p class="approach-desc">Infrastructure, latency, cost, errors, and operational behavior.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- ── PRINCIPLES (reduced to 4, each with evidence) ── -->
+<section id="principles">
+  <div class="section-inner">
+    <p class="section-label reveal">Engineering principles</p>
+    <h2 class="section-title reveal">Working principles.</h2>
+    <p class="section-sub reveal">Each one tied to a specific decision, not left as a slogan.</p>
+    <div class="bring-grid">
       <div class="bring-card reveal">
-        <div class="bring-card-label">Choose the simplest architecture</div>
-        <h3 class="bring-card-title">Use a single chain when a single chain is enough.</h3>
-        <p class="bring-card-desc">Introduce agents only when they provide a <strong>real capability advantage</strong>. Reaching for multi-agent orchestration by default is a tell of inexperience, not sophistication.</p>
+        <div class="bring-card-label">Constraints first</div>
+        <h3 class="bring-card-title">Architecture follows constraints.</h3>
+        <p class="bring-card-desc">Cost, latency, data quality, and reliability determine architecture — I start there and work backward.</p>
+        <span class="bring-evidence">Evidence: hybrid retrieval was chosen because domain terminology made dense-only retrieval insufficient.</span>
       </div>
       <div class="bring-card reveal">
         <div class="bring-card-label">Evaluate before trusting</div>
-        <h3 class="bring-card-title">A system that hasn't been measured hasn't been proven to work.</h3>
-        <p class="bring-card-desc">I define <strong>measurable quality criteria and regression tests</strong> before assuming the system works — not after users start noticing problems.</p>
+        <h3 class="bring-card-title">Evaluation precedes trust.</h3>
+        <p class="bring-card-desc">A system that hasn't been measured hasn't been proven to work — measurable pass/fail criteria come before assuming success.</p>
+        <span class="bring-evidence">Evidence: the 30-case eval suite was built before any optimization, to get an honest baseline.</span>
+      </div>
+      <div class="bring-card emphasis reveal">
+        <div class="bring-card-label">Design for consequence, not just the answer</div>
+        <h3 class="bring-card-title">Failure modes are part of the architecture.</h3>
+        <p class="bring-card-desc">A wrong answer and a wrong action are not the same risk. The <code>NORMAL / CAUTION / WARNING / CRITICAL</code> severity gate exists because a shutdown recommendation needs a different confidence bar than a document lookup.</p>
+        <span class="bring-evidence">Evidence: contradictory-input detection added after a specific eval failure exposed the gap.</span>
       </div>
       <div class="bring-card reveal">
         <div class="bring-card-label">Design for operation</div>
-        <h3 class="bring-card-title">Deployment is part of the system, not cleanup work.</h3>
-        <p class="bring-card-desc"><strong>Containerization, observability, failure handling, versioning, and reproducible deployment</strong> are considered from the start, not bolted on before a demo. The flagship system runs on AWS ECS Fargate with an automated, OIDC-authenticated CI/CD pipeline — not just a hosted demo link.</p>
+        <h3 class="bring-card-title">Deployment is part of engineering.</h3>
+        <p class="bring-card-desc">Containerization, observability, and reproducible deployment are considered from the start, not cleanup work at the end.</p>
+        <span class="bring-evidence">Evidence: migration from Hugging Face Spaces to AWS ECS Fargate behind an OIDC-authenticated CI/CD pipeline.</span>
       </div>
     </div>
   </div>
@@ -875,24 +1116,98 @@
 
 <div class="gold-rule"></div>
 
-<!-- ── WHO I HELP ── -->
-<section id="who">
+<!-- ── ABOUT ── -->
+<section id="about">
   <div class="section-inner">
-    <p class="section-label reveal">Who I help</p>
-    <h2 class="section-title reveal">Where I can create leverage.</h2>
-    <div class="who-grid">
-      <div class="who-card reveal">
-        <h3 class="who-title">Founders building AI products</h3>
-        <p class="who-desc">You have a validated problem and need someone who can turn the workflow into a reliable, production-grade AI system.</p>
+    <p class="section-label reveal">Background</p>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <h2 class="section-title">A mechanical engineering foundation.</h2>
+        <p>My background is mechanical engineering — constraints, failure modes, tolerances, tradeoffs. It shaped <strong>how I think</strong> more than what I build. A model that's usually right isn't the same thing as a system that's safe to deploy, and closing that gap is most of what I actually do.</p>
+        <p>Every system here started as a workflow problem, not a technology I wanted to try out. For any of them I can explain <strong>why I chose that architecture, where it still breaks, and what I'd change</strong> under a different budget, latency target, or consequence of being wrong.</p>
+        <p>I'm looking for a full-time AI engineering role, remote or on-site, where I can own systems end-to-end.</p>
+        <div class="about-skills">
+          <span class="skill-tag">LangGraph</span>
+          <span class="skill-tag">CrewAI</span>
+          <span class="skill-tag">Hybrid RAG</span>
+          <span class="skill-tag">ChromaDB</span>
+          <span class="skill-tag">BM25</span>
+          <span class="skill-tag">MCP</span>
+          <span class="skill-tag">FastAPI</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">AWS ECS Fargate</span>
+          <span class="skill-tag">CI/CD (OIDC)</span>
+          <span class="skill-tag">Gemini Vision</span>
+          <span class="skill-tag">Groq / Llama</span>
+          <span class="skill-tag">Cohere Rerank</span>
+          <span class="skill-tag">LLM-as-Judge</span>
+          <span class="skill-tag">LangSmith</span>
+        </div>
       </div>
-      <div class="who-card reveal">
-        <h3 class="who-title">Teams drowning in information</h3>
-        <p class="who-desc">Your people spend hours searching documents, researching markets, preparing reports, or processing information manually.</p>
+      <div class="about-aside reveal">
+        <div class="aside-item">
+          <div class="aside-item-label">Location</div>
+          <div class="aside-item-value">Nigeria, UTC+1 <span>— open to remote or on-site</span></div>
+        </div>
+        <div class="aside-item">
+          <div class="aside-item-label">Education</div>
+          <div class="aside-item-value">B.Eng Mechanical Engineering<br><span>University of Uyo</span></div>
+        </div>
+        <div class="aside-item">
+          <div class="aside-item-label">Certifications</div>
+          <div class="aside-item-value">
+            <div class="cert-item"><span>IBM RAG &amp; Agentic AI Professional Certificate</span></div>
+            <div class="cert-item"><span>Microsoft AI &amp; ML Engineering Professional Certificate</span></div>
+          </div>
+        </div>
+        <div class="aside-item">
+          <div class="aside-item-label">GitHub</div>
+          <div class="aside-item-value"><a href="https://github.com/victor-isuo" target="_blank" rel="noopener">github.com/victor-isuo</a></div>
+        </div>
+        <div class="aside-item">
+          <div class="aside-item-label">LinkedIn</div>
+          <div class="aside-item-value"><a href="https://linkedin.com/in/victor-isuo-a02b65171" target="_blank" rel="noopener">linkedin.com/in/victor-isuo-a02b65171</a></div>
+        </div>
+        <div class="aside-item">
+          <div class="aside-item-label">Status</div>
+          <div class="aside-item-value">
+            <span class="avail-badge"><span class="avail-dot"></span>Open to offers</span>
+          </div>
+        </div>
       </div>
-      <div class="who-card reveal">
-        <h3 class="who-title">Companies with an AI prototype</h3>
-        <p class="who-desc">You've built something that works in a demo but need better retrieval, evaluation, orchestration, or deployment to trust it in production.</p>
-      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gold-rule"></div>
+
+<!-- ── WRITING / ENGINEERING NOTES ── -->
+<section id="writing">
+  <div class="section-inner">
+    <p class="section-label reveal">Engineering notes</p>
+    <h2 class="section-title reveal">Notes from the build.</h2>
+    <p class="section-sub reveal">Implementation notes from the systems above.</p>
+    <div class="writing-grid">
+      <a class="writing-card reveal" href="https://victorisuo.hashnode.dev/industrial-ai-copilot-from-rag-to-production-oriented-agentic-system?utm_source=hashnode&utm_medium=feed" target="_blank" rel="noopener">
+        <h3 class="writing-card-title">Industrial AI Copilot: from RAG to a production-oriented agentic system</h3>
+        <p class="writing-card-desc">The full path from a hybrid retrieval engine to a multi-agent system running on AWS.</p>
+        <span class="writing-card-link">Read on Hashnode ↗</span>
+      </a>
+      <a class="writing-card reveal" href="https://victorisuo.hashnode.dev/why-i-built-a-separate-evaluation-system-before-trusting-my-own-ai" target="_blank" rel="noopener">
+        <h3 class="writing-card-title">Why I built a separate evaluation system before trusting my own AI</h3>
+        <p class="writing-card-desc">The case for LLM-as-judge scoring and regression gates over a one-time benchmark.</p>
+        <span class="writing-card-link">Read on Hashnode ↗</span>
+      </a>
+      <a class="writing-card reveal" href="https://victorisuo.hashnode.dev/i-built-an-ai-system-that-runs-while-i-sleep-here-s-the-architecture-that-makes-that-possible" target="_blank" rel="noopener">
+        <h3 class="writing-card-title">I built an AI system that runs while I sleep</h3>
+        <p class="writing-card-desc">The architecture behind a schedule-driven pipeline with no human trigger.</p>
+        <span class="writing-card-link">Read on Hashnode ↗</span>
+      </a>
+      <a class="writing-card reveal" href="https://victorisuo.hashnode.dev/what-mechanical-engineering-taught-me-about-building-ai-systems" target="_blank" rel="noopener">
+        <h3 class="writing-card-title">What mechanical engineering taught me about building AI systems</h3>
+        <p class="writing-card-desc">Constraints, failure modes, and tradeoffs — and why sequential agent handoff was the correct call for LexAI.</p>
+        <span class="writing-card-link">Read on Hashnode ↗</span>
+      </a>
     </div>
   </div>
 </section>
@@ -905,8 +1220,8 @@
     <p class="section-label reveal">Get in touch</p>
     <div class="contact-grid">
       <div class="contact-left reveal">
-        <h2 class="contact-headline">Have an AI workflow worth automating?</h2>
-        <p class="contact-desc">Tell me what your team currently does manually, where the bottleneck is, and what you've already tried. I'll help determine whether AI is actually a good fit — and what I would build if it is.</p>
+        <h2 class="contact-headline">Get in touch.</h2>
+        <p class="contact-desc">I'm looking for a full-time AI engineering role — remote or on-site — where I can own systems end-to-end. If you'd like to talk through a specific system, a take-home, or a role, send a note and I'll respond within 24 hours.</p>
         <div class="contact-info-item">
           <span class="contact-info-label">Email</span>
           <span class="contact-info-value"><a href="mailto:victorisuo@proton.me">victorisuo@proton.me</a></span>
@@ -918,6 +1233,10 @@
         <div class="contact-info-item">
           <span class="contact-info-label">LinkedIn</span>
           <span class="contact-info-value"><a href="https://linkedin.com/in/victor-isuo-a02b65171" target="_blank" rel="noopener">linkedin.com/in/victor-isuo</a></span>
+        </div>
+        <div class="contact-info-item">
+          <span class="contact-info-label">Resume</span>
+          <span class="contact-info-value"><a href="resume-victor-isuo.pdf" target="_blank" rel="noopener">Download PDF</a></span>
         </div>
         <div class="contact-info-item">
           <span class="contact-info-label">Based</span>
@@ -939,36 +1258,21 @@
             <input class="form-input" type="email" id="f-email" name="email" placeholder="sarah@company.com" required>
           </div>
           <div class="form-group">
-            <label class="form-label" for="f-situation">What best describes your situation?</label>
+            <label class="form-label" for="f-situation">What are you reaching out about?</label>
             <select class="form-input" id="f-situation" name="situation">
               <option value="">Select one</option>
-              <option value="Automating a manual workflow">Automating a manual workflow</option>
-              <option value="Building an internal knowledge/RAG system">Building an internal knowledge/RAG system</option>
-              <option value="Exploring AI agents">Exploring AI agents</option>
-              <option value="Improving an existing AI prototype">Improving an existing AI prototype</option>
-              <option value="AI evaluation/reliability">AI evaluation/reliability</option>
+              <option value="A full-time role">A full-time role</option>
+              <option value="A contract or interim engagement">A contract or interim engagement</option>
+              <option value="A specific system in the portfolio">A specific system in the portfolio</option>
+              <option value="A technical interview or take-home">A technical interview or take-home</option>
               <option value="Other">Other</option>
             </select>
           </div>
           <div class="form-group">
-            <label class="form-label" for="f-stage">Project stage</label>
-            <select class="form-input" id="f-stage" name="stage">
-              <option value="">Select one</option>
-              <option value="Exploring an idea">Exploring an idea</option>
-              <option value="Already have a prototype">Already have a prototype</option>
-              <option value="Internal system in production">Internal system in production</option>
-              <option value="Looking to automate an existing workflow">Looking to automate an existing workflow</option>
-            </select>
+            <label class="form-label" for="f-msg">What's the role or project?</label>
+            <textarea class="form-textarea" id="f-msg" name="message" placeholder="Team, stack, and what you're hiring this role to own." required></textarea>
           </div>
-          <div class="form-group">
-            <label class="form-label" for="f-msg">What are you trying to build or automate?</label>
-            <textarea class="form-textarea" id="f-msg" name="message" placeholder="What does your team currently do manually, where's the bottleneck, and what have you already tried?" required></textarea>
-          </div>
-          <div class="form-group">
-            <label class="form-label" for="f-success">What would success look like?</label>
-            <textarea class="form-textarea" id="f-success" name="success" placeholder="What outcome would make this worth doing?"></textarea>
-          </div>
-          <button class="form-submit" type="submit" id="submitBtn">Start a conversation →</button>
+          <button class="form-submit" type="submit" id="submitBtn">Send →</button>
           <p class="form-msg" id="formMsg"></p>
         </form>
       </div>
@@ -979,17 +1283,17 @@
 </main>
 
 <footer>
-  <p class="footer-copy">© 2026 Victor Isuo &mdash; Independent AI Systems Engineer</p>
+  <p class="footer-copy">© 2026 Victor Isuo — AI Systems Engineer</p>
   <div class="footer-links">
     <a href="https://github.com/victor-isuo" target="_blank" rel="noopener">GitHub</a>
     <a href="https://linkedin.com/in/victor-isuo-a02b65171" target="_blank" rel="noopener">LinkedIn</a>
     <a href="https://victorisuo.hashnode.dev/" target="_blank" rel="noopener">Blog</a>
+    <a href="resume-victor-isuo.pdf" target="_blank" rel="noopener">Resume</a>
     <a href="mailto:victorisuo@proton.me">Email</a>
   </div>
 </footer>
 
 <script>
-  /* ── MOBILE MENU ── */
   const hamburger = document.getElementById('hamburger');
   const mobileMenu = document.getElementById('mobileMenu');
   function closeMobileMenu() {
@@ -1014,14 +1318,12 @@
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMobileMenu(); });
 
-  /* ── SCROLL REVEAL ── */
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
   }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
   revealEls.forEach(el => observer.observe(el));
 
-  /* ── CONTACT FORM ── */
   const form = document.getElementById('contactForm');
   const submitBtn = document.getElementById('submitBtn');
   const formMsg = document.getElementById('formMsg');
@@ -1048,7 +1350,7 @@
       formMsg.className = 'form-msg error';
     }
     submitBtn.disabled = false;
-    submitBtn.textContent = 'Start a conversation →';
+    submitBtn.textContent = 'Send →';
   });
 </script>
 </body>
